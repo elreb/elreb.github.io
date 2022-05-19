@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Statistics and Machine Learning | Data Science Prep Guide</title>
+  <meta name="description" content="Lab practices and data science best practices" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Statistics and Machine Learning | Data Science Prep Guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Lab practices and data science best practices" />
+  <meta name="github-repo" content="elreb/data_science_prep" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Statistics and Machine Learning | Data Science Prep Guide" />
+  
+  <meta name="twitter:description" content="Lab practices and data science best practices" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="python-r-analyses.html"/>
+<link rel="next" href="case-studies.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science Interview Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Data Science Prep Guide</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="introduction.html"><a href="introduction.html#sections"><i class="fa fa-check"></i><b>1.0.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sql-questions.html"><a href="sql-questions.html"><i class="fa fa-check"></i><b>2</b> SQL questions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="sql-questions.html"><a href="sql-questions.html#sql-tips"><i class="fa fa-check"></i><b>2.1</b> SQL tips</a></li>
+<li class="chapter" data-level="2.2" data-path="sql-questions.html"><a href="sql-questions.html#sample-questions"><i class="fa fa-check"></i><b>2.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-questions.html"><a href="sql-questions.html#calculate-the-30-day-readmission-rate"><i class="fa fa-check"></i><b>2.2.1</b> Calculate the 30 day readmission rate</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sql-questions.html"><a href="sql-questions.html#top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days"><i class="fa fa-check"></i><b>2.2.2</b> Top 10 diagnoses from encounters with a length of service greater then 3 days</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sql-questions.html"><a href="sql-questions.html#employee-survey-results"><i class="fa fa-check"></i><b>2.2.3</b> Employee survey results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sample-questions-1"><i class="fa fa-check"></i><b>3.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.1</b> Active users on a messaging application</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.2</b> Time for a response on a messaging application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#probability-and-sampling-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Probability and Sampling Distributions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1.2</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.1.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#statistical-experiments-and-significance-testing"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Experiments and Significance Testing</a></li>
+<li class="chapter" data-level="4.1.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#regression-and-classification"><i class="fa fa-check"></i><b>4.1.4</b> Regression and Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#sample-questions-2"><i class="fa fa-check"></i><b>4.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
+<li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
+<li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#random-ml-question-1"><i class="fa fa-check"></i><b>4.2.4</b> Random ML question 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#what-are-some-standard-statistics-that-are-used-in-ab-testing.-what-are-the-alternative-tests-and-in-what-situations-would-you-use-them"><i class="fa fa-check"></i><b>5.1.1</b> What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#sample-questions-4"><i class="fa fa-check"></i><b>6.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#calulate-moving-average-using-python"><i class="fa fa-check"></i><b>6.1.1</b> Calulate moving average using Python</a></li>
+<li class="chapter" data-level="6.1.2" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#python-function-to-express-power-sets"><i class="fa fa-check"></i><b>6.1.2</b> Python function to express power sets</a></li>
+<li class="chapter" data-level="6.1.3" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm"><i class="fa fa-check"></i><b>6.1.3</b> If you were given a m by n matrix how would you find the minimum element using brute force algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/elreb/data_science_prep" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science Prep Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistics-and-machine-learning" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Statistics and Machine Learning<a href="statistics-and-machine-learning.html#statistics-and-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-of-important-concepts" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Overview of Important Concepts<a href="statistics-and-machine-learning.html#overview-of-important-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="probability-and-sampling-distributions" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Probability and Sampling Distributions<a href="statistics-and-machine-learning.html#probability-and-sampling-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Below is a review of conditional probabilities, Bayes’ theorem, and central limit theorem and how to handle questions that work with commonly referenced probability distributions <a href="https://campus.datacamp.com/courses/practicing-statistics-interview-questions-in-python/probability-and-sampling-distributions?ex=1">source</a></p>
+<div id="conditional-probabilities-bayes-theorem" class="section level4 hasAnchor" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Conditional Probabilities &amp; Bayes Theorem<a href="statistics-and-machine-learning.html#conditional-probabilities-bayes-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In conditional probabilities, we want to figure out the probability of something happening, given that we have some additional information that may influence the outcome.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="assets/images/venn_intersection.png" alt="There is an overlap between sets A and B, which represents the intersection of both sets (and the probability of both independent events occurring)." width="70%" />
+<p class="caption">
+Figure 4.1: There is an overlap between sets A and B, which represents the intersection of both sets (and the probability of both independent events occurring).
+</p>
+</div>
+<p><strong>BAYES THEOREM</strong></p>
+<p>Bayes theorem is a staple in Data Science interviews. Bayes’ theorem helps us tackle probability questions where we already know about the probability of B given A, but we want to find the probability of A given B.</p>
+<p><img src="assets/images/bayes_theorem_on_wall.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Above we are solving for A given B by multiplying the independent events in the numerator to get the probability of A and B occurring together. We then divide the by probability of B to get the answer.</p>
+<p>Another way to solve these questions is through tree diagrams. Since given a sequence of independent events, you can chain together the singular probabilities to compute the overall probability.</p>
+<p><em>Example 1 :</em></p>
+<p><code>What is the probability that the applicant passes the stats interview, given that he or she passes the coding interview as well?</code></p>
+<ol style="list-style-type: decimal">
+<li>make tree diagram</li>
+<li>multiply the independent events then compute the probability of each outcome</li>
+<li>plug into Bayes theorem</li>
+</ol>
+<p><img src="assets/images/bayes_tree_example.png" width="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="statistics-and-machine-learning.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#passes both the stats and coding interviews</span></span>
+<span id="cb14-2"><a href="statistics-and-machine-learning.html#cb14-2" aria-hidden="true" tabindex="-1"></a>both <span class="op">=</span> <span class="fl">0.25</span> <span class="op">*</span> <span class="fl">0.40</span></span>
+<span id="cb14-3"><a href="statistics-and-machine-learning.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#0.1</span></span>
+<span id="cb14-4"><a href="statistics-and-machine-learning.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="statistics-and-machine-learning.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#fails stats and passes the coding interview</span></span>
+<span id="cb14-6"><a href="statistics-and-machine-learning.html#cb14-6" aria-hidden="true" tabindex="-1"></a>coding <span class="op">=</span> (<span class="fl">0.25</span> <span class="op">*</span> <span class="fl">0.40</span>) <span class="op">+</span> (<span class="fl">0.75</span> <span class="op">*</span> <span class="fl">0.20</span>)</span>
+<span id="cb14-7"><a href="statistics-and-machine-learning.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#0.25</span></span>
+<span id="cb14-8"><a href="statistics-and-machine-learning.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="statistics-and-machine-learning.html#cb14-9" aria-hidden="true" tabindex="-1"></a>stats_given_coding <span class="op">=</span> both <span class="op">/</span> coding </span>
+<span id="cb14-10"><a href="statistics-and-machine-learning.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats_given_coding)</span></code></pre></div>
+<pre><code>## 0.4</code></pre>
+<p>Therefore, there is a 40% chance of passing the the stats interview, given that they passed the coding interview.</p>
+<p><em>Example 2:</em></p>
+<p>You have two coins in your hand. Out of the two coins, one is a real coin (heads and tails) and the other is a faulty coin with tails on both sides.</p>
+<p>You are blindfolded and forced to choose a random coin and then toss it in the air. The coin lands with tails facing upwards. Find the probability that this is the faulty coin.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="statistics-and-machine-learning.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (tails)</span></span>
+<span id="cb16-2"><a href="statistics-and-machine-learning.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># P(faulty)</span></span>
+<span id="cb16-3"><a href="statistics-and-machine-learning.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># P(tails and faulty)</span></span>
+<span id="cb16-4"><a href="statistics-and-machine-learning.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print P(faulty | tails)</span></span>
+<span id="cb16-5"><a href="statistics-and-machine-learning.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## 0.75</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="statistics-and-machine-learning.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span> <span class="op">/</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## 0.5</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="statistics-and-machine-learning.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((<span class="dv">1</span> <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## 0.5</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="statistics-and-machine-learning.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((<span class="fl">0.5</span><span class="op">*</span><span class="dv">1</span>)<span class="op">/</span>(<span class="fl">0.5</span><span class="op">*</span><span class="fl">0.5</span><span class="op">+</span><span class="fl">0.5</span><span class="op">*</span><span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## 0.6666666666666666</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="assets/images/bayes_coin_ex.jpeg" alt="tree diagram for faultly coin" width="40%" />
+<p class="caption">
+Figure 4.2: tree diagram for faultly coin
+</p>
+</div>
+</div>
+<div id="central-limit-theorem" class="section level4 hasAnchor" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> Central limit theorem<a href="statistics-and-machine-learning.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p><strong>What</strong> - Central limit theorem says that with a large enough collection of samples from the same population, the sample means will be normally distributed. Note that this doesn’t make any assumptions about the underlying distribution of the data; with a reasonably large sample of roughly 30 or more, this theorem will always ring true no matter what the population looks like.</p></li>
+<li><p><strong>Why</strong> - Central limit theorem matters because it promises our sampling mean distribution will be normal, therefore we can perform hypothesis tests. More concretely, we can assess the likelihood that a given mean came from a particular distribution and then, based on this, reject or fail to reject our hypothesis. This empowers all of the A/B testing you see in practice.</p></li>
+<li><p><strong>CLT vs law of large numbers</strong> - The law of large numbers states that as the size of a sample is increased, the estimate of the sample mean will more accurately reflect the population mean. This is different from the central limit theorem which is more broadly about normality vs sampling.</p></li>
+<li><p>law of large numbers example:</p></li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="statistics-and-machine-learning.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randint</span>
+<span id="cb24-2"><a href="statistics-and-machine-learning.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#randint is exclusive for high number (second parameter)</span></span>
+<span id="cb24-3"><a href="statistics-and-machine-learning.html#cb24-3" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> randint(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">10</span>)</span>
+<span id="cb24-4"><a href="statistics-and-machine-learning.html#cb24-4" aria-hidden="true" tabindex="-1"></a>small_mean <span class="op">=</span> <span class="bu">sum</span>(small) <span class="op">/</span> <span class="bu">len</span>(small)</span>
+<span id="cb24-5"><a href="statistics-and-machine-learning.html#cb24-5" aria-hidden="true" tabindex="-1"></a>large <span class="op">=</span> randint(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">1000</span>)</span>
+<span id="cb24-6"><a href="statistics-and-machine-learning.html#cb24-6" aria-hidden="true" tabindex="-1"></a>large_mean <span class="op">=</span> <span class="bu">sum</span>(large) <span class="op">/</span> <span class="bu">len</span>(large)</span>
+<span id="cb24-7"><a href="statistics-and-machine-learning.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(small_mean)</span></code></pre></div>
+<pre><code>## 3.4</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="statistics-and-machine-learning.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(large_mean)</span></code></pre></div>
+<pre><code>## 3.495</code></pre>
+<p>Notice how the mean of the large sample has gotten closer to the true expected mean value of 3.5 for a rolled die.
+* CLT example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="statistics-and-machine-learning.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randint</span>
+<span id="cb28-2"><a href="statistics-and-machine-learning.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb28-3"><a href="statistics-and-machine-learning.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># generating samples</span></span>
+<span id="cb28-4"><a href="statistics-and-machine-learning.html#cb28-4" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> [randint(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">30</span>).mean() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>)]</span>
+<span id="cb28-5"><a href="statistics-and-machine-learning.html#cb28-5" aria-hidden="true" tabindex="-1"></a>plt.hist(means)</span></code></pre></div>
+<pre><code>## (array([ 3.,  6.,  6., 19., 11., 33., 14.,  7.,  0.,  1.]), array([2.63333333, 2.82666667, 3.02      , 3.21333333, 3.40666667,
+##        3.6       , 3.79333333, 3.98666667, 4.18      , 4.37333333,
+##        4.56666667]), &lt;a list of 10 Patch objects&gt;)</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="statistics-and-machine-learning.html#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-17-1.png" width="288" /></p>
+</div>
+<div id="probabilty-distributions" class="section level4 hasAnchor" number="4.1.1.3">
+<h4><span class="header-section-number">4.1.1.3</span> Probabilty distributions<a href="statistics-and-machine-learning.html#probabilty-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Probability distributions are to statistics what data structures are to computer science.</p>
+<ul>
+<li><em>Simple description</em> - they indicate the likelihood of an outcome.</li>
+<li><em>Properties</em>
+<ul>
+<li>probabilities must add up to 1
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="assets/images/generic_probabilty_dist.png" alt="Area under the curve (AUC) equals 1." width="30%" />
+<p class="caption">
+Figure 4.3: Area under the curve (AUC) equals 1.
+</p>
+</div></li>
+</ul></li>
+<li><em>Types</em>
+<ol style="list-style-type: decimal">
+<li><strong>Bernoulli</strong></li>
+<li><strong>Binomial</strong></li>
+<li><strong>Poisson</strong></li>
+<li><strong>Normal(Gaussian)</strong></li>
+<li>Others: Uniform, hypergeometric, log normal, student’s t, chi-squared, gamma, beta, webull, exponential, geometric, negative binomial</li>
+</ol></li>
+</ul>
+<div id="bernoulli-distribution" class="section level5 hasAnchor" number="4.1.1.3.1">
+<h5><span class="header-section-number">4.1.1.3.1</span> Bernoulli distribution<a href="statistics-and-machine-learning.html#bernoulli-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Bernoulli is a discrete distribution that models the probability of two outcomes (e.g. a coin flip). There only two possible outcomes, and the probability of one is always <code>1- &lt;the_other&gt;</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="statistics-and-machine-learning.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#simulating bernoulli data with scipy stats</span></span>
+<span id="cb31-2"><a href="statistics-and-machine-learning.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> bernoulli</span>
+<span id="cb31-3"><a href="statistics-and-machine-learning.html#cb31-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> bernoulli.rvs(p<span class="op">=</span><span class="fl">0.5</span>, size<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb31-4"><a href="statistics-and-machine-learning.html#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.hist(data)</span></code></pre></div>
+<pre><code>## (array([495.,   0.,   0.,   0.,   0.,   0.,   0.,   0.,   0., 505.]), array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]), &lt;a list of 10 Patch objects&gt;)</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="statistics-and-machine-learning.html#cb33-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-19-1.png" width="288" /></p>
+<p>When using a small sample size heads and tails don’t have the exact same probability. This is no fluke — when sampling, we won’t always get perfect results. We can increase our accuracy however, when you increase the size of the sample.</p>
+</div>
+<div id="binomial-distribution" class="section level5 hasAnchor" number="4.1.1.3.2">
+<h5><span class="header-section-number">4.1.1.3.2</span> Binomial distribution<a href="statistics-and-machine-learning.html#binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The Binomial distribution can be thought of as the sum of the outcomes of multiple Bernoulli trials, meaning those that have an established success and failure. It’s used to model the number of successful outcomes in trials where there is some consistent probability of success.</p>
+<ul>
+<li><em>Parameters</em>
+<ul>
+<li><code>k</code> - number of successes</li>
+<li><code>n</code> - number of trials</li>
+<li><code>p</code> - probability of success</li>
+</ul></li>
+</ul>
+<p><strong>Motivating example:</strong> Consider a game where you are trying to make a ball in a basket. You are given 10 shots and you know that you have an 80% chance of making a given shot.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="statistics-and-machine-learning.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#simulating binomial data with scipy stats</span></span>
+<span id="cb34-2"><a href="statistics-and-machine-learning.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
+<span id="cb34-3"><a href="statistics-and-machine-learning.html#cb34-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> binom.rvs(n<span class="op">=</span><span class="dv">10</span>, p<span class="op">=</span><span class="fl">0.80</span>, size<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb34-4"><a href="statistics-and-machine-learning.html#cb34-4" aria-hidden="true" tabindex="-1"></a>plt.hist(data)</span></code></pre></div>
+<pre><code>## (array([  1.,   1.,  26.,   0.,  70., 205.,   0., 304., 296.,  97.]), array([ 3. ,  3.7,  4.4,  5.1,  5.8,  6.5,  7.2,  7.9,  8.6,  9.3, 10. ]), &lt;a list of 10 Patch objects&gt;)</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="statistics-and-machine-learning.html#cb36-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-20-3.png" width="288" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="statistics-and-machine-learning.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of making 8 or less shots out of 10</span></span>
+<span id="cb37-2"><a href="statistics-and-machine-learning.html#cb37-2" aria-hidden="true" tabindex="-1"></a>prob1 <span class="op">=</span> binom.cdf(k<span class="op">=</span><span class="dv">8</span>, n<span class="op">=</span><span class="dv">10</span>, p<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb37-3"><a href="statistics-and-machine-learning.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of making 10 out of 10 shots</span></span>
+<span id="cb37-4"><a href="statistics-and-machine-learning.html#cb37-4" aria-hidden="true" tabindex="-1"></a>prob2 <span class="op">=</span> binom.pmf(k<span class="op">=</span><span class="dv">10</span>, n<span class="op">=</span><span class="dv">10</span>, p<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb37-5"><a href="statistics-and-machine-learning.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prob1)</span></code></pre></div>
+<pre><code>## 0.6241903616</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="statistics-and-machine-learning.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prob2)</span></code></pre></div>
+<pre><code>## 0.10737418240000005</code></pre>
+<p>Remember, interviewers like to start out with fundamental concepts before getting incrementally more complex. Above it started with just showing the general shape of the distribution but went into application.</p>
+</div>
+<div id="normal-gaussian-distribution" class="section level5 hasAnchor" number="4.1.1.3.3">
+<h5><span class="header-section-number">4.1.1.3.3</span> Normal (Gaussian) distribution<a href="statistics-and-machine-learning.html#normal-gaussian-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+The normal distribution is a bell-curve shaped continuous probability distribution that is fundamental to many statistical concepts, like sampling and hypothesis testing.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="assets/images/generic_normal_dist.png" alt="68-95-99.7 rule, aka 68% of observations fall within 1 std, 95% of observations fall within 2 std and so on." width="30%" />
+<p class="caption">
+Figure 4.4: 68-95-99.7 rule, aka 68% of observations fall within 1 std, 95% of observations fall within 2 std and so on.
+</p>
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="statistics-and-machine-learning.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate normal data</span></span>
+<span id="cb41-2"><a href="statistics-and-machine-learning.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb41-3"><a href="statistics-and-machine-learning.html#cb41-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> norm.rvs(size<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb41-4"><a href="statistics-and-machine-learning.html#cb41-4" aria-hidden="true" tabindex="-1"></a>plt.hist(data)</span></code></pre></div>
+<pre><code>## (array([  8.,  34., 106., 195., 277., 224., 111.,  40.,   4.,   1.]), array([-3.16051949, -2.46657265, -1.77262581, -1.07867896, -0.38473212,
+##         0.30921472,  1.00316156,  1.6971084 ,  2.39105525,  3.08500209,
+##         3.77894893]), &lt;a list of 10 Patch objects&gt;)</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="statistics-and-machine-learning.html#cb43-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-23-1.png" width="288" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="statistics-and-machine-learning.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Given a standardized normal distribution, what is the probability of an observation greater than 2?</span></span>
+<span id="cb44-2"><a href="statistics-and-machine-learning.html#cb44-2" aria-hidden="true" tabindex="-1"></a>true_prob <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> norm.cdf(<span class="dv">2</span>)</span>
+<span id="cb44-3"><a href="statistics-and-machine-learning.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking at our sample, what is the probability of an observation greater than 2?</span></span>
+<span id="cb44-4"><a href="statistics-and-machine-learning.html#cb44-4" aria-hidden="true" tabindex="-1"></a>sample_prob <span class="op">=</span> <span class="bu">sum</span>(obs <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">for</span> obs <span class="kw">in</span> data) <span class="op">/</span> <span class="bu">len</span>(data)</span>
+<span id="cb44-5"><a href="statistics-and-machine-learning.html#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="statistics-and-machine-learning.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(true_prob)</span></code></pre></div>
+<pre><code>## 0.02275013194817921</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="statistics-and-machine-learning.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sample_prob)</span></code></pre></div>
+<pre><code>## 0.021</code></pre>
+<p>Note that the results from the true distribution and sample distribution are different.</p>
+</div>
+<div id="poisson-distribution" class="section level5 hasAnchor" number="4.1.1.3.4">
+<h5><span class="header-section-number">4.1.1.3.4</span> Poisson distribution<a href="statistics-and-machine-learning.html#poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The poisson distribution represents a count or the number of times something happened. Unlike the binomial distribution, it’s calculated by an average rate (<code>lambda</code>) instead of a probability <code>p</code> and number of trials <code>n</code>. As the rate of events change the distribution changes as well.</p>
+<ul>
+<li><em>When to use:</em> use the Poisson when counting events over time given some continuous rate.</li>
+<li><em>E.g.:</em> In any 15-minute interval, there is a 20% probability that you will see at least one shooting star. What is the probability that you see at least one shooting star in the period of an hour?</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="exploratory-data-analysis" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Exploratory Data Analysis<a href="statistics-and-machine-learning.html#exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="descriptive-statistics" class="section level4 hasAnchor" number="4.1.2.1">
+<h4><span class="header-section-number">4.1.2.1</span> Descriptive Statistics<a href="statistics-and-machine-learning.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+There are two most common questions types in interviews along with some other concepts that don’t go in those categories:
+1. measures of centrality
+* Core measures
+* <em>mean</em> - average (sum / # of observations)
+* <em>median</em> - middle value when all observations are sorted
+* <em>mode</em> - most common observation, or peak of the distribution
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-25"></span>
+<img src="assets/images/mean_median_mode.png" alt="Mean, median and mode." width="40%" />
+<p class="caption">
+Figure 4.5: Mean, median and mode.
+</p>
+</div>
+<ul>
+<li>Notes:
+<ul>
+<li>Mean, median and mode are all <strong>equal</strong> if the distribution is perfectly normal</li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>measures of variability</li>
+</ol>
+<ul>
+<li>Core measures
+<ul>
+<li><em>variance</em> - how far spread out your data points are from each other.</li>
+<li><em>standard deviation</em> - how far away your data is from the average.</li>
+<li><em>range</em> - max - min
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
+<img src="assets/images/variance_std_formula.png" alt="Formula for variance and standard deviation" width="30%" />
+<p class="caption">
+Figure 4.6: Formula for variance and standard deviation
+</p>
+</div></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="statistics-and-machine-learning.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb48-2"><a href="statistics-and-machine-learning.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb48-3"><a href="statistics-and-machine-learning.html#cb48-3" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb48-4"><a href="statistics-and-machine-learning.html#cb48-4" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> <span class="bu">sum</span>(nums) <span class="op">/</span> <span class="bu">len</span>(nums)</span>
+<span id="cb48-5"><a href="statistics-and-machine-learning.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the variance and print the std of the list</span></span>
+<span id="cb48-6"><a href="statistics-and-machine-learning.html#cb48-6" aria-hidden="true" tabindex="-1"></a>variance <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">pow</span>(x <span class="op">-</span> mean, <span class="dv">2</span>) <span class="cf">for</span> x <span class="kw">in</span> nums) <span class="op">/</span> <span class="bu">len</span>(nums)</span>
+<span id="cb48-7"><a href="statistics-and-machine-learning.html#cb48-7" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> math.sqrt(variance)</span>
+<span id="cb48-8"><a href="statistics-and-machine-learning.html#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute and print the actual result from numpy</span></span>
+<span id="cb48-9"><a href="statistics-and-machine-learning.html#cb48-9" aria-hidden="true" tabindex="-1"></a>real_std <span class="op">=</span> np.array(nums).std()</span>
+<span id="cb48-10"><a href="statistics-and-machine-learning.html#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(std)</span></code></pre></div>
+<pre><code>## 1.4142135623730951</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="statistics-and-machine-learning.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(real_std)</span></code></pre></div>
+<pre><code>## 1.4142135623730951</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>other</li>
+</ol>
+<ul>
+<li>modality - multiple peaks that show in the data (bi-modal = two peaks)</li>
+<li>skewness - the symmetry of the distribution (skewness is determined by where the the tail is)
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="assets/images/left_skewed_data.png" alt="Left skewed data" width="30%" />
+<p class="caption">
+Figure 4.7: Left skewed data
+</p>
+</div></li>
+</ul>
+</div>
+<div id="categorical-data" class="section level4 hasAnchor" number="4.1.2.2">
+<h4><span class="header-section-number">4.1.2.2</span> Categorical Data<a href="statistics-and-machine-learning.html#categorical-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Types of categorical data:
+1. ordinal - takes on order (e.g. 5 star movie reviews)
+2. nominal - no order (e.g. gender, or eye color)</p>
+<p>Preprocessing categorical variables
+* unlike continuous data, to use machine learning on categorical data you need to encode it.
+* Types of encoding
+1. Label encoding - simply assigning a number to the text factor of the category
+2. One Hot encoding - break every subcategory into its own Boolean column</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="statistics-and-machine-learning.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb52-2"><a href="statistics-and-machine-learning.html#cb52-2" aria-hidden="true" tabindex="-1"></a>list_of_laptops <span class="op">=</span> [[<span class="st">&#39;Lenovo&#39;</span>, <span class="st">&#39;ThinkPad 13&#39;</span>, <span class="fl">960.0</span>],</span>
+<span id="cb52-3"><a href="statistics-and-machine-learning.html#cb52-3" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Apple&#39;</span>, <span class="st">&#39;MacBook Pro&#39;</span>, <span class="fl">1518.55</span>],</span>
+<span id="cb52-4"><a href="statistics-and-machine-learning.html#cb52-4" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Dell&#39;</span>, <span class="st">&#39;XPS 13&#39;</span>, <span class="fl">1268.0</span>],</span>
+<span id="cb52-5"><a href="statistics-and-machine-learning.html#cb52-5" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Lenovo&#39;</span>, <span class="st">&#39;ThinkPad Yoga&#39;</span>, <span class="fl">2025.0</span>],</span>
+<span id="cb52-6"><a href="statistics-and-machine-learning.html#cb52-6" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Lenovo&#39;</span>, <span class="st">&#39;IdeaPad 520S-14IKB&#39;</span>, <span class="fl">599.0</span>],</span>
+<span id="cb52-7"><a href="statistics-and-machine-learning.html#cb52-7" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Dell&#39;</span>, <span class="st">&#39;Precision 5520&#39;</span>, <span class="fl">2135.0</span>],</span>
+<span id="cb52-8"><a href="statistics-and-machine-learning.html#cb52-8" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Dell&#39;</span>, <span class="st">&#39;Inspiron 3552&#39;</span>, <span class="fl">379.0</span>],</span>
+<span id="cb52-9"><a href="statistics-and-machine-learning.html#cb52-9" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Dell&#39;</span>, <span class="st">&#39;Vostro 5568&#39;</span>, <span class="fl">912.5</span>],</span>
+<span id="cb52-10"><a href="statistics-and-machine-learning.html#cb52-10" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Lenovo&#39;</span>, <span class="st">&#39;ThinkPad X1&#39;</span>, <span class="fl">2339.0</span>],</span>
+<span id="cb52-11"><a href="statistics-and-machine-learning.html#cb52-11" aria-hidden="true" tabindex="-1"></a> [<span class="st">&#39;Dell&#39;</span>, <span class="st">&#39;Inspiron 5579&#39;</span>, <span class="fl">1049.0</span>]]</span>
+<span id="cb52-12"><a href="statistics-and-machine-learning.html#cb52-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="statistics-and-machine-learning.html#cb52-13" aria-hidden="true" tabindex="-1"></a>laptops <span class="op">=</span> pd.DataFrame(list_of_laptops, columns <span class="op">=</span> [<span class="st">&#39;Company&#39;</span>, <span class="st">&#39;Product&#39;</span>, <span class="st">&#39;Price&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="statistics-and-machine-learning.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing</span>
+<span id="cb53-2"><a href="statistics-and-machine-learning.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="statistics-and-machine-learning.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Encoder - check out new values</span></span>
+<span id="cb53-4"><a href="statistics-and-machine-learning.html#cb53-4" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> preprocessing.LabelEncoder()</span>
+<span id="cb53-5"><a href="statistics-and-machine-learning.html#cb53-5" aria-hidden="true" tabindex="-1"></a>company_column_encoded <span class="op">=</span> encoder.fit_transform(laptops[<span class="st">&#39;Company&#39;</span>])</span>
+<span id="cb53-6"><a href="statistics-and-machine-learning.html#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(company_column_encoded)</span></code></pre></div>
+<pre><code>## [2 0 1 2 2 1 1 1 2 1]</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="statistics-and-machine-learning.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-hot encode Company for laptops2</span></span>
+<span id="cb55-2"><a href="statistics-and-machine-learning.html#cb55-2" aria-hidden="true" tabindex="-1"></a>laptops2 <span class="op">=</span> pd.get_dummies(data<span class="op">=</span>laptops, columns<span class="op">=</span>[<span class="st">&#39;Company&#39;</span>])</span>
+<span id="cb55-3"><a href="statistics-and-machine-learning.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(laptops2.head())</span></code></pre></div>
+<pre><code>##               Product    Price  Company_Apple  Company_Dell  Company_Lenovo
+## 0         ThinkPad 13   960.00              0             0               1
+## 1         MacBook Pro  1518.55              1             0               0
+## 2              XPS 13  1268.00              0             1               0
+## 3       ThinkPad Yoga  2025.00              0             0               1
+## 4  IdeaPad 520S-14IKB   599.00              0             0               1</code></pre>
+<p>Be careful about the high dimensionality of using one-hot-encoding!</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="statistics-and-machine-learning.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb57-2"><a href="statistics-and-machine-learning.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb57-3"><a href="statistics-and-machine-learning.html#cb57-3" aria-hidden="true" tabindex="-1"></a>sns.countplot(laptops[<span class="st">&#39;Company&#39;</span>])</span>
+<span id="cb57-4"><a href="statistics-and-machine-learning.html#cb57-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb57-5"><a href="statistics-and-machine-learning.html#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="statistics-and-machine-learning.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the relationship with price</span></span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-32-1.png" width="288" /></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="statistics-and-machine-learning.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> figure</span>
+<span id="cb58-2"><a href="statistics-and-machine-learning.html#cb58-2" aria-hidden="true" tabindex="-1"></a>figure(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), dpi<span class="op">=</span><span class="dv">80</span>)</span>
+<span id="cb58-3"><a href="statistics-and-machine-learning.html#cb58-3" aria-hidden="true" tabindex="-1"></a>laptops.boxplot(<span class="st">&#39;Price&#39;</span>, <span class="st">&#39;Company&#39;</span>,rot<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb58-4"><a href="statistics-and-machine-learning.html#cb58-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
+</div>
+<div id="two-or-more-variables" class="section level4 hasAnchor" number="4.1.2.3">
+<h4><span class="header-section-number">4.1.2.3</span> Two or more variables<a href="statistics-and-machine-learning.html#two-or-more-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Overview:</strong> Comparing the relationships between two or more numerical variables including correlation, confidence intervals and more.</p>
+<ol style="list-style-type: decimal">
+<li>correlation - describes the relatedness between variables, meaning how much information variables reveal about each other.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<img src="assets/images/scatter_plot_correlation.png" alt="Correlation with various scatterplots" width="30%" />
+<p class="caption">
+Figure 4.8: Correlation with various scatterplots
+</p>
+</div></li>
+<li>Covariance - the average of the product between the values of each sample where the values have each had their mean subtracted.
+<img src="assets/images/covariance_formula.png" width="25%" style="display: block; margin: auto;" /></li>
+</ol>
+<ul>
+<li>difficult to interpret since don’t get a magnitude, but we can use it to get the <em>Pearsons correlation coefficient</em></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Pearson’s correlation coefficent - denoted as lowercase <code>r</code>, is the covariance function divided by the product of the sample standard deviations of each variable.
+<img src="assets/images/pearsons_correlation_co_formula.png" width="25%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="assets/images/pearsons_correlation_co_gen_examples.png" alt="Positive r means there is a positive relationship, and vise versa. 1 (or -1) is perfect, 0 is no corelation." width="40%" />
+<p class="caption">
+Figure 4.9: Positive r means there is a positive relationship, and vise versa. 1 (or -1) is perfect, 0 is no corelation.
+</p>
+</div></li>
+<li>R^2 - is simply Pearson’s correlation coefficent squared. Interpreted as the amount of variable Y that is explained by X.</li>
+</ol>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="statistics-and-machine-learning.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data import hidden - obviously</span></span>
+<span id="cb59-2"><a href="statistics-and-machine-learning.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb59-3"><a href="statistics-and-machine-learning.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb59-4"><a href="statistics-and-machine-learning.html#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="statistics-and-machine-learning.html#cb59-5" aria-hidden="true" tabindex="-1"></a>sns.pairplot(weather)</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-38-1.png" width="495" />
+Some appear more correlated then others.</p>
+<p>Lets look at Humidity9am and Humidity3pm closer:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="statistics-and-machine-learning.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> figure</span>
+<span id="cb60-2"><a href="statistics-and-machine-learning.html#cb60-2" aria-hidden="true" tabindex="-1"></a>figure(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), dpi<span class="op">=</span><span class="dv">80</span>)</span>
+<span id="cb60-3"><a href="statistics-and-machine-learning.html#cb60-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(weather[<span class="st">&#39;Humidity9am&#39;</span>], weather[<span class="st">&#39;Humidity3pm&#39;</span>])</span>
+<span id="cb60-4"><a href="statistics-and-machine-learning.html#cb60-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-39-3.png" width="288" /></p>
+<p><strong>Correlation vs Causation</strong>
+* Correlation ≠ causation.
+* Need experimentation (<code>sufficiency | necessity</code>)</p>
+</div>
+</div>
+<div id="statistical-experiments-and-significance-testing" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Statistical Experiments and Significance Testing<a href="statistics-and-machine-learning.html#statistical-experiments-and-significance-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="confiendence-intervals" class="section level4 hasAnchor" number="4.1.3.1">
+<h4><span class="header-section-number">4.1.3.1</span> Confiendence Intervals<a href="statistics-and-machine-learning.html#confiendence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="hypothesis-testing" class="section level4 hasAnchor" number="4.1.3.2">
+<h4><span class="header-section-number">4.1.3.2</span> Hypothesis testing<a href="statistics-and-machine-learning.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="power-and-sample-size" class="section level4 hasAnchor" number="4.1.3.3">
+<h4><span class="header-section-number">4.1.3.3</span> Power and sample size<a href="statistics-and-machine-learning.html#power-and-sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Components of a power analysis:
+* effect size (e.g. 20% improvement)
+* significance level / alpha value
+* power - probability of detecting an effect
+* if we see something then we want to have enough power to conclude with high probability that the results are statistically significant.
+* lowering power = increasing chance of a Type II error.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-40"></span>
+<img src="assets/images/error_types.jpeg" alt="Error types in statistics" width="30%" />
+<p class="caption">
+Figure 4.10: Error types in statistics
+</p>
+</div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="statistics-and-machine-learning.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.power <span class="im">import</span> zt_ind_solve_power</span>
+<span id="cb61-2"><a href="statistics-and-machine-learning.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.stats.proportion <span class="im">as</span> prop</span>
+<span id="cb61-3"><a href="statistics-and-machine-learning.html#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="statistics-and-machine-learning.html#cb61-4" aria-hidden="true" tabindex="-1"></a>std_effect <span class="op">=</span> prop.proportion_effectsize(<span class="fl">0.20</span>, <span class="fl">0.25</span>)</span>
+<span id="cb61-5"><a href="statistics-and-machine-learning.html#cb61-5" aria-hidden="true" tabindex="-1"></a>zt_ind_solve_power(effect_size<span class="op">=</span>std_effect, nobs1<span class="op">=</span><span class="va">None</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, power<span class="op">=</span><span class="fl">0.80</span>)</span>
+<span id="cb61-6"><a href="statistics-and-machine-learning.html#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1091.8962 impressions</span></span>
+<span id="cb61-7"><a href="statistics-and-machine-learning.html#cb61-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-8"><a href="statistics-and-machine-learning.html#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="co">#increase power to 0.95 -&gt; 800 more observations</span></span>
+<span id="cb61-9"><a href="statistics-and-machine-learning.html#cb61-9" aria-hidden="true" tabindex="-1"></a>std_effect <span class="op">=</span> prop.proportion_effectsize(<span class="fl">0.20</span>, <span class="fl">0.25</span>)</span>
+<span id="cb61-10"><a href="statistics-and-machine-learning.html#cb61-10" aria-hidden="true" tabindex="-1"></a>zt_ind_solve_power(effect_size<span class="op">=</span>std_effect, nobs1<span class="op">=</span><span class="va">None</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, power<span class="op">=</span><span class="fl">0.95</span>)</span>
+<span id="cb61-11"><a href="statistics-and-machine-learning.html#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1807.76215</span></span></code></pre></div>
+<p>Tools:
+* <code>statsmodel.stats.power</code>
+* <code>zt_ind_solve_power()</code>
+* <code>tt_ind_solve_power()</code>
+* before we use these methods we need to know <em>standarized minimum effect difference</em> - <code>proportion_effectsize()</code> can do this by inputting baseline and desired minimum conversion rates.
+* plt_power function in python to visualize</p>
+</div>
+<div id="multiple-testing" class="section level4 hasAnchor" number="4.1.3.4">
+<h4><span class="header-section-number">4.1.3.4</span> Multiple testing<a href="statistics-and-machine-learning.html#multiple-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="regression-and-classification" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Regression and Classification<a href="statistics-and-machine-learning.html#regression-and-classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="regression-models" class="section level4 hasAnchor" number="4.1.4.1">
+<h4><span class="header-section-number">4.1.4.1</span> Regression models<a href="statistics-and-machine-learning.html#regression-models" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="evalating-models" class="section level4 hasAnchor" number="4.1.4.2">
+<h4><span class="header-section-number">4.1.4.2</span> Evalating models<a href="statistics-and-machine-learning.html#evalating-models" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="missing-data-and-outliers" class="section level4 hasAnchor" number="4.1.4.3">
+<h4><span class="header-section-number">4.1.4.3</span> Missing data and outliers<a href="statistics-and-machine-learning.html#missing-data-and-outliers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="unbalanced-data" class="section level4 hasAnchor" number="4.1.4.4">
+<h4><span class="header-section-number">4.1.4.4</span> Unbalanced data<a href="statistics-and-machine-learning.html#unbalanced-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><a href="https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classification-problem/" class="uri">https://www.analyticsvidhya.com/blog/2021/06/5-techniques-to-handle-imbalanced-data-for-a-classification-problem/</a></p>
+</div>
+<div id="bias-variance-tradeoff" class="section level4 hasAnchor" number="4.1.4.5">
+<h4><span class="header-section-number">4.1.4.5</span> Bias-variance tradeoff<a href="statistics-and-machine-learning.html#bias-variance-tradeoff" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+</div>
+<div id="sample-questions-2" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Sample Questions<a href="statistics-and-machine-learning.html#sample-questions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="comparison-of-means" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Comparison of means<a href="statistics-and-machine-learning.html#comparison-of-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So suppose hypothetically Facebook users share, their height in centimeters and their gender. How would you test the hypothesis that men on average are taller?</p>
+<p>t-test could be used to compare the means of two different groups if the sample is larger then 30, but if larger then 30 we can use a z-test.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="statistics-and-machine-learning.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.weightstats <span class="im">import</span> ztest <span class="im">as</span> ztest</span>
+<span id="cb62-2"><a href="statistics-and-machine-learning.html#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="statistics-and-machine-learning.html#cb62-3" aria-hidden="true" tabindex="-1"></a>women <span class="op">=</span> [<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">92</span>, <span class="dv">94</span>, <span class="dv">99</span>, <span class="dv">99</span>,</span>
+<span id="cb62-4"><a href="statistics-and-machine-learning.html#cb62-4" aria-hidden="true" tabindex="-1"></a>         <span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">92</span>, <span class="dv">94</span>, <span class="dv">99</span>, <span class="dv">99</span>,</span>
+<span id="cb62-5"><a href="statistics-and-machine-learning.html#cb62-5" aria-hidden="true" tabindex="-1"></a>         <span class="dv">105</span>, <span class="dv">109</span>, <span class="dv">109</span>, <span class="dv">109</span>, <span class="dv">110</span>, <span class="dv">112</span>, <span class="dv">112</span>, <span class="dv">113</span>, <span class="dv">114</span>, <span class="dv">114</span>,</span>
+<span id="cb62-6"><a href="statistics-and-machine-learning.html#cb62-6" aria-hidden="true" tabindex="-1"></a>         <span class="dv">105</span>, <span class="dv">109</span>, <span class="dv">109</span>, <span class="dv">109</span>, <span class="dv">110</span>, <span class="dv">112</span>, <span class="dv">112</span>, <span class="dv">113</span>, <span class="dv">114</span>, <span class="dv">114</span>]</span>
+<span id="cb62-7"><a href="statistics-and-machine-learning.html#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="statistics-and-machine-learning.html#cb62-8" aria-hidden="true" tabindex="-1"></a>men <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">99</span>, <span class="dv">99</span>, <span class="dv">108</span>, <span class="dv">109</span>,</span>
+<span id="cb62-9"><a href="statistics-and-machine-learning.html#cb62-9" aria-hidden="true" tabindex="-1"></a>       <span class="dv">90</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">99</span>, <span class="dv">99</span>, <span class="dv">108</span>, <span class="dv">109</span>,</span>
+<span id="cb62-10"><a href="statistics-and-machine-learning.html#cb62-10" aria-hidden="true" tabindex="-1"></a>       <span class="dv">109</span>, <span class="dv">114</span>, <span class="dv">115</span>, <span class="dv">116</span>, <span class="dv">117</span>, <span class="dv">117</span>, <span class="dv">128</span>, <span class="dv">129</span>, <span class="dv">130</span>, <span class="dv">133</span>,</span>
+<span id="cb62-11"><a href="statistics-and-machine-learning.html#cb62-11" aria-hidden="true" tabindex="-1"></a>       <span class="dv">109</span>, <span class="dv">114</span>, <span class="dv">115</span>, <span class="dv">116</span>, <span class="dv">117</span>, <span class="dv">117</span>, <span class="dv">128</span>, <span class="dv">129</span>, <span class="dv">130</span>, <span class="dv">133</span>]</span>
+<span id="cb62-12"><a href="statistics-and-machine-learning.html#cb62-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-13"><a href="statistics-and-machine-learning.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co">#perform two sample z-test</span></span>
+<span id="cb62-14"><a href="statistics-and-machine-learning.html#cb62-14" aria-hidden="true" tabindex="-1"></a>ztest(women, men, value<span class="op">=</span><span class="dv">0</span>) </span>
+<span id="cb62-15"><a href="statistics-and-machine-learning.html#cb62-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-16"><a href="statistics-and-machine-learning.html#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="co">#(-1.9953236073282115, 0.046007596761332065)</span></span></code></pre></div>
+<pre><code>## (-2.8587017261290355, 0.004253785496952403)</code></pre>
+<p>The test statistic for the two sample z-test is -1.9953 and the corresponding p-value is 0.0460. Since this p-value is less than .05, we have sufficient evidence to reject the null hypothesis. In other words, the mean height of men is significantly different vs women.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="statistics-and-machine-learning.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb64-2"><a href="statistics-and-machine-learning.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="statistics-and-machine-learning.html#cb64-3" aria-hidden="true" tabindex="-1"></a>women <span class="op">=</span> [<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">92</span>, <span class="dv">94</span>, <span class="dv">99</span>, <span class="dv">99</span>,</span>
+<span id="cb64-4"><a href="statistics-and-machine-learning.html#cb64-4" aria-hidden="true" tabindex="-1"></a>         <span class="dv">105</span>, <span class="dv">109</span>, <span class="dv">109</span>, <span class="dv">109</span>, <span class="dv">110</span>, <span class="dv">112</span>, <span class="dv">112</span>, <span class="dv">113</span>, <span class="dv">114</span>, <span class="dv">114</span>]</span>
+<span id="cb64-5"><a href="statistics-and-machine-learning.html#cb64-5" aria-hidden="true" tabindex="-1"></a>men <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">91</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">99</span>, <span class="dv">99</span>, <span class="dv">108</span>, <span class="dv">109</span>,</span>
+<span id="cb64-6"><a href="statistics-and-machine-learning.html#cb64-6" aria-hidden="true" tabindex="-1"></a>       <span class="dv">109</span>, <span class="dv">114</span>, <span class="dv">115</span>, <span class="dv">116</span>, <span class="dv">117</span>, <span class="dv">117</span>, <span class="dv">128</span>, <span class="dv">129</span>, <span class="dv">130</span>, <span class="dv">133</span>]</span>
+<span id="cb64-7"><a href="statistics-and-machine-learning.html#cb64-7" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb64-8"><a href="statistics-and-machine-learning.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#check for equal variances, we can assume the populations have equal variances if the ratio of the larger sample variance to the smaller sample variance is less than 4:1. </span></span>
+<span id="cb64-9"><a href="statistics-and-machine-learning.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.var(women), np.var(men))</span></code></pre></div>
+<pre><code>## 119.92750000000001 197.06</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="statistics-and-machine-learning.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb66-2"><a href="statistics-and-machine-learning.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="statistics-and-machine-learning.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#perform two sample t-test with equal variances</span></span>
+<span id="cb66-4"><a href="statistics-and-machine-learning.html#cb66-4" aria-hidden="true" tabindex="-1"></a>stats.ttest_ind(a<span class="op">=</span>women, b<span class="op">=</span>men, equal_var<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<pre><code>## Ttest_indResult(statistic=-1.9953236073282115, pvalue=0.05321388037191098)</code></pre>
+<p>Because the p-value of our test (0.5321) is greater than alpha = 0.05, we fail to reject the null hypothesis of the test. We do not have sufficient evidence to say that the mean height of men vs women is different.</p>
+</div>
+<div id="principle-of-inclusionexclusion" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Principle of Inclusion/Exclusion<a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The carshare dilemma
+* Statistics
+* Probability Theory</p>
+<p>Suppose we have selected a group of people to take a survey. 35% of the group like Uber, 20% like both Lyft and Uber, and 25% like neither Lyft nor Uber.</p>
+<p>Given this information, what percentage of the sample likes Lyft?</p>
+<p>Hint: You can use basic probability theory to solve this problem.</p>
+<p><a href="https://lah.elearningontario.ca/CMS/public/exported_courses/MDM4U/exported/MDM4UU01/MDM4UU01/MDM4UU01A03/_content.html">Tip 1:</a></p>
+<p><a href="https://www.mbacrystalball.com/blog/2015/10/09/set-theory-tutorial/">Tip 2:</a></p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
+<img src="assets/images/prob_theory_1.jpeg" alt="carshare dilema" width="100%" />
+<p class="caption">
+Figure 4.11: carshare dilema
+</p>
+</div>
+</div>
+<div id="bayes-theorem-1" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Bayes Theorem 1<a href="statistics-and-machine-learning.html#bayes-theorem-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Probability of passing through interview stages
+* Statistics
+* Bayes Theorem</p>
+<p>Given the information below, if you had a good first interview, what is the probability you will receive a second interview?</p>
+<ol style="list-style-type: decimal">
+<li>50% of all people who received a first interview received a second interview</li>
+<li>95% of people that received a second interview had a good first interview</li>
+<li>75% of people that did not receive a second interview had a good first interview</li>
+</ol>
+<p><a href="https://stats.stackexchange.com/questions/86015/amazon-interview-question-probability-of-2nd-interview">Solution borrowed from here</a></p>
+<p><a href="https://www.statisticshowto.com/probability-and-statistics/probability-main-index/bayes-theorem-problems/#:~:text=Bayes&#39;%20Theorem%20Example%20%231&amp;text=A%20could%20mean%20the%20event,P(B)%20%3D%200.05.">Other good source on Bayes Theorem</a></p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<img src="assets/images/bayes_1.jpeg" alt="Interview Bayes Theorem" width="100%" />
+<p class="caption">
+Figure 4.12: Interview Bayes Theorem
+</p>
+</div>
+</div>
+<div id="random-ml-question-1" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Random ML question 1<a href="statistics-and-machine-learning.html#random-ml-question-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How to compare the significance between two confusion matrices?</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-47"></span>
+<img src="assets/images/2_matricies_sig.png" alt="How to find significance between two matricies." width="100%" />
+<p class="caption">
+Figure 4.13: How to find significance between two matricies.
+</p>
+</div>
+<pre><code># If go chi square route
+two chi-square tests, one for true label = 0 and one for true label = 1. However, I think you should just say your recall/specificity/auc/... was improved some pct.
+
+#https://github.com/sepandhaghighi/pycm
+Use PyCm to calculate the confidence interval of these stats. 95% Confidence Interval of Kappa
+(0.4934, 0.9291), (0.3687, 0.8612)
+95% CI of accuracy
+(0.80507,0.97271), (0.7571,0.9466)
+
+Therefore, two matricies are statistically the same</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="python-r-analyses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="case-studies.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/elreb/data_science_prep/master/04-stats-ml.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ds-interview-guide.pdf", "ds-interview-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

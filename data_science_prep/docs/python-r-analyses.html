@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Python / R analyses | Data Science Prep Guide</title>
+  <meta name="description" content="Lab practices and data science best practices" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Python / R analyses | Data Science Prep Guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Lab practices and data science best practices" />
+  <meta name="github-repo" content="elreb/data_science_prep" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Python / R analyses | Data Science Prep Guide" />
+  
+  <meta name="twitter:description" content="Lab practices and data science best practices" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sql-questions.html"/>
+<link rel="next" href="statistics-and-machine-learning.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science Interview Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Data Science Prep Guide</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="introduction.html"><a href="introduction.html#sections"><i class="fa fa-check"></i><b>1.0.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sql-questions.html"><a href="sql-questions.html"><i class="fa fa-check"></i><b>2</b> SQL questions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="sql-questions.html"><a href="sql-questions.html#sql-tips"><i class="fa fa-check"></i><b>2.1</b> SQL tips</a></li>
+<li class="chapter" data-level="2.2" data-path="sql-questions.html"><a href="sql-questions.html#sample-questions"><i class="fa fa-check"></i><b>2.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-questions.html"><a href="sql-questions.html#calculate-the-30-day-readmission-rate"><i class="fa fa-check"></i><b>2.2.1</b> Calculate the 30 day readmission rate</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sql-questions.html"><a href="sql-questions.html#top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days"><i class="fa fa-check"></i><b>2.2.2</b> Top 10 diagnoses from encounters with a length of service greater then 3 days</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sql-questions.html"><a href="sql-questions.html#employee-survey-results"><i class="fa fa-check"></i><b>2.2.3</b> Employee survey results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sample-questions-1"><i class="fa fa-check"></i><b>3.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.1</b> Active users on a messaging application</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.2</b> Time for a response on a messaging application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#probability-and-sampling-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Probability and Sampling Distributions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1.2</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.1.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#statistical-experiments-and-significance-testing"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Experiments and Significance Testing</a></li>
+<li class="chapter" data-level="4.1.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#regression-and-classification"><i class="fa fa-check"></i><b>4.1.4</b> Regression and Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#sample-questions-2"><i class="fa fa-check"></i><b>4.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
+<li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
+<li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#random-ml-question-1"><i class="fa fa-check"></i><b>4.2.4</b> Random ML question 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#what-are-some-standard-statistics-that-are-used-in-ab-testing.-what-are-the-alternative-tests-and-in-what-situations-would-you-use-them"><i class="fa fa-check"></i><b>5.1.1</b> What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#sample-questions-4"><i class="fa fa-check"></i><b>6.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#calulate-moving-average-using-python"><i class="fa fa-check"></i><b>6.1.1</b> Calulate moving average using Python</a></li>
+<li class="chapter" data-level="6.1.2" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#python-function-to-express-power-sets"><i class="fa fa-check"></i><b>6.1.2</b> Python function to express power sets</a></li>
+<li class="chapter" data-level="6.1.3" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm"><i class="fa fa-check"></i><b>6.1.3</b> If you were given a m by n matrix how would you find the minimum element using brute force algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/elreb/data_science_prep" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science Prep Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="python-r-analyses" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Python / R analyses<a href="python-r-analyses.html#python-r-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sample-questions-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Sample Questions<a href="python-r-analyses.html#sample-questions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="active-users-on-a-messaging-application" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Active users on a messaging application<a href="python-r-analyses.html#active-users-on-a-messaging-application" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Data Analysis</li>
+<li>Python</li>
+<li>Pandas</li>
+<li>Data Manipulation</li>
+<li>External Dataset</li>
+</ul>
+<p><a href="https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv">Here</a> is a table schema for a P2P messaging application. The table contains send/receive message data for the application’s users. The structure is as follows:</p>
+<p>Table name: user_messaging</p>
+<table>
+<thead>
+<tr class="header">
+<th>user_messaging</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>date</td>
+</tr>
+<tr class="even">
+<td>sender_id (#id of the message sender)</td>
+</tr>
+<tr class="odd">
+<td>receiver_id (#id of the message receiver)</td>
+</tr>
+</tbody>
+</table>
+<p>Using Python, calculate what fraction of senders sent messages to at least 9 unique people on March 1, 2018.</p>
+<p>Click <a href="https://u4221007.ct.sendgrid.net/wf/click?upn=c6wysRx7DxHxCGh5eakHL4eRgf6d3gqm8JiD512FeCO10yrb4tSBGev4NHZXMQtY-2FFvW9JUzEvRyokqPdM3cII6SVlxYdrkgAn3CRYwSim3itB17Yn-2FSsh-2ByGZH-2BbsjI_9bNywJt2NH2FJrMnWUxGNOCIdMXGFzCPCDkmYGVJLESjI1knmhblLz93luVOT1z6RYzl4dU8-2BJnN-2FKA2BAJ40QX0Uwy-2FZVtjaFN0cxeDDjna980PfBxrUqeAURck3l9hmqqlF8aDkWvJn-2FJEc6F1-2FQA1c2hXxPVOT6xtlkVfuWp9el-2BQU7VYULk8i9BAgEWRkXzK95wH2Fzj9qWht1b6sw-3D-3D">here</a> to view this problem in an interactive Colab (Jupyter) notebook.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="python-r-analyses.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Python</span></span>
+<span id="cb4-2"><a href="python-r-analyses.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb4-3"><a href="python-r-analyses.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="python-r-analyses.html#cb4-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv&#39;</span>)</span>
+<span id="cb4-5"><a href="python-r-analyses.html#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="python-r-analyses.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code></pre></div>
+<pre><code>##          date  sender_id  receiver_id
+## 0  2018-03-01          5            2
+## 1  2018-03-01          8            6
+## 2  2018-03-01          1            2
+## 3  2018-03-01          4            8
+## 4  2018-03-01          2            7</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="python-r-analyses.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.info())</span></code></pre></div>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 999 entries, 0 to 998
+## Data columns (total 3 columns):
+## date           999 non-null object
+## sender_id      999 non-null int64
+## receiver_id    999 non-null int64
+## dtypes: int64(2), object(1)
+## memory usage: 23.5+ KB
+## None</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="python-r-analyses.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fraction_sent_by_day(data:pd.DataFrame, day:<span class="bu">str</span>, count:<span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb8-2"><a href="python-r-analyses.html#cb8-2" aria-hidden="true" tabindex="-1"></a>    df_filtered <span class="op">=</span> data[data[<span class="st">&#39;date&#39;</span>] <span class="op">==</span> day] </span>
+<span id="cb8-3"><a href="python-r-analyses.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    df_filtered <span class="op">=</span> df_filtered.drop_duplicates(subset <span class="op">=</span> [<span class="st">&#39;sender_id&#39;</span>, <span class="st">&#39;receiver_id&#39;</span>], keep <span class="op">=</span> <span class="st">&#39;first&#39;</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-4"><a href="python-r-analyses.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    numerator <span class="op">=</span> <span class="bu">len</span>(df_filtered)</span>
+<span id="cb8-5"><a href="python-r-analyses.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> numerator <span class="op">/</span> <span class="bu">len</span>(data)</span>
+<span id="cb8-6"><a href="python-r-analyses.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="python-r-analyses.html#cb8-7" aria-hidden="true" tabindex="-1"></a>fraction_sent_by_day(data, <span class="st">&#39;2018-03-01&#39;</span>, <span class="dv">9</span>)</span></code></pre></div>
+<pre><code>## 0.0890890890890891</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="python-r-analyses.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In R</span></span>
+<span id="cb10-2"><a href="python-r-analyses.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-3"><a href="python-r-analyses.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="python-r-analyses.html#cb10-4" aria-hidden="true" tabindex="-1"></a>df_raw <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv&#39;</span>)</span>
+<span id="cb10-5"><a href="python-r-analyses.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="python-r-analyses.html#cb10-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_raw <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="python-r-analyses.html#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&#39;2018-03-01&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="python-r-analyses.html#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(sender_id) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="python-r-analyses.html#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">unique_sends =</span> <span class="fu">n_distinct</span>(receiver_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="python-r-analyses.html#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">answer =</span> <span class="fu">sum</span>(unique_sends <span class="sc">&gt;=</span> <span class="dv">9</span>) <span class="sc">/</span> <span class="fu">n</span>())</span>
+<span id="cb10-11"><a href="python-r-analyses.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="python-r-analyses.html#cb10-12" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   answer
+##    &lt;dbl&gt;
+## 1    0.9</code></pre>
+</div>
+<div id="time-for-a-response-on-a-messaging-application" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Time for a response on a messaging application<a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Data Analysis</li>
+<li>Python</li>
+<li>Pandas</li>
+<li>Data Manipulation</li>
+</ul>
+<p>You are given a <a href="https://u4221007.ct.sendgrid.net/wf/click?upn=c6wysRx7DxHxCGh5eakHL0PTD2m237pPW3WbnV0-2B-2FP-2FNQiZEk5-2BhcPcgF92WTu6nJRINcM-2FG9-2B9FB4gw8hyZ6-2FKvreX4LF732JXt-2FJB1a-2BVB5TQS3u-2B8tAet3BB-2Bvj21QqWoCwZ3qlTBpwp44pqM5w-3D-3D_9bNywJt2NH2FJrMnWUxGNOCIdMXGFzCPCDkmYGVJLESxq8hLvmb8NASP7DzwfGmFwHSFC0z-2FTEZfIO5oOBYf9VBwU1v5eMrS8c114kDedsJSF-2FIORCcWJw-2FrcM0qGpyO3sq-2BQs-2BSLe6RN7gj-2F9MDfDdFAiUCYyA5NSqOUKUJ0l-2BwuQy7IWXlXiZnF6pDHaRUEF-2BTDTfg9K6Cmws-2B7Bt1iRCx8rzSMldPyPq-2BUovqJuw-3D">dataset</a> with information around messages sent between users in a P2P messaging application. Below is the dataset’s schema:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>date</td>
+<td>string</td>
+<td>date of the message sent/received, format is ‘YYYY-mm-dd’</td>
+</tr>
+<tr class="even">
+<td>timestamp</td>
+<td>integer</td>
+<td>timestamp of the message sent/received, epoch seconds</td>
+</tr>
+<tr class="odd">
+<td>sender_id</td>
+<td>integer</td>
+<td>id of the message sender</td>
+</tr>
+<tr class="even">
+<td>receiver_id</td>
+<td>integer</td>
+<td>id of the message receiver</td>
+</tr>
+</tbody>
+</table>
+<p>Given this, write code to find the fraction of messages that are sent between the same sender and receiver within five minutes (e.g. the fraction of messages that receive a response within 5 minutes).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="python-r-analyses.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group by sender and receiver </span></span>
+<span id="cb12-2"><a href="python-r-analyses.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb12-3"><a href="python-r-analyses.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="python-r-analyses.html#cb12-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/data_analysis_2-messages.csv&#39;</span>)</span>
+<span id="cb12-5"><a href="python-r-analyses.html#cb12-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div>
+<pre><code>##          date   timestamp  sender_id  receiver_id
+## 0  2018-03-01  1519923378          1            5
+## 1  2018-03-01  1519942810          1            4
+## 2  2018-03-01  1519918950          1            5
+## 3  2018-03-01  1519930114          1            2
+## 4  2018-03-01  1519920410          1            2</code></pre>
+
+<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-9-1.png" width="288" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sql-questions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistics-and-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/elreb/data_science_prep/master/03-python-r-analyses.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ds-interview-guide.pdf", "ds-interview-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

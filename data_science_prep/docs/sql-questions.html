@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 SQL questions | Data Science Prep Guide</title>
+  <meta name="description" content="Lab practices and data science best practices" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 SQL questions | Data Science Prep Guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Lab practices and data science best practices" />
+  <meta name="github-repo" content="elreb/data_science_prep" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 SQL questions | Data Science Prep Guide" />
+  
+  <meta name="twitter:description" content="Lab practices and data science best practices" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="python-r-analyses.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science Interview Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Data Science Prep Guide</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="introduction.html"><a href="introduction.html#sections"><i class="fa fa-check"></i><b>1.0.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sql-questions.html"><a href="sql-questions.html"><i class="fa fa-check"></i><b>2</b> SQL questions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="sql-questions.html"><a href="sql-questions.html#sql-tips"><i class="fa fa-check"></i><b>2.1</b> SQL tips</a></li>
+<li class="chapter" data-level="2.2" data-path="sql-questions.html"><a href="sql-questions.html#sample-questions"><i class="fa fa-check"></i><b>2.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-questions.html"><a href="sql-questions.html#calculate-the-30-day-readmission-rate"><i class="fa fa-check"></i><b>2.2.1</b> Calculate the 30 day readmission rate</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sql-questions.html"><a href="sql-questions.html#top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days"><i class="fa fa-check"></i><b>2.2.2</b> Top 10 diagnoses from encounters with a length of service greater then 3 days</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sql-questions.html"><a href="sql-questions.html#employee-survey-results"><i class="fa fa-check"></i><b>2.2.3</b> Employee survey results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sample-questions-1"><i class="fa fa-check"></i><b>3.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.1</b> Active users on a messaging application</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.2</b> Time for a response on a messaging application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#probability-and-sampling-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Probability and Sampling Distributions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1.2</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.1.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#statistical-experiments-and-significance-testing"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Experiments and Significance Testing</a></li>
+<li class="chapter" data-level="4.1.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#regression-and-classification"><i class="fa fa-check"></i><b>4.1.4</b> Regression and Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#sample-questions-2"><i class="fa fa-check"></i><b>4.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
+<li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
+<li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#random-ml-question-1"><i class="fa fa-check"></i><b>4.2.4</b> Random ML question 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#what-are-some-standard-statistics-that-are-used-in-ab-testing.-what-are-the-alternative-tests-and-in-what-situations-would-you-use-them"><i class="fa fa-check"></i><b>5.1.1</b> What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#sample-questions-4"><i class="fa fa-check"></i><b>6.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#calulate-moving-average-using-python"><i class="fa fa-check"></i><b>6.1.1</b> Calulate moving average using Python</a></li>
+<li class="chapter" data-level="6.1.2" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#python-function-to-express-power-sets"><i class="fa fa-check"></i><b>6.1.2</b> Python function to express power sets</a></li>
+<li class="chapter" data-level="6.1.3" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm"><i class="fa fa-check"></i><b>6.1.3</b> If you were given a m by n matrix how would you find the minimum element using brute force algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/elreb/data_science_prep" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science Prep Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sql-questions" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> SQL questions<a href="sql-questions.html#sql-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sql-tips" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> SQL tips<a href="sql-questions.html#sql-tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="sample-questions" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Sample Questions<a href="sql-questions.html#sample-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calculate-the-30-day-readmission-rate" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Calculate the 30 day readmission rate<a href="sql-questions.html#calculate-the-30-day-readmission-rate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>SQL</li>
+<li>Database Querying</li>
+<li>Health records</li>
+</ul>
+<p><strong>Source:</strong> Actual interview question from google.
+<strong>Table:</strong> <code>encounter</code>
+<strong>Columns:</strong> <code>patient_id, encounter_id, encounter_start, encounter_end, encounter_class (in patient)</code></p>
+<p><a href="http://sqlfiddle.com/#!15/1b90a/19">sql fiddle</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="sql-questions.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> encounter</span>
+<span id="cb1-2"><a href="sql-questions.html#cb1-2" aria-hidden="true" tabindex="-1"></a>    (patient_id <span class="dt">int</span>, admid <span class="dt">int</span>, adm_date <span class="dt">date</span>, dis_date <span class="dt">date</span>, encounter_class <span class="dt">int</span>)</span>
+<span id="cb1-3"><a href="sql-questions.html#cb1-3" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb1-4"><a href="sql-questions.html#cb1-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-5"><a href="sql-questions.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> encounter</span>
+<span id="cb1-6"><a href="sql-questions.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    (patient_id, admid, adm_date, dis_date, encounter_class)</span>
+<span id="cb1-7"><a href="sql-questions.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb1-8"><a href="sql-questions.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0001</span>, <span class="dv">10000</span>, <span class="st">&#39;2017-01-01 04:05:06&#39;</span>, <span class="st">&#39;2017-01-05 04:05:06&#39;</span>, <span class="dv">5</span>),</span>
+<span id="cb1-9"><a href="sql-questions.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0002</span>, <span class="dv">10001</span>, <span class="st">&#39;2017-02-01 04:05:06&#39;</span>, <span class="st">&#39;2017-02-02 04:05:06&#39;</span>, <span class="dv">3</span>),</span>
+<span id="cb1-10"><a href="sql-questions.html#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0003</span>, <span class="dv">10002</span>, <span class="st">&#39;2017-03-01 04:05:06&#39;</span>, <span class="st">&#39;2017-03-04 04:05:06&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb1-11"><a href="sql-questions.html#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0004</span>, <span class="dv">10003</span>, <span class="st">&#39;2017-04-01 04:05:06&#39;</span>, <span class="st">&#39;2017-04-15 04:05:06&#39;</span>, <span class="dv">4</span>),</span>
+<span id="cb1-12"><a href="sql-questions.html#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0001</span>, <span class="dv">10004</span>, <span class="st">&#39;2017-05-01 04:05:06&#39;</span>, <span class="st">&#39;2017-05-02 04:05:06&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb1-13"><a href="sql-questions.html#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0005</span>, <span class="dv">10005</span>, <span class="st">&#39;2017-06-01 04:05:06&#39;</span>, <span class="st">&#39;2017-06-05 04:05:06&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb1-14"><a href="sql-questions.html#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0001</span>, <span class="dv">10006</span>, <span class="st">&#39;2017-04-01 04:05:06&#39;</span>, <span class="st">&#39;2017-04-03 04:05:06&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb1-15"><a href="sql-questions.html#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0002</span>, <span class="dv">10007</span>, <span class="st">&#39;2017-03-01 04:05:06&#39;</span>, <span class="st">&#39;2017-03-15 04:05:06&#39;</span>, <span class="dv">7</span>),</span>
+<span id="cb1-16"><a href="sql-questions.html#cb1-16" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0006</span>, <span class="dv">10008</span>, <span class="st">&#39;2017-02-01 04:05:06&#39;</span>, <span class="st">&#39;2017-02-05 04:05:06&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb1-17"><a href="sql-questions.html#cb1-17" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0003</span>, <span class="dv">10009</span>, <span class="st">&#39;2017-07-01 04:05:06&#39;</span>, <span class="st">&#39;2017-07-03 04:05:06&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb1-18"><a href="sql-questions.html#cb1-18" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0007</span>, <span class="dv">10010</span>, <span class="st">&#39;2017-09-01 04:05:06&#39;</span>, <span class="st">&#39;2017-09-20 04:05:06&#39;</span>, <span class="dv">2</span>)</span>
+<span id="cb1-19"><a href="sql-questions.html#cb1-19" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb1-20"><a href="sql-questions.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="sql-questions.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">/* make indicator for patient id, if readmitted within 30 days</span></span>
+<span id="cb1-22"><a href="sql-questions.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"> merge cte for total count of unique admissions*/</span></span>
+<span id="cb1-23"><a href="sql-questions.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="sql-questions.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> next_date_tbl <span class="kw">AS</span> (</span>
+<span id="cb1-25"><a href="sql-questions.html#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> </span>
+<span id="cb1-26"><a href="sql-questions.html#cb1-26" aria-hidden="true" tabindex="-1"></a>    patient_id,</span>
+<span id="cb1-27"><a href="sql-questions.html#cb1-27" aria-hidden="true" tabindex="-1"></a>    adm_date,</span>
+<span id="cb1-28"><a href="sql-questions.html#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">LEAD</span>(adm_date, <span class="dv">1</span>) <span class="kw">OVER</span> (</span>
+<span id="cb1-29"><a href="sql-questions.html#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">PARTITION</span> <span class="kw">BY</span> patient_id</span>
+<span id="cb1-30"><a href="sql-questions.html#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">ORDER</span> <span class="kw">BY</span> adm_date</span>
+<span id="cb1-31"><a href="sql-questions.html#cb1-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">AS</span> next_date</span>
+<span id="cb1-32"><a href="sql-questions.html#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> encounter</span>
+<span id="cb1-33"><a href="sql-questions.html#cb1-33" aria-hidden="true" tabindex="-1"></a>), date_dif_tbl <span class="kw">AS</span> (</span>
+<span id="cb1-34"><a href="sql-questions.html#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> </span>
+<span id="cb1-35"><a href="sql-questions.html#cb1-35" aria-hidden="true" tabindex="-1"></a>    patient_id,</span>
+<span id="cb1-36"><a href="sql-questions.html#cb1-36" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">CAST</span>(next_date <span class="kw">AS</span> <span class="dt">DATE</span>) <span class="op">-</span> <span class="fu">CAST</span>(adm_date <span class="kw">AS</span> <span class="dt">DATE</span>)) <span class="kw">AS</span> date_dif</span>
+<span id="cb1-37"><a href="sql-questions.html#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> next_date_tbl </span>
+<span id="cb1-38"><a href="sql-questions.html#cb1-38" aria-hidden="true" tabindex="-1"></a>), num_denom <span class="kw">AS</span> (</span>
+<span id="cb1-39"><a href="sql-questions.html#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> </span>
+<span id="cb1-40"><a href="sql-questions.html#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> </span>
+<span id="cb1-41"><a href="sql-questions.html#cb1-41" aria-hidden="true" tabindex="-1"></a>          date_dif <span class="op">&lt;=</span> <span class="dv">30</span> <span class="cf">THEN</span> <span class="dv">1</span></span>
+<span id="cb1-42"><a href="sql-questions.html#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> readmitted,</span>
+<span id="cb1-43"><a href="sql-questions.html#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> total_cnt</span>
+<span id="cb1-44"><a href="sql-questions.html#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> date_dif_tbl</span>
+<span id="cb1-45"><a href="sql-questions.html#cb1-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-46"><a href="sql-questions.html#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (<span class="fu">ROUND</span>((readmitted:<span class="ch">:float</span><span class="op">/</span>total_cnt:<span class="ch">:float</span>):<span class="ch">:numeric</span>,<span class="dv">2</span>) <span class="op">*</span> <span class="dv">100</span>) <span class="kw">AS</span> thirty_day_readmission_rt</span>
+<span id="cb1-47"><a href="sql-questions.html#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> num_denom</span></code></pre></div>
+</div>
+<div id="top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Top 10 diagnoses from encounters with a length of service greater then 3 days<a href="sql-questions.html#top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>SQL</li>
+<li>Database Querying</li>
+<li>Health records</li>
+</ul>
+<p><strong>Source:</strong> Actual interview question from google.
+<strong>Table:</strong> <code>encounter</code>
+<strong>Columns:</strong> <code>encounter_id, diagnosis_id, priority, encounter_start, encounter_end</code></p>
+<p><a href="http://sqlfiddle.com/#!15/02c6d/1">sql fiddle</a></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="sql-questions.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> encounters</span>
+<span id="cb2-2"><a href="sql-questions.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  (encounter_id <span class="dt">int</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, diagnosis_id <span class="dt">int</span>, encounter_start <span class="dt">TIMESTAMP</span>, encounter_end <span class="dt">TIMESTAMP</span>);</span>
+<span id="cb2-3"><a href="sql-questions.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="sql-questions.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> encounters</span>
+<span id="cb2-5"><a href="sql-questions.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  (encounter_id, diagnosis_id, encounter_start, encounter_end)</span>
+<span id="cb2-6"><a href="sql-questions.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb2-7"><a href="sql-questions.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span>, <span class="dv">5</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-20 04:05:06&#39;</span>),</span>
+<span id="cb2-8"><a href="sql-questions.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">2</span>, <span class="dv">5</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-20 04:05:06&#39;</span>),</span>
+<span id="cb2-9"><a href="sql-questions.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">3</span>, <span class="dv">5</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-20 04:05:06&#39;</span>),</span>
+<span id="cb2-10"><a href="sql-questions.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">4</span>, <span class="dv">2</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-20 04:05:06&#39;</span>),</span>
+<span id="cb2-11"><a href="sql-questions.html#cb2-11" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">5</span>, <span class="dv">2</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-20 04:05:06&#39;</span>),</span>
+<span id="cb2-12"><a href="sql-questions.html#cb2-12" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">6</span>, <span class="dv">3</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-09 04:05:06&#39;</span>),</span>
+<span id="cb2-13"><a href="sql-questions.html#cb2-13" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">7</span>, <span class="dv">4</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-09 04:05:06&#39;</span>),</span>
+<span id="cb2-14"><a href="sql-questions.html#cb2-14" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">8</span>, <span class="dv">4</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-09 04:05:06&#39;</span>),</span>
+<span id="cb2-15"><a href="sql-questions.html#cb2-15" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">9</span>, <span class="dv">1</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;2022-01-20 04:05:06&#39;</span>)</span>
+<span id="cb2-16"><a href="sql-questions.html#cb2-16" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb2-17"><a href="sql-questions.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="sql-questions.html#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="sql-questions.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> date_calc <span class="kw">AS</span> (</span>
+<span id="cb2-20"><a href="sql-questions.html#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb2-21"><a href="sql-questions.html#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">*</span>,</span>
+<span id="cb2-22"><a href="sql-questions.html#cb2-22" aria-hidden="true" tabindex="-1"></a>        (<span class="fu">CAST</span>(encounter_end <span class="kw">AS</span> <span class="dt">date</span>) <span class="op">-</span> <span class="fu">CAST</span>(encounter_start <span class="kw">AS</span> <span class="dt">date</span>)) <span class="kw">AS</span> los</span>
+<span id="cb2-23"><a href="sql-questions.html#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> encounters</span>
+<span id="cb2-24"><a href="sql-questions.html#cb2-24" aria-hidden="true" tabindex="-1"></a>), grouped_diagnosis <span class="kw">AS</span> (</span>
+<span id="cb2-25"><a href="sql-questions.html#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb2-26"><a href="sql-questions.html#cb2-26" aria-hidden="true" tabindex="-1"></a>        diagnosis_id,</span>
+<span id="cb2-27"><a href="sql-questions.html#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n</span>
+<span id="cb2-28"><a href="sql-questions.html#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> date_calc</span>
+<span id="cb2-29"><a href="sql-questions.html#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> los <span class="op">&gt;</span> <span class="dv">3</span></span>
+<span id="cb2-30"><a href="sql-questions.html#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> </span>
+<span id="cb2-31"><a href="sql-questions.html#cb2-31" aria-hidden="true" tabindex="-1"></a>        diagnosis_id</span>
+<span id="cb2-32"><a href="sql-questions.html#cb2-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-33"><a href="sql-questions.html#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb2-34"><a href="sql-questions.html#cb2-34" aria-hidden="true" tabindex="-1"></a>    diagnosis_id</span>
+<span id="cb2-35"><a href="sql-questions.html#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> grouped_diagnosis</span>
+<span id="cb2-36"><a href="sql-questions.html#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> n <span class="kw">DESC</span></span>
+<span id="cb2-37"><a href="sql-questions.html#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div>
+</div>
+<div id="employee-survey-results" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Employee survey results<a href="sql-questions.html#employee-survey-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>SQL</li>
+<li>Database Querying</li>
+</ul>
+<p>Suppose you’re consulting for a company, and you’ve sent out a survey that asks successive qustions randomly. The survey logs data into a table called survey_logging. The schema of the table is:</p>
+<table>
+<caption><code>survey_logging</code></caption>
+<colgroup>
+<col width="34%" />
+<col width="28%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>employee_id</td>
+<td>integer</td>
+<td>employee id of the survey respondant</td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td>string</td>
+<td>Will be one of the following values, ‘view,’ ‘answer,’ ‘skip’</td>
+</tr>
+<tr class="odd">
+<td>question_id</td>
+<td>integer</td>
+<td>ID of the question asked</td>
+</tr>
+<tr class="even">
+<td>answer_id</td>
+<td>integer</td>
+<td>ID of the answer asked</td>
+</tr>
+<tr class="odd">
+<td>timestamp</td>
+<td>integer</td>
+<td>time stamp of the action made by respondant</td>
+</tr>
+</tbody>
+</table>
+<p>Using SQL, find which question has the highest response rate.</p>
+<p><a href="https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=f05742ca02d15bc90aaf42676bf39894">db_fiddle</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="sql-questions.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*Intermediate result would look like:</span></span>
+<span id="cb3-2"><a href="sql-questions.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"> | question_id | response_rate |  */</span></span>
+<span id="cb3-3"><a href="sql-questions.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="sql-questions.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> survey_logging</span>
+<span id="cb3-5"><a href="sql-questions.html#cb3-5" aria-hidden="true" tabindex="-1"></a>    (user_id <span class="dt">int</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, <span class="ot">&quot;action&quot;</span> <span class="dt">varchar</span>(<span class="dv">10</span>), question_id <span class="dt">int</span>)</span>
+<span id="cb3-6"><a href="sql-questions.html#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-7"><a href="sql-questions.html#cb3-7" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb3-8"><a href="sql-questions.html#cb3-8" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb3-9"><a href="sql-questions.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> survey_logging</span>
+<span id="cb3-10"><a href="sql-questions.html#cb3-10" aria-hidden="true" tabindex="-1"></a>    (user_id, <span class="ot">&quot;action&quot;</span>, question_id)</span>
+<span id="cb3-11"><a href="sql-questions.html#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb3-12"><a href="sql-questions.html#cb3-12" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span>, <span class="st">&#39;answer&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-13"><a href="sql-questions.html#cb3-13" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">2</span>, <span class="st">&#39;answer&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-14"><a href="sql-questions.html#cb3-14" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">3</span>,<span class="st">&#39;answer&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb3-15"><a href="sql-questions.html#cb3-15" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">4</span>,<span class="st">&#39;skip&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb3-16"><a href="sql-questions.html#cb3-16" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">5</span>,<span class="st">&#39;skip&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-17"><a href="sql-questions.html#cb3-17" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">6</span>,<span class="st">&#39;answer&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-18"><a href="sql-questions.html#cb3-18" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">7</span>,<span class="st">&#39;answer&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-19"><a href="sql-questions.html#cb3-19" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">8</span>,<span class="st">&#39;answer&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-20"><a href="sql-questions.html#cb3-20" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">9</span>,<span class="st">&#39;skip&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb3-21"><a href="sql-questions.html#cb3-21" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">10</span>,<span class="st">&#39;skip&#39;</span>, <span class="dv">2</span>)</span>
+<span id="cb3-22"><a href="sql-questions.html#cb3-22" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb3-23"><a href="sql-questions.html#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">/*~~~~~~~~~~~~~~~~~~~~~*/</span></span>
+<span id="cb3-24"><a href="sql-questions.html#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="sql-questions.html#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> response_by_q <span class="kw">AS</span> (</span>
+<span id="cb3-26"><a href="sql-questions.html#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb3-27"><a href="sql-questions.html#cb3-27" aria-hidden="true" tabindex="-1"></a>        question_id,</span>
+<span id="cb3-28"><a href="sql-questions.html#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span> (<span class="cf">CASE</span></span>
+<span id="cb3-29"><a href="sql-questions.html#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> action <span class="op">=</span> <span class="st">&#39;answer&#39;</span> <span class="cf">THEN</span> <span class="dv">1</span> </span>
+<span id="cb3-30"><a href="sql-questions.html#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="dv">0</span></span>
+<span id="cb3-31"><a href="sql-questions.html#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">END</span>) <span class="kw">AS</span> answered,</span>
+<span id="cb3-32"><a href="sql-questions.html#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ovr_count</span>
+<span id="cb3-33"><a href="sql-questions.html#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> survey_logging</span>
+<span id="cb3-34"><a href="sql-questions.html#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> question_id</span>
+<span id="cb3-35"><a href="sql-questions.html#cb3-35" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb3-36"><a href="sql-questions.html#cb3-36" aria-hidden="true" tabindex="-1"></a>extra_column <span class="kw">AS</span> (</span>
+<span id="cb3-37"><a href="sql-questions.html#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb3-38"><a href="sql-questions.html#cb3-38" aria-hidden="true" tabindex="-1"></a>        question_id,</span>
+<span id="cb3-39"><a href="sql-questions.html#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ROUND</span>(answered <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> ovr_count, <span class="dv">1</span>) <span class="kw">AS</span> answer</span>
+<span id="cb3-40"><a href="sql-questions.html#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> response_by_q</span>
+<span id="cb3-41"><a href="sql-questions.html#cb3-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-42"><a href="sql-questions.html#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> question_id</span>
+<span id="cb3-43"><a href="sql-questions.html#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> extra_column</span>
+<span id="cb3-44"><a href="sql-questions.html#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> answer <span class="op">=</span> (<span class="kw">SELECT</span> <span class="fu">MAX</span>(answer) <span class="kw">FROM</span> extra_column)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python-r-analyses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/elreb/data_science_prep/master/02-sql.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ds-interview-guide.pdf", "ds-interview-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

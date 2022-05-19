@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Computer Science / Data Scructures and Algorithms | Data Science Prep Guide</title>
+  <meta name="description" content="Lab practices and data science best practices" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Computer Science / Data Scructures and Algorithms | Data Science Prep Guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Lab practices and data science best practices" />
+  <meta name="github-repo" content="elreb/data_science_prep" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Computer Science / Data Scructures and Algorithms | Data Science Prep Guide" />
+  
+  <meta name="twitter:description" content="Lab practices and data science best practices" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="case-studies.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science Interview Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Data Science Prep Guide</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="introduction.html"><a href="introduction.html#sections"><i class="fa fa-check"></i><b>1.0.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sql-questions.html"><a href="sql-questions.html"><i class="fa fa-check"></i><b>2</b> SQL questions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="sql-questions.html"><a href="sql-questions.html#sql-tips"><i class="fa fa-check"></i><b>2.1</b> SQL tips</a></li>
+<li class="chapter" data-level="2.2" data-path="sql-questions.html"><a href="sql-questions.html#sample-questions"><i class="fa fa-check"></i><b>2.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-questions.html"><a href="sql-questions.html#calculate-the-30-day-readmission-rate"><i class="fa fa-check"></i><b>2.2.1</b> Calculate the 30 day readmission rate</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sql-questions.html"><a href="sql-questions.html#top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days"><i class="fa fa-check"></i><b>2.2.2</b> Top 10 diagnoses from encounters with a length of service greater then 3 days</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sql-questions.html"><a href="sql-questions.html#employee-survey-results"><i class="fa fa-check"></i><b>2.2.3</b> Employee survey results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sample-questions-1"><i class="fa fa-check"></i><b>3.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.1</b> Active users on a messaging application</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.2</b> Time for a response on a messaging application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#probability-and-sampling-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Probability and Sampling Distributions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1.2</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.1.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#statistical-experiments-and-significance-testing"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Experiments and Significance Testing</a></li>
+<li class="chapter" data-level="4.1.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#regression-and-classification"><i class="fa fa-check"></i><b>4.1.4</b> Regression and Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#sample-questions-2"><i class="fa fa-check"></i><b>4.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
+<li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
+<li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#random-ml-question-1"><i class="fa fa-check"></i><b>4.2.4</b> Random ML question 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#what-are-some-standard-statistics-that-are-used-in-ab-testing.-what-are-the-alternative-tests-and-in-what-situations-would-you-use-them"><i class="fa fa-check"></i><b>5.1.1</b> What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#sample-questions-4"><i class="fa fa-check"></i><b>6.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#calulate-moving-average-using-python"><i class="fa fa-check"></i><b>6.1.1</b> Calulate moving average using Python</a></li>
+<li class="chapter" data-level="6.1.2" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#python-function-to-express-power-sets"><i class="fa fa-check"></i><b>6.1.2</b> Python function to express power sets</a></li>
+<li class="chapter" data-level="6.1.3" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm"><i class="fa fa-check"></i><b>6.1.3</b> If you were given a m by n matrix how would you find the minimum element using brute force algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/elreb/data_science_prep" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science Prep Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="computer-science-data-scructures-and-algorithms" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Computer Science / Data Scructures and Algorithms<a href="computer-science-data-scructures-and-algorithms.html#computer-science-data-scructures-and-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sample-questions-4" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Sample Questions<a href="computer-science-data-scructures-and-algorithms.html#sample-questions-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calulate-moving-average-using-python" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Calulate moving average using Python<a href="computer-science-data-scructures-and-algorithms.html#calulate-moving-average-using-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Python</li>
+<li>Moving Average</li>
+<li>Data Structures</li>
+<li>Array</li>
+</ul>
+<p>You are given a list of numbers J and a single number p. Write a function to return the minimum and maximum averages of the sequences of p numbers in the list J.</p>
+<p>For example:</p>
+<pre><code># Array of numbers
+J = [4, 4, 4, 9, 10, 11, 12]
+# Length of sequences, p
+p = 3</code></pre>
+<p>Here, the sequences will be:</p>
+<p>(4,4,4)
+(4,4,9)
+(4,9,10)
+(9,10,11)
+(10,11,12)
+From the above we can see that the minimum average will be 4 and the maximum average will be 11, which corresponds to the first and last sequences.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="computer-science-data-scructures-and-algorithms.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if always sorted can just do the first 3 and last 3</span></span>
+<span id="cb70-2"><a href="computer-science-data-scructures-and-algorithms.html#cb70-2" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]</span>
+<span id="cb70-3"><a href="computer-science-data-scructures-and-algorithms.html#cb70-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb70-4"><a href="computer-science-data-scructures-and-algorithms.html#cb70-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-5"><a href="computer-science-data-scructures-and-algorithms.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max_moving_averages(array, length):</span>
+<span id="cb70-6"><a href="computer-science-data-scructures-and-algorithms.html#cb70-6" aria-hidden="true" tabindex="-1"></a>    min_average <span class="op">=</span> <span class="bu">sum</span>(array[<span class="dv">0</span>:length])<span class="op">/</span>length</span>
+<span id="cb70-7"><a href="computer-science-data-scructures-and-algorithms.html#cb70-7" aria-hidden="true" tabindex="-1"></a>    max_average <span class="op">=</span> <span class="bu">sum</span>(array[<span class="dv">0</span>:length])<span class="op">/</span>length</span>
+<span id="cb70-8"><a href="computer-science-data-scructures-and-algorithms.html#cb70-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(array)):</span>
+<span id="cb70-9"><a href="computer-science-data-scructures-and-algorithms.html#cb70-9" aria-hidden="true" tabindex="-1"></a>        average <span class="op">=</span> <span class="bu">sum</span>(array[i:i<span class="op">+</span>length])<span class="op">/</span>length</span>
+<span id="cb70-10"><a href="computer-science-data-scructures-and-algorithms.html#cb70-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> average <span class="op">&lt;</span> min_average:</span>
+<span id="cb70-11"><a href="computer-science-data-scructures-and-algorithms.html#cb70-11" aria-hidden="true" tabindex="-1"></a>            min_average <span class="op">=</span> average</span>
+<span id="cb70-12"><a href="computer-science-data-scructures-and-algorithms.html#cb70-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> average <span class="op">&gt;</span> max_average:</span>
+<span id="cb70-13"><a href="computer-science-data-scructures-and-algorithms.html#cb70-13" aria-hidden="true" tabindex="-1"></a>            max_average <span class="op">=</span> average</span>
+<span id="cb70-14"><a href="computer-science-data-scructures-and-algorithms.html#cb70-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_average, max_average </span>
+<span id="cb70-15"><a href="computer-science-data-scructures-and-algorithms.html#cb70-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-16"><a href="computer-science-data-scructures-and-algorithms.html#cb70-16" aria-hidden="true" tabindex="-1"></a>min_max_moving_averages(J, p)</span>
+<span id="cb70-17"><a href="computer-science-data-scructures-and-algorithms.html#cb70-17" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<pre><code>## (4.0, 11.0)</code></pre>
+</div>
+<div id="python-function-to-express-power-sets" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Python function to express power sets<a href="computer-science-data-scructures-and-algorithms.html#python-function-to-express-power-sets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Python</li>
+<li>Power Set</li>
+</ul>
+<p>Create a Python function that generates the power set given a set of values. For example, if you’re given the following set:</p>
+<p>set = {1, 2, 3}</p>
+<p>Your python function should return the corresponding power set (note this can be a formatted as a list of lists):</p>
+<p>power set = [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]</p>
+</div>
+<div id="if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> If you were given a m by n matrix how would you find the minimum element using brute force algorithm<a href="computer-science-data-scructures-and-algorithms.html#if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Python</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="computer-science-data-scructures-and-algorithms.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb72-2"><a href="computer-science-data-scructures-and-algorithms.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co">#python doesn&#39;t have matrices but a list of a list can be treated as a matrix </span></span>
+<span id="cb72-3"><a href="computer-science-data-scructures-and-algorithms.html#cb72-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>], </span>
+<span id="cb72-4"><a href="computer-science-data-scructures-and-algorithms.html#cb72-4" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
+<span id="cb72-5"><a href="computer-science-data-scructures-and-algorithms.html#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="computer-science-data-scructures-and-algorithms.html#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="co">#using min</span></span>
+<span id="cb72-7"><a href="computer-science-data-scructures-and-algorithms.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="bu">min</span>(<span class="bu">min</span>(x) <span class="cf">for</span> x <span class="kw">in</span> A)</span></code></pre></div>
+<pre><code>## -5</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="computer-science-data-scructures-and-algorithms.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#brute force</span></span>
+<span id="cb74-2"><a href="computer-science-data-scructures-and-algorithms.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_min_in_matrix(matrix: List):</span>
+<span id="cb74-3"><a href="computer-science-data-scructures-and-algorithms.html#cb74-3" aria-hidden="true" tabindex="-1"></a>    min_element <span class="op">=</span> matrix[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb74-4"><a href="computer-science-data-scructures-and-algorithms.html#cb74-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> sub_list <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
+<span id="cb74-5"><a href="computer-science-data-scructures-and-algorithms.html#cb74-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> element <span class="kw">in</span> matrix[sub_list]:</span>
+<span id="cb74-6"><a href="computer-science-data-scructures-and-algorithms.html#cb74-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (element <span class="op">&lt;</span> min_element):</span>
+<span id="cb74-7"><a href="computer-science-data-scructures-and-algorithms.html#cb74-7" aria-hidden="true" tabindex="-1"></a>                min_element <span class="op">=</span> element</span>
+<span id="cb74-8"><a href="computer-science-data-scructures-and-algorithms.html#cb74-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_element</span>
+<span id="cb74-9"><a href="computer-science-data-scructures-and-algorithms.html#cb74-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb74-10"><a href="computer-science-data-scructures-and-algorithms.html#cb74-10" aria-hidden="true" tabindex="-1"></a>find_min_in_matrix(A)    </span></code></pre></div>
+<pre><code>## -5</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="case-studies.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/elreb/data_science_prep/master/07-cs-dsa.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ds-interview-guide.pdf", "ds-interview-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
