@@ -171,14 +171,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
 <li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
 <li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
-<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#random-ml-question-1"><i class="fa fa-check"></i><b>4.2.4</b> Random ML question 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#mae-vs-mse"><i class="fa fa-check"></i><b>4.2.4</b> MAE vs MSE</a></li>
+<li class="chapter" data-level="4.2.5" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-1"><i class="fa fa-check"></i><b>4.2.5</b> Bias variance tradeoff</a></li>
+<li class="chapter" data-level="4.2.6" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#changing-the-companys-color"><i class="fa fa-check"></i><b>4.2.6</b> Changing the company’s color</a></li>
+<li class="chapter" data-level="4.2.7" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#repeated-significance-testing-error"><i class="fa fa-check"></i><b>4.2.7</b> Repeated significance testing error</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#what-are-some-standard-statistics-that-are-used-in-ab-testing.-what-are-the-alternative-tests-and-in-what-situations-would-you-use-them"><i class="fa fa-check"></i><b>5.1.1</b> What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</a></li>
+<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.1.1</b> AB Testing Basics 1</a></li>
+<li class="chapter" data-level="5.1.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.1.2</b> A/B testing new eCommerce recommendation engine</a></li>
+<li class="chapter" data-level="5.1.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.1.3</b> A/B testing a new landing page</a></li>
+<li class="chapter" data-level="5.1.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.1.4</b> Stopping an AB Test early</a></li>
+<li class="chapter" data-level="5.1.5" data-path="case-studies.html"><a href="case-studies.html#ab-testing-from-sql-to-modeling"><i class="fa fa-check"></i><b>5.1.5</b> AB Testing from SQL to modeling</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
@@ -235,23 +242,23 @@ p = 3</code></pre>
 (9,10,11)
 (10,11,12)
 From the above we can see that the minimum average will be 4 and the maximum average will be 11, which corresponds to the first and last sequences.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="computer-science-data-scructures-and-algorithms.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if always sorted can just do the first 3 and last 3</span></span>
-<span id="cb70-2"><a href="computer-science-data-scructures-and-algorithms.html#cb70-2" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]</span>
-<span id="cb70-3"><a href="computer-science-data-scructures-and-algorithms.html#cb70-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb70-4"><a href="computer-science-data-scructures-and-algorithms.html#cb70-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-5"><a href="computer-science-data-scructures-and-algorithms.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max_moving_averages(array, length):</span>
-<span id="cb70-6"><a href="computer-science-data-scructures-and-algorithms.html#cb70-6" aria-hidden="true" tabindex="-1"></a>    min_average <span class="op">=</span> <span class="bu">sum</span>(array[<span class="dv">0</span>:length])<span class="op">/</span>length</span>
-<span id="cb70-7"><a href="computer-science-data-scructures-and-algorithms.html#cb70-7" aria-hidden="true" tabindex="-1"></a>    max_average <span class="op">=</span> <span class="bu">sum</span>(array[<span class="dv">0</span>:length])<span class="op">/</span>length</span>
-<span id="cb70-8"><a href="computer-science-data-scructures-and-algorithms.html#cb70-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(array)):</span>
-<span id="cb70-9"><a href="computer-science-data-scructures-and-algorithms.html#cb70-9" aria-hidden="true" tabindex="-1"></a>        average <span class="op">=</span> <span class="bu">sum</span>(array[i:i<span class="op">+</span>length])<span class="op">/</span>length</span>
-<span id="cb70-10"><a href="computer-science-data-scructures-and-algorithms.html#cb70-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> average <span class="op">&lt;</span> min_average:</span>
-<span id="cb70-11"><a href="computer-science-data-scructures-and-algorithms.html#cb70-11" aria-hidden="true" tabindex="-1"></a>            min_average <span class="op">=</span> average</span>
-<span id="cb70-12"><a href="computer-science-data-scructures-and-algorithms.html#cb70-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> average <span class="op">&gt;</span> max_average:</span>
-<span id="cb70-13"><a href="computer-science-data-scructures-and-algorithms.html#cb70-13" aria-hidden="true" tabindex="-1"></a>            max_average <span class="op">=</span> average</span>
-<span id="cb70-14"><a href="computer-science-data-scructures-and-algorithms.html#cb70-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_average, max_average </span>
-<span id="cb70-15"><a href="computer-science-data-scructures-and-algorithms.html#cb70-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-16"><a href="computer-science-data-scructures-and-algorithms.html#cb70-16" aria-hidden="true" tabindex="-1"></a>min_max_moving_averages(J, p)</span>
-<span id="cb70-17"><a href="computer-science-data-scructures-and-algorithms.html#cb70-17" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="computer-science-data-scructures-and-algorithms.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if always sorted can just do the first 3 and last 3</span></span>
+<span id="cb137-2"><a href="computer-science-data-scructures-and-algorithms.html#cb137-2" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]</span>
+<span id="cb137-3"><a href="computer-science-data-scructures-and-algorithms.html#cb137-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb137-4"><a href="computer-science-data-scructures-and-algorithms.html#cb137-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-5"><a href="computer-science-data-scructures-and-algorithms.html#cb137-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max_moving_averages(array, length):</span>
+<span id="cb137-6"><a href="computer-science-data-scructures-and-algorithms.html#cb137-6" aria-hidden="true" tabindex="-1"></a>    min_average <span class="op">=</span> <span class="bu">sum</span>(array[<span class="dv">0</span>:length])<span class="op">/</span>length</span>
+<span id="cb137-7"><a href="computer-science-data-scructures-and-algorithms.html#cb137-7" aria-hidden="true" tabindex="-1"></a>    max_average <span class="op">=</span> <span class="bu">sum</span>(array[<span class="dv">0</span>:length])<span class="op">/</span>length</span>
+<span id="cb137-8"><a href="computer-science-data-scructures-and-algorithms.html#cb137-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(array)):</span>
+<span id="cb137-9"><a href="computer-science-data-scructures-and-algorithms.html#cb137-9" aria-hidden="true" tabindex="-1"></a>        average <span class="op">=</span> <span class="bu">sum</span>(array[i:i<span class="op">+</span>length])<span class="op">/</span>length</span>
+<span id="cb137-10"><a href="computer-science-data-scructures-and-algorithms.html#cb137-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> average <span class="op">&lt;</span> min_average:</span>
+<span id="cb137-11"><a href="computer-science-data-scructures-and-algorithms.html#cb137-11" aria-hidden="true" tabindex="-1"></a>            min_average <span class="op">=</span> average</span>
+<span id="cb137-12"><a href="computer-science-data-scructures-and-algorithms.html#cb137-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> average <span class="op">&gt;</span> max_average:</span>
+<span id="cb137-13"><a href="computer-science-data-scructures-and-algorithms.html#cb137-13" aria-hidden="true" tabindex="-1"></a>            max_average <span class="op">=</span> average</span>
+<span id="cb137-14"><a href="computer-science-data-scructures-and-algorithms.html#cb137-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_average, max_average </span>
+<span id="cb137-15"><a href="computer-science-data-scructures-and-algorithms.html#cb137-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-16"><a href="computer-science-data-scructures-and-algorithms.html#cb137-16" aria-hidden="true" tabindex="-1"></a>min_max_moving_averages(J, p)</span>
+<span id="cb137-17"><a href="computer-science-data-scructures-and-algorithms.html#cb137-17" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
 <pre><code>## (4.0, 11.0)</code></pre>
 </div>
 <div id="python-function-to-express-power-sets" class="section level3 hasAnchor" number="6.1.2">
@@ -270,24 +277,24 @@ From the above we can see that the minimum average will be 4 and the maximum ave
 <ul>
 <li>Python</li>
 </ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="computer-science-data-scructures-and-algorithms.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
-<span id="cb72-2"><a href="computer-science-data-scructures-and-algorithms.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co">#python doesn&#39;t have matrices but a list of a list can be treated as a matrix </span></span>
-<span id="cb72-3"><a href="computer-science-data-scructures-and-algorithms.html#cb72-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>], </span>
-<span id="cb72-4"><a href="computer-science-data-scructures-and-algorithms.html#cb72-4" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
-<span id="cb72-5"><a href="computer-science-data-scructures-and-algorithms.html#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-6"><a href="computer-science-data-scructures-and-algorithms.html#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="co">#using min</span></span>
-<span id="cb72-7"><a href="computer-science-data-scructures-and-algorithms.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="bu">min</span>(<span class="bu">min</span>(x) <span class="cf">for</span> x <span class="kw">in</span> A)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="computer-science-data-scructures-and-algorithms.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb139-2"><a href="computer-science-data-scructures-and-algorithms.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co">#python doesn&#39;t have matrices but a list of a list can be treated as a matrix </span></span>
+<span id="cb139-3"><a href="computer-science-data-scructures-and-algorithms.html#cb139-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>], </span>
+<span id="cb139-4"><a href="computer-science-data-scructures-and-algorithms.html#cb139-4" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
+<span id="cb139-5"><a href="computer-science-data-scructures-and-algorithms.html#cb139-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-6"><a href="computer-science-data-scructures-and-algorithms.html#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="co">#using min</span></span>
+<span id="cb139-7"><a href="computer-science-data-scructures-and-algorithms.html#cb139-7" aria-hidden="true" tabindex="-1"></a><span class="bu">min</span>(<span class="bu">min</span>(x) <span class="cf">for</span> x <span class="kw">in</span> A)</span></code></pre></div>
 <pre><code>## -5</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="computer-science-data-scructures-and-algorithms.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#brute force</span></span>
-<span id="cb74-2"><a href="computer-science-data-scructures-and-algorithms.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_min_in_matrix(matrix: List):</span>
-<span id="cb74-3"><a href="computer-science-data-scructures-and-algorithms.html#cb74-3" aria-hidden="true" tabindex="-1"></a>    min_element <span class="op">=</span> matrix[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb74-4"><a href="computer-science-data-scructures-and-algorithms.html#cb74-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> sub_list <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
-<span id="cb74-5"><a href="computer-science-data-scructures-and-algorithms.html#cb74-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> element <span class="kw">in</span> matrix[sub_list]:</span>
-<span id="cb74-6"><a href="computer-science-data-scructures-and-algorithms.html#cb74-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (element <span class="op">&lt;</span> min_element):</span>
-<span id="cb74-7"><a href="computer-science-data-scructures-and-algorithms.html#cb74-7" aria-hidden="true" tabindex="-1"></a>                min_element <span class="op">=</span> element</span>
-<span id="cb74-8"><a href="computer-science-data-scructures-and-algorithms.html#cb74-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_element</span>
-<span id="cb74-9"><a href="computer-science-data-scructures-and-algorithms.html#cb74-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb74-10"><a href="computer-science-data-scructures-and-algorithms.html#cb74-10" aria-hidden="true" tabindex="-1"></a>find_min_in_matrix(A)    </span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="computer-science-data-scructures-and-algorithms.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co">#brute force</span></span>
+<span id="cb141-2"><a href="computer-science-data-scructures-and-algorithms.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_min_in_matrix(matrix: List):</span>
+<span id="cb141-3"><a href="computer-science-data-scructures-and-algorithms.html#cb141-3" aria-hidden="true" tabindex="-1"></a>    min_element <span class="op">=</span> matrix[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb141-4"><a href="computer-science-data-scructures-and-algorithms.html#cb141-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> sub_list <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
+<span id="cb141-5"><a href="computer-science-data-scructures-and-algorithms.html#cb141-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> element <span class="kw">in</span> matrix[sub_list]:</span>
+<span id="cb141-6"><a href="computer-science-data-scructures-and-algorithms.html#cb141-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (element <span class="op">&lt;</span> min_element):</span>
+<span id="cb141-7"><a href="computer-science-data-scructures-and-algorithms.html#cb141-7" aria-hidden="true" tabindex="-1"></a>                min_element <span class="op">=</span> element</span>
+<span id="cb141-8"><a href="computer-science-data-scructures-and-algorithms.html#cb141-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_element</span>
+<span id="cb141-9"><a href="computer-science-data-scructures-and-algorithms.html#cb141-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb141-10"><a href="computer-science-data-scructures-and-algorithms.html#cb141-10" aria-hidden="true" tabindex="-1"></a>find_min_in_matrix(A)    </span></code></pre></div>
 <pre><code>## -5</code></pre>
 
 </div>

@@ -171,14 +171,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
 <li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
 <li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
-<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#random-ml-question-1"><i class="fa fa-check"></i><b>4.2.4</b> Random ML question 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#mae-vs-mse"><i class="fa fa-check"></i><b>4.2.4</b> MAE vs MSE</a></li>
+<li class="chapter" data-level="4.2.5" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-1"><i class="fa fa-check"></i><b>4.2.5</b> Bias variance tradeoff</a></li>
+<li class="chapter" data-level="4.2.6" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#changing-the-companys-color"><i class="fa fa-check"></i><b>4.2.6</b> Changing the company’s color</a></li>
+<li class="chapter" data-level="4.2.7" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#repeated-significance-testing-error"><i class="fa fa-check"></i><b>4.2.7</b> Repeated significance testing error</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#what-are-some-standard-statistics-that-are-used-in-ab-testing.-what-are-the-alternative-tests-and-in-what-situations-would-you-use-them"><i class="fa fa-check"></i><b>5.1.1</b> What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</a></li>
+<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.1.1</b> AB Testing Basics 1</a></li>
+<li class="chapter" data-level="5.1.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.1.2</b> A/B testing new eCommerce recommendation engine</a></li>
+<li class="chapter" data-level="5.1.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.1.3</b> A/B testing a new landing page</a></li>
+<li class="chapter" data-level="5.1.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.1.4</b> Stopping an AB Test early</a></li>
+<li class="chapter" data-level="5.1.5" data-path="case-studies.html"><a href="case-studies.html#ab-testing-from-sql-to-modeling"><i class="fa fa-check"></i><b>5.1.5</b> AB Testing from SQL to modeling</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
@@ -224,8 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Database Querying</li>
 <li>Health records</li>
 </ul>
-<p><strong>Source:</strong> Actual interview question from google.
-<strong>Table:</strong> <code>encounter</code>
+<p><strong>Table:</strong> <code>encounter</code>
 <strong>Columns:</strong> <code>patient_id, encounter_id, encounter_start, encounter_end, encounter_class (in patient)</code></p>
 <p><a href="http://sqlfiddle.com/#!15/1b90a/19">sql fiddle</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="sql-questions.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> encounter</span>
@@ -283,8 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Database Querying</li>
 <li>Health records</li>
 </ul>
-<p><strong>Source:</strong> Actual interview question from google.
-<strong>Table:</strong> <code>encounter</code>
+<p><strong>Table:</strong> <code>encounter</code>
 <strong>Columns:</strong> <code>encounter_id, diagnosis_id, priority, encounter_start, encounter_end</code></p>
 <p><a href="http://sqlfiddle.com/#!15/02c6d/1">sql fiddle</a></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="sql-questions.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> encounters</span>
