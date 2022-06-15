@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Concepts</a>
+<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-statistical-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Statistical Concepts</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#probability-and-sampling-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Probability and Sampling Distributions</a></li>
 <li class="chapter" data-level="4.1.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1.2</b> Exploratory Data Analysis</a></li>
@@ -182,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.7" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#repeated-significance-testing-error"><i class="fa fa-check"></i><b>4.2.7</b> Repeated significance testing error</a></li>
 <li class="chapter" data-level="4.2.8" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-2"><i class="fa fa-check"></i><b>4.2.8</b> Bias Variance Tradeoff</a></li>
 <li class="chapter" data-level="4.2.9" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#drawing-cards-from-a-standard-deck"><i class="fa fa-check"></i><b>4.2.9</b> Drawing cards from a standard deck</a></li>
+<li class="chapter" data-level="4.2.10" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#assocation-vs-causation"><i class="fa fa-check"></i><b>4.2.10</b> Assocation vs causation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
@@ -256,9 +257,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-10"><a href="sql-questions.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> film</span>
 <span id="cb1-11"><a href="sql-questions.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> title;</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li><code>SUM CASE WHEN</code> - can use to aggregate a count of a certain row category.
-e.g.</li>
+<li><code>SUM CASE WHEN</code> - can use to aggregate a count of a certain row category.</li>
 </ol>
+<ul>
+<li>e.g.</li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="sql-questions.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
 <span id="cb2-2"><a href="sql-questions.html#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">SUM</span>(<span class="cf">CASE</span> rating</span>
 <span id="cb2-3"><a href="sql-questions.html#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="cf">WHEN</span> <span class="st">&#39;G&#39;</span> <span class="cf">THEN</span> <span class="dv">1</span> </span>
@@ -277,14 +280,14 @@ e.g.</li>
 <li><code>LAG(column, n)</code> returns column’s value at the row n rows before the current row</li>
 <li><code>LEAD(column, n)</code> returns column’s value at the row n rows after the current row</li>
 </ul>
-<p><code>{r echo=FALSE, out.width = '65 %', fig.align = 'center'} knitr::include_graphics("assets/images/sql_lead_ex.png")</code>
-<img src="assets/images/sql_lead_w_partition.png" width="65%" style="display: block; margin: auto;" />
+<p><img src="assets/images/sql_lead_ex.png" width="65%" style="display: block; margin: auto;" /></p>
+<p><img src="assets/images/sql_lead_w_partition.png" width="65%" style="display: block; margin: auto;" />
 <em>Fetching - Absolute</em></p>
 <ul>
 <li><code>FIRST_VALUE(column)</code> returns the first value in the table or partition</li>
 <li><code>LAST_VALUE(column)</code> returns the last value in the table or partition</li>
 </ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="assets/images/sql_first_last_value_ex.png" alt="RANGE BETWEEN clause extends the window to the end of the table or partition." width="65%" />
 <p class="caption">
 Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or partition.
