@@ -150,6 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.4" data-path="sql-questions.html"><a href="sql-questions.html#calculating-student-attendance"><i class="fa fa-check"></i><b>2.2.4</b> Calculating student attendance</a></li>
 <li class="chapter" data-level="2.2.5" data-path="sql-questions.html"><a href="sql-questions.html#music-streaming-behavior"><i class="fa fa-check"></i><b>2.2.5</b> Music streaming behavior</a></li>
 <li class="chapter" data-level="2.2.6" data-path="sql-questions.html"><a href="sql-questions.html#a-hotel-chains-loyal-customers"><i class="fa fa-check"></i><b>2.2.6</b> A hotel chain’s loyal customers</a></li>
+<li class="chapter" data-level="2.2.7" data-path="sql-questions.html"><a href="sql-questions.html#user-churn-on-instagram"><i class="fa fa-check"></i><b>2.2.7</b> User churn on Instagram</a></li>
+<li class="chapter" data-level="2.2.8" data-path="sql-questions.html"><a href="sql-questions.html#group-users-by-year-month-and-count-visits"><i class="fa fa-check"></i><b>2.2.8</b> Group users by year-month and count visits</a></li>
+<li class="chapter" data-level="2.2.9" data-path="sql-questions.html"><a href="sql-questions.html#weekly-retention-report-with-log-data"><i class="fa fa-check"></i><b>2.2.9</b> Weekly retention report with log data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
@@ -187,13 +190,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#case-study-tips"><i class="fa fa-check"></i><b>5.1</b> Case Study Tips</a></li>
+<li class="chapter" data-level="5.2" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.2</b> Sample Questions</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.1.1</b> AB Testing Basics 1</a></li>
-<li class="chapter" data-level="5.1.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.1.2</b> A/B testing new eCommerce recommendation engine</a></li>
-<li class="chapter" data-level="5.1.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.1.3</b> A/B testing a new landing page</a></li>
-<li class="chapter" data-level="5.1.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.1.4</b> Stopping an AB Test early</a></li>
-<li class="chapter" data-level="5.1.5" data-path="case-studies.html"><a href="case-studies.html#ab-testing-from-sql-to-modeling"><i class="fa fa-check"></i><b>5.1.5</b> AB Testing from SQL to modeling</a></li>
+<li class="chapter" data-level="5.2.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.2.1</b> AB Testing Basics 1</a></li>
+<li class="chapter" data-level="5.2.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.2.2</b> A/B testing new eCommerce recommendation engine</a></li>
+<li class="chapter" data-level="5.2.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.2.3</b> A/B testing a new landing page</a></li>
+<li class="chapter" data-level="5.2.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.2.4</b> Stopping an AB Test early</a></li>
+<li class="chapter" data-level="5.2.5" data-path="case-studies.html"><a href="case-studies.html#cohort-analysis"><i class="fa fa-check"></i><b>5.2.5</b> Cohort analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
@@ -228,10 +232,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="case-studies" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Case Studies<a href="case-studies.html#case-studies" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="sample-questions-3" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Sample Questions<a href="case-studies.html#sample-questions-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="ab-testing-basics-1" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> AB Testing Basics 1<a href="case-studies.html#ab-testing-basics-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Case studies for roles at the major technology companies FANNG (or MANNG now), commonly have an applied section where you are to apply your product sense and knowledge of stats and ML to solve a problem related to the position you applied for.</p>
+<p>The tips in this section were mostly complied via:</p>
+<ul>
+<li><a href="https://www.amazon.com/Trustworthy-Online-Controlled-Experiments-Practical/dp/1108724264">Trustworthy Online Controlled Experiments</a></li>
+<li><a href="https://www.youtube.com/c/DataInterviewPro">DataInterviewPro</a></li>
+<li><a href="https://www.amazon.com/Cracking-PM-Interview-Product-Technology/dp/0984782818">How to Land a Product Manager Job in Technology</a>.</li>
+</ul>
+<div id="case-study-tips" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Case Study Tips<a href="case-studies.html#case-study-tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Follow CAPER method when answering the case study questions:</p>
+<ol style="list-style-type: decimal">
+<li>Clarify -</li>
+</ol>
+<p><em>Some questions might include:</em> * What is the business objective?
+* What is the data that is available?
+* Can you make the broad question more specific?
+2. Assume</p>
+<ul>
+<li>State all of your assumptions.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Plan</li>
+</ol>
+<ul>
+<li>Outline and break down your plan into tasks. Explain each step and ask the interviewer if they agree with the plan?</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Execute</li>
+</ol>
+<ul>
+<li>Walk through each step. Prepare the data, do feature engineering, code, and apply the relevant stats and/or modeling</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Review</li>
+</ol>
+<ul>
+<li>Repeat back the business objective, and explain what you did in your analysis. Reflect on what can be added or removed to improve the analysis.</li>
+</ul>
+</div>
+<div id="sample-questions-3" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Sample Questions<a href="case-studies.html#sample-questions-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ab-testing-basics-1" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> AB Testing Basics 1<a href="case-studies.html#ab-testing-basics-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What are some standard statistics that are used in AB Testing. What are the alternative tests and in what situations would you use them?</p>
 <p>A/B testing is an experimental design, and in its <a href="https://towardsdatascience.com/a-b-testing-with-chi-squared-test-to-maximize-conversions-and-ctrs-6599271a2c31">simplest sense is an experiment on two variants to see which performs better based on a given metric</a>. The null hypothesis would be that the effect of condition A is no different than the effect of condition B. Examples of a statistical test used in A/B designs are:</p>
 <ul>
@@ -258,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 </ul></li>
 </ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-87"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-90"></span>
 <img src="assets/images/which_ttest.jpeg" alt="Which T-test to use" width="70%" />
 <p class="caption">
 Figure 5.1: Which T-test to use
@@ -321,8 +364,8 @@ Figure 5.1: Which T-test to use
 </ul></li>
 </ul>
 </div>
-<div id="ab-testing-new-ecommerce-recommendation-engine" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> A/B testing new eCommerce recommendation engine<a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ab-testing-new-ecommerce-recommendation-engine" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> A/B testing new eCommerce recommendation engine<a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>A/B Testing</li>
 <li>Product</li>
@@ -332,8 +375,8 @@ Figure 5.1: Which T-test to use
 <p>Suppose you’re working for an eCommerce company like Amazon. Your team is testing a new algorithm to generate recommended products for users. You’ve been tasked with setting up an A/B test to help measure the impact of the change, and decide whether or not to roll out the new recommendation engine more widely.</p>
 <p>Walk through the steps you would take to set up the A/B test, and highlight some examples of potential pitfalls/risks in your analysis.</p>
 </div>
-<div id="ab-testing-a-new-landing-page" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> A/B testing a new landing page<a href="case-studies.html#ab-testing-a-new-landing-page" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ab-testing-a-new-landing-page" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> A/B testing a new landing page<a href="case-studies.html#ab-testing-a-new-landing-page" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Python</li>
 <li>Product</li>
@@ -351,8 +394,8 @@ Figure 5.1: Which T-test to use
 </ul>
 <p>Given this information, you’re asked to come up with a recommendation for the marketing team – should the marketing team adopt the new landing page? The team wants the landing page with the highest conversion rate.</p>
 </div>
-<div id="stopping-an-ab-test-early" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Stopping an AB Test early<a href="case-studies.html#stopping-an-ab-test-early" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="stopping-an-ab-test-early" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Stopping an AB Test early<a href="case-studies.html#stopping-an-ab-test-early" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>AB Testing</li>
 <li>Statistics</li>
@@ -363,8 +406,9 @@ Figure 5.1: Which T-test to use
 <li><strong>Bayesian A/B Testing</strong> - With Bayesian experiment design you can stop your experiment at any time and make perfectly valid inferences. Given the real-time nature of web experiments, Bayesian design seems like the way forward.</li>
 </ul>
 </div>
-<div id="ab-testing-from-sql-to-modeling" class="section level3 hasAnchor" number="5.1.5">
-<h3><span class="header-section-number">5.1.5</span> AB Testing from SQL to modeling<a href="case-studies.html#ab-testing-from-sql-to-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cohort-analysis" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Cohort analysis<a href="case-studies.html#cohort-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://towardsdatascience.com/data-driven-growth-with-python-part-2-customer-segmentation-5c019d150444">look through</a></p>
 
 </div>
 </div>

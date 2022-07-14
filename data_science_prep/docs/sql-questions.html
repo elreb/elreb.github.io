@@ -150,6 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.4" data-path="sql-questions.html"><a href="sql-questions.html#calculating-student-attendance"><i class="fa fa-check"></i><b>2.2.4</b> Calculating student attendance</a></li>
 <li class="chapter" data-level="2.2.5" data-path="sql-questions.html"><a href="sql-questions.html#music-streaming-behavior"><i class="fa fa-check"></i><b>2.2.5</b> Music streaming behavior</a></li>
 <li class="chapter" data-level="2.2.6" data-path="sql-questions.html"><a href="sql-questions.html#a-hotel-chains-loyal-customers"><i class="fa fa-check"></i><b>2.2.6</b> A hotel chain’s loyal customers</a></li>
+<li class="chapter" data-level="2.2.7" data-path="sql-questions.html"><a href="sql-questions.html#user-churn-on-instagram"><i class="fa fa-check"></i><b>2.2.7</b> User churn on Instagram</a></li>
+<li class="chapter" data-level="2.2.8" data-path="sql-questions.html"><a href="sql-questions.html#group-users-by-year-month-and-count-visits"><i class="fa fa-check"></i><b>2.2.8</b> Group users by year-month and count visits</a></li>
+<li class="chapter" data-level="2.2.9" data-path="sql-questions.html"><a href="sql-questions.html#weekly-retention-report-with-log-data"><i class="fa fa-check"></i><b>2.2.9</b> Weekly retention report with log data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
@@ -187,13 +190,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.1</b> Sample Questions</a>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#case-study-tips"><i class="fa fa-check"></i><b>5.1</b> Case Study Tips</a></li>
+<li class="chapter" data-level="5.2" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.2</b> Sample Questions</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.1.1</b> AB Testing Basics 1</a></li>
-<li class="chapter" data-level="5.1.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.1.2</b> A/B testing new eCommerce recommendation engine</a></li>
-<li class="chapter" data-level="5.1.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.1.3</b> A/B testing a new landing page</a></li>
-<li class="chapter" data-level="5.1.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.1.4</b> Stopping an AB Test early</a></li>
-<li class="chapter" data-level="5.1.5" data-path="case-studies.html"><a href="case-studies.html#ab-testing-from-sql-to-modeling"><i class="fa fa-check"></i><b>5.1.5</b> AB Testing from SQL to modeling</a></li>
+<li class="chapter" data-level="5.2.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.2.1</b> AB Testing Basics 1</a></li>
+<li class="chapter" data-level="5.2.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.2.2</b> A/B testing new eCommerce recommendation engine</a></li>
+<li class="chapter" data-level="5.2.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.2.3</b> A/B testing a new landing page</a></li>
+<li class="chapter" data-level="5.2.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.2.4</b> Stopping an AB Test early</a></li>
+<li class="chapter" data-level="5.2.5" data-path="case-studies.html"><a href="case-studies.html#cohort-analysis"><i class="fa fa-check"></i><b>5.2.5</b> Cohort analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
@@ -228,6 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sql-questions" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> SQL questions<a href="sql-questions.html#sql-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Note the solutions provided here are based off of PostgreSQL syntax of SQL.</em></p>
 <div id="sql-tips" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> SQL tips<a href="sql-questions.html#sql-tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Some keywords are especially useful for SQL interview problems. Here are some that I suggest to know how to use well:</p>
@@ -308,6 +313,11 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 </ul></li>
 </ul>
 <p><img src="assets/images/sql_movingavg_ex.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Also, use tools to make mock datasets to <em>CHECK</em> your work. Try to first solve as an interview would, with no interactivity. Pay attention to things missed between when you solved it and checked your work.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://tableconvert.com/excel-to-sql">Convert excel table to help generate SQL insert statements</a></li>
+<li>SQL sandboxes:<a href="https://www.db-fiddle.com/">db-fiddle.com</a>, and <a href="http://sqlfiddle.com">sqlfiddle.com</a></li>
+</ol>
 </div>
 <div id="sample-questions" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Sample Questions<a href="sql-questions.html#sample-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -438,7 +448,7 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 <tr class="even">
 <td>action</td>
 <td>string</td>
-<td>Will be one of the following values, ‘view,’ ‘answer,’ ‘skip’</td>
+<td>Will be one of the following values, ‘view’, ‘answer’, ‘skip’</td>
 </tr>
 <tr class="odd">
 <td>question_id</td>
@@ -535,12 +545,17 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 <tr class="odd">
 <td>attendance_status</td>
 <td>string</td>
-<td>Possible values are [‘present,’ ‘tardy,’ ‘absent’]</td>
+<td>Possible values are [‘present’, ‘tardy’, ‘absent’]</td>
 </tr>
 </tbody>
 </table>
 <p>Table 2: <code>student_demographic</code></p>
 <table>
+<colgroup>
+<col width="35%" />
+<col width="29%" />
+<col width="35%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Column Name</th>
@@ -743,7 +758,7 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 <div id="a-hotel-chains-loyal-customers" class="section level3 hasAnchor" number="2.2.6">
 <h3><span class="header-section-number">2.2.6</span> A hotel chain’s loyal customers<a href="sql-questions.html#a-hotel-chains-loyal-customers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose you’re an analyst for a major US hotel chain which has locations all over the US. Your marketing team is planning a promotion focused around loyal customers, and they are trying to forecast how much revenue the promotion will bring in. However, they need help from you to understand how much revenue comes from “loyal” customers to plug into their model.</p>
-<p>A “loyal” customer is defined as (1) having a membership with your company’s point system, (2) having &gt;2 stays at each hotel the customer visited, (3) having stayed at 3 different locations throughout the US.</p>
+<p>A “loyal” customer is defined as (1) having a membership with your company’s point system, (2) having &gt;=2 stays at each hotel the customer visited, (3) having stayed at 3 different locations throughout the US.</p>
 <p>You have a table showing all transactions made in 2017. The schema of the table is below:</p>
 <table>
 <caption><code>customer_transactions</code></caption>
@@ -798,21 +813,372 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 </tbody>
 </table>
 <p>Given this, can you write a SQL query that calculates percent of revenue loyal customers brought in 2017?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="sql-questions.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> plus_two_hotel <span class="kw">AS</span> (</span>
-<span id="cb8-2"><a href="sql-questions.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> customer_id, hotel_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> two_plus_at_hotel</span>
-<span id="cb8-3"><a href="sql-questions.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> customer_transactions</span>
-<span id="cb8-4"><a href="sql-questions.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> customer_id, hotel_id</span>
-<span id="cb8-5"><a href="sql-questions.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;</span> <span class="dv">2</span></span>
-<span id="cb8-6"><a href="sql-questions.html#cb8-6" aria-hidden="true" tabindex="-1"></a>), three_locations <span class="kw">AS</span> (</span>
-<span id="cb8-7"><a href="sql-questions.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> customer_id, <span class="kw">DISTINCT</span>(hotel_id), <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> three_hotels</span>
-<span id="cb8-8"><a href="sql-questions.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> customer_transactions</span>
-<span id="cb8-9"><a href="sql-questions.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> customer_id, <span class="kw">DISTINCT</span>(hotel_id)</span>
-<span id="cb8-10"><a href="sql-questions.html#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;</span> <span class="dv">3</span></span>
-<span id="cb8-11"><a href="sql-questions.html#cb8-11" aria-hidden="true" tabindex="-1"></a>), joined <span class="kw">AS</span> (</span>
-<span id="cb8-12"><a href="sql-questions.html#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> </span>
-<span id="cb8-13"><a href="sql-questions.html#cb8-13" aria-hidden="true" tabindex="-1"></a>    customer_id, </span>
-<span id="cb8-14"><a href="sql-questions.html#cb8-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-15"><a href="sql-questions.html#cb8-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><a href="http://sqlfiddle.com/#!15/b4553/19">sqlfiddle</a></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="sql-questions.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> customer_transactions </span>
+<span id="cb8-2"><a href="sql-questions.html#cb8-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb8-3"><a href="sql-questions.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    customer_id <span class="dt">int</span>,</span>
+<span id="cb8-4"><a href="sql-questions.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    hotel_id    <span class="dt">varchar</span>(<span class="dv">300</span>),</span>
+<span id="cb8-5"><a href="sql-questions.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    transaction_id  <span class="dt">varchar</span>(<span class="dv">300</span>),</span>
+<span id="cb8-6"><a href="sql-questions.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    first_night <span class="dt">varchar</span>(<span class="dv">300</span>),</span>
+<span id="cb8-7"><a href="sql-questions.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    number_of_nights    <span class="dt">varchar</span>(<span class="dv">300</span>),</span>
+<span id="cb8-8"><a href="sql-questions.html#cb8-8" aria-hidden="true" tabindex="-1"></a>    total_spend <span class="dt">int</span>,</span>
+<span id="cb8-9"><a href="sql-questions.html#cb8-9" aria-hidden="true" tabindex="-1"></a>    is_member   <span class="dt">boolean</span></span>
+<span id="cb8-10"><a href="sql-questions.html#cb8-10" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb8-11"><a href="sql-questions.html#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="sql-questions.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="st">&#39;2020-01-01&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-13"><a href="sql-questions.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;2020-01-02&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-14"><a href="sql-questions.html#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">2</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;3&#39;</span>, <span class="st">&#39;2020-01-03&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-15"><a href="sql-questions.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">3</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;2020-01-04&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-16"><a href="sql-questions.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">2</span>, <span class="st">&#39;5&#39;</span>, <span class="st">&#39;5&#39;</span>, <span class="st">&#39;2020-01-05&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-17"><a href="sql-questions.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">2</span>, <span class="st">&#39;6&#39;</span>, <span class="st">&#39;6&#39;</span>, <span class="st">&#39;2020-01-06&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-18"><a href="sql-questions.html#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">3</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;2020-01-07&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-19"><a href="sql-questions.html#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">3</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;8&#39;</span>, <span class="st">&#39;2020-01-08&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-20"><a href="sql-questions.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">4</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;9&#39;</span>, <span class="st">&#39;2020-01-09&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-21"><a href="sql-questions.html#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">4</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;10&#39;</span>, <span class="st">&#39;2020-01-10&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-22"><a href="sql-questions.html#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;11&#39;</span>, <span class="st">&#39;2020-01-11&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-23"><a href="sql-questions.html#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;12&#39;</span>, <span class="st">&#39;2020-01-12&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-24"><a href="sql-questions.html#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;13&#39;</span>, <span class="st">&#39;2020-01-13&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-25"><a href="sql-questions.html#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;14&#39;</span>, <span class="st">&#39;2020-01-14&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-26"><a href="sql-questions.html#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;15&#39;</span>, <span class="st">&#39;2020-01-15&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-27"><a href="sql-questions.html#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;6&#39;</span>, <span class="st">&#39;16&#39;</span>, <span class="st">&#39;2020-01-16&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-28"><a href="sql-questions.html#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;17&#39;</span>, <span class="st">&#39;2020-01-17&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-29"><a href="sql-questions.html#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;18&#39;</span>, <span class="st">&#39;2020-01-18&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-30"><a href="sql-questions.html#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">8</span>, <span class="st">&#39;6&#39;</span>, <span class="st">&#39;19&#39;</span>, <span class="st">&#39;2020-01-19&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">TRUE</span>);</span>
+<span id="cb8-31"><a href="sql-questions.html#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">7</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;20&#39;</span>, <span class="st">&#39;2020-01-20&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-32"><a href="sql-questions.html#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">7</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;21&#39;</span>, <span class="st">&#39;2020-01-21&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-33"><a href="sql-questions.html#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">6</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;22&#39;</span>, <span class="st">&#39;2020-01-22&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-34"><a href="sql-questions.html#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">6</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;23&#39;</span>, <span class="st">&#39;2020-01-23&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-35"><a href="sql-questions.html#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">5</span>, <span class="st">&#39;7&#39;</span>, <span class="st">&#39;24&#39;</span>, <span class="st">&#39;2020-01-24&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-36"><a href="sql-questions.html#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> customer_transactions (customer_id,hotel_id,transaction_id,first_night,number_of_nights,total_spend,is_member) <span class="kw">VALUES</span> (<span class="dv">5</span>, <span class="st">&#39;4&#39;</span>, <span class="st">&#39;25&#39;</span>, <span class="st">&#39;2020-01-25&#39;</span>, <span class="st">&#39;1&#39;</span>, <span class="dv">1000</span>, <span class="kw">FALSE</span>);</span>
+<span id="cb8-37"><a href="sql-questions.html#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="sql-questions.html#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">--~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb8-39"><a href="sql-questions.html#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="sql-questions.html#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> plus_two_hotel <span class="kw">AS</span> (</span>
+<span id="cb8-41"><a href="sql-questions.html#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> customer_id, hotel_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> two_plus_at_hotel, <span class="dv">1</span> <span class="kw">AS</span> plus_two_hotel</span>
+<span id="cb8-42"><a href="sql-questions.html#cb8-42" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> customer_transactions</span>
+<span id="cb8-43"><a href="sql-questions.html#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> customer_id, hotel_id</span>
+<span id="cb8-44"><a href="sql-questions.html#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;=</span> <span class="dv">2</span></span>
+<span id="cb8-45"><a href="sql-questions.html#cb8-45" aria-hidden="true" tabindex="-1"></a>), three_locations <span class="kw">AS</span> (</span>
+<span id="cb8-46"><a href="sql-questions.html#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> customer_id, <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span>(hotel_id)) <span class="kw">AS</span> three_hotels, <span class="dv">1</span> <span class="kw">AS</span> three_locations</span>
+<span id="cb8-47"><a href="sql-questions.html#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> customer_transactions</span>
+<span id="cb8-48"><a href="sql-questions.html#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> customer_id</span>
+<span id="cb8-49"><a href="sql-questions.html#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;</span> <span class="dv">3</span></span>
+<span id="cb8-50"><a href="sql-questions.html#cb8-50" aria-hidden="true" tabindex="-1"></a>), joined <span class="kw">AS</span> (</span>
+<span id="cb8-51"><a href="sql-questions.html#cb8-51" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> </span>
+<span id="cb8-52"><a href="sql-questions.html#cb8-52" aria-hidden="true" tabindex="-1"></a>    a.customer_id,</span>
+<span id="cb8-53"><a href="sql-questions.html#cb8-53" aria-hidden="true" tabindex="-1"></a>    total_spend,</span>
+<span id="cb8-54"><a href="sql-questions.html#cb8-54" aria-hidden="true" tabindex="-1"></a>    is_member,</span>
+<span id="cb8-55"><a href="sql-questions.html#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COALESCE</span>(plus_two_hotel, <span class="dv">0</span>) <span class="kw">AS</span> plus_two_hotel,</span>
+<span id="cb8-56"><a href="sql-questions.html#cb8-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COALESCE</span>(three_locations, <span class="dv">0</span>) <span class="kw">AS</span> three_locations</span>
+<span id="cb8-57"><a href="sql-questions.html#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> customer_transactions a</span>
+<span id="cb8-58"><a href="sql-questions.html#cb8-58" aria-hidden="true" tabindex="-1"></a>  <span class="kw">LEFT</span> <span class="kw">JOIN</span> plus_two_hotel <span class="kw">AS</span> b </span>
+<span id="cb8-59"><a href="sql-questions.html#cb8-59" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> a.customer_id <span class="op">=</span> b.customer_id</span>
+<span id="cb8-60"><a href="sql-questions.html#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="kw">LEFT</span> <span class="kw">JOIN</span> three_locations <span class="kw">AS</span> c</span>
+<span id="cb8-61"><a href="sql-questions.html#cb8-61" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> a.customer_id <span class="op">=</span> c.customer_id</span>
+<span id="cb8-62"><a href="sql-questions.html#cb8-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-63"><a href="sql-questions.html#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb8-64"><a href="sql-questions.html#cb8-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(((<span class="kw">SELECT</span> <span class="fu">SUM</span>(total_spend) <span class="kw">AS</span> member_spent <span class="kw">FROM</span> joined <span class="kw">WHERE</span> plus_two_hotel <span class="op">=</span> <span class="dv">1</span> <span class="kw">AND</span> three_locations <span class="op">=</span> <span class="dv">1</span> <span class="kw">AND</span> is_member <span class="op">=</span> <span class="kw">TRUE</span>):<span class="ch">:float</span> <span class="op">/</span> </span>
+<span id="cb8-65"><a href="sql-questions.html#cb8-65" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">SELECT</span> <span class="fu">SUM</span>(total_spend) <span class="kw">AS</span> all_users_spent <span class="kw">FROM</span> joined):<span class="ch">:float</span>):<span class="ch">:numeric</span> <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>) <span class="kw">AS</span> percent_revenue_of_loyal_customers_in_2007</span>
+<span id="cb8-66"><a href="sql-questions.html#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="co">--67.44</span></span></code></pre></div>
+</div>
+<div id="user-churn-on-instagram" class="section level3 hasAnchor" number="2.2.7">
+<h3><span class="header-section-number">2.2.7</span> User churn on Instagram<a href="sql-questions.html#user-churn-on-instagram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How would you measure user churn on Instagram? <a href="https://youtu.be/4MWOXXLxSb4">source</a></p>
+<p>Assume that a user is considered churned if they haven’t displayed any active behavior (read, comment, like, post) the past 7 days. How many users have churned as of today? Use the table below to address this question:</p>
+<table>
+<caption><code>usage</code></caption>
+<thead>
+<tr class="header">
+<th>timestamp</th>
+<th>user_id</th>
+<th>activity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>‘2022-01-08 04:05:06’</td>
+<td>‘read’</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>‘2022-01-01 04:05:06’</td>
+<td>‘comment’</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>‘2022-01-05 04:05:06’</td>
+<td>‘like’</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>‘2022-01-05 04:05:06’</td>
+<td>‘post’</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>‘2022-01-06 04:05:06’</td>
+<td>‘read’</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>‘2022-01-02 04:05:06’</td>
+<td>‘read’</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>‘2022-01-03 04:05:06’</td>
+<td>‘comment’</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>‘2022-01-04 04:05:06’</td>
+<td>‘sign-in’</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>‘2022-03-05 04:05:06’</td>
+<td>‘post’</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=efd397fe58aac2844991d94b36ff5ed4">db_fiddle</a></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="sql-questions.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">usage</span></span>
+<span id="cb9-2"><a href="sql-questions.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  (user_id <span class="dt">int</span>, time_stamp <span class="dt">TIMESTAMP</span>, activity_type <span class="dt">varchar</span>);</span>
+<span id="cb9-3"><a href="sql-questions.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="sql-questions.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> <span class="kw">usage</span></span>
+<span id="cb9-5"><a href="sql-questions.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  (user_id, time_stamp, activity_type)</span>
+<span id="cb9-6"><a href="sql-questions.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb9-7"><a href="sql-questions.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span>, <span class="st">&#39;2022-01-08 04:05:06&#39;</span>, <span class="st">&#39;read&#39;</span>),</span>
+<span id="cb9-8"><a href="sql-questions.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">2</span>, <span class="st">&#39;2022-01-01 04:05:06&#39;</span>, <span class="st">&#39;comment&#39;</span>),</span>
+<span id="cb9-9"><a href="sql-questions.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">3</span>, <span class="st">&#39;2022-01-05 04:05:06&#39;</span>, <span class="st">&#39;like&#39;</span>),</span>
+<span id="cb9-10"><a href="sql-questions.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">3</span>, <span class="st">&#39;2022-01-05 04:05:06&#39;</span>, <span class="st">&#39;post&#39;</span>),</span>
+<span id="cb9-11"><a href="sql-questions.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span>, <span class="st">&#39;2022-01-06 04:05:06&#39;</span>, <span class="st">&#39;read&#39;</span>),</span>
+<span id="cb9-12"><a href="sql-questions.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">4</span>, <span class="st">&#39;2022-01-02 04:05:06&#39;</span>, <span class="st">&#39;read&#39;</span>),</span>
+<span id="cb9-13"><a href="sql-questions.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">3</span>, <span class="st">&#39;2022-01-03 04:05:06&#39;</span>, <span class="st">&#39;comment&#39;</span>),</span>
+<span id="cb9-14"><a href="sql-questions.html#cb9-14" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">2</span>, <span class="st">&#39;2022-01-04 04:05:06&#39;</span>, <span class="st">&#39;sign-in&#39;</span>),</span>
+<span id="cb9-15"><a href="sql-questions.html#cb9-15" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span>, <span class="st">&#39;2022-03-05 04:05:06&#39;</span>, <span class="st">&#39;post&#39;</span>)</span>
+<span id="cb9-16"><a href="sql-questions.html#cb9-16" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb9-17"><a href="sql-questions.html#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="sql-questions.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">---------</span></span>
+<span id="cb9-19"><a href="sql-questions.html#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="sql-questions.html#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="sql-questions.html#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">-- out of order - need a window function with ORDER BY;</span></span>
+<span id="cb9-22"><a href="sql-questions.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> prev_time_tbl <span class="kw">AS</span> (</span>
+<span id="cb9-23"><a href="sql-questions.html#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb9-24"><a href="sql-questions.html#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">*</span>,</span>
+<span id="cb9-25"><a href="sql-questions.html#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">LEAD</span>(time_stamp) <span class="kw">OVER</span>(<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> time_stamp <span class="kw">DESC</span>) <span class="kw">AS</span> prev_time</span>
+<span id="cb9-26"><a href="sql-questions.html#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">usage</span></span>
+<span id="cb9-27"><a href="sql-questions.html#cb9-27" aria-hidden="true" tabindex="-1"></a>), churn_or_not_tbl <span class="kw">AS</span> (</span>
+<span id="cb9-28"><a href="sql-questions.html#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb9-29"><a href="sql-questions.html#cb9-29" aria-hidden="true" tabindex="-1"></a>        user_id,</span>
+<span id="cb9-30"><a href="sql-questions.html#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span> <span class="cf">WHEN</span> </span>
+<span id="cb9-31"><a href="sql-questions.html#cb9-31" aria-hidden="true" tabindex="-1"></a>            (time_stamp:<span class="ch">:date</span> <span class="op">-</span> prev_time:<span class="ch">:date</span> <span class="op">&gt;=</span> <span class="dv">7</span>)</span>
+<span id="cb9-32"><a href="sql-questions.html#cb9-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">THEN</span> <span class="dv">1</span> </span>
+<span id="cb9-33"><a href="sql-questions.html#cb9-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span> churn_or_not</span>
+<span id="cb9-34"><a href="sql-questions.html#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> prev_time_tbl</span>
+<span id="cb9-35"><a href="sql-questions.html#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> user_id, churn_or_not <span class="kw">DESC</span></span>
+<span id="cb9-36"><a href="sql-questions.html#cb9-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-37"><a href="sql-questions.html#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb9-38"><a href="sql-questions.html#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(churn_or_not) <span class="kw">AS</span> <span class="ot">&quot;# churned in 7 days ever&quot;</span></span>
+<span id="cb9-39"><a href="sql-questions.html#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> churn_or_not_tbl;</span></code></pre></div>
+</div>
+<div id="group-users-by-year-month-and-count-visits" class="section level3 hasAnchor" number="2.2.8">
+<h3><span class="header-section-number">2.2.8</span> Group users by year-month and count visits<a href="sql-questions.html#group-users-by-year-month-and-count-visits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From the following table, generate a summary table with the visits by each user for each year-month for the first 4 months of 2019 (2019-01-01 - 2019-04-30).</p>
+<table>
+<caption><code>transaction</code></caption>
+<thead>
+<tr class="header">
+<th>user_id</th>
+<th>tstamp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2019-01-03 20:00</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2019-01-05 20:00</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>2019-01-07 20:00</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2019-03-07 20:00</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://www.sqlfiddle.com/#!17/5e316/3">sql_fiddle</a></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="sql-questions.html#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="sql-questions.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="sql-questions.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">transaction</span> </span>
+<span id="cb10-4"><a href="sql-questions.html#cb10-4" aria-hidden="true" tabindex="-1"></a>(user_id <span class="dt">int</span>, tstamp <span class="dt">timestamp</span>);</span>
+<span id="cb10-5"><a href="sql-questions.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="sql-questions.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> <span class="kw">transaction</span> </span>
+<span id="cb10-7"><a href="sql-questions.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> </span>
+<span id="cb10-8"><a href="sql-questions.html#cb10-8" aria-hidden="true" tabindex="-1"></a> (<span class="dv">1</span>,<span class="st">&#39;2019-01-03 20:00&#39;</span>),</span>
+<span id="cb10-9"><a href="sql-questions.html#cb10-9" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>,<span class="st">&#39;2019-01-05 20:00&#39;</span>),</span>
+<span id="cb10-10"><a href="sql-questions.html#cb10-10" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>,<span class="st">&#39;2019-01-07 20:00&#39;</span>),  <span class="co">-- multiple visits this month</span></span>
+<span id="cb10-11"><a href="sql-questions.html#cb10-11" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>,<span class="st">&#39;2019-02-03 20:00&#39;</span>),  <span class="co">-- next month</span></span>
+<span id="cb10-12"><a href="sql-questions.html#cb10-12" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>,<span class="st">&#39;2019-03-05 20:00&#39;</span>),  <span class="co">-- next month</span></span>
+<span id="cb10-13"><a href="sql-questions.html#cb10-13" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>,<span class="st">&#39;2019-01-07 20:00&#39;</span>),</span>
+<span id="cb10-14"><a href="sql-questions.html#cb10-14" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>,<span class="st">&#39;2019-03-07 20:00&#39;</span>),  <span class="co">-- not next month</span></span>
+<span id="cb10-15"><a href="sql-questions.html#cb10-15" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span>,<span class="st">&#39;2019-01-07 20:00&#39;</span>),  <span class="co">-- just once</span></span>
+<span id="cb10-16"><a href="sql-questions.html#cb10-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>,<span class="st">&#39;2019-02-07 20:00&#39;</span>); <span class="co">-- just once</span></span>
+<span id="cb10-17"><a href="sql-questions.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">-----------</span></span>
+<span id="cb10-18"><a href="sql-questions.html#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="sql-questions.html#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> agged_by_month <span class="kw">AS</span> (</span>
+<span id="cb10-20"><a href="sql-questions.html#cb10-20" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SELECT</span> patient_id,</span>
+<span id="cb10-21"><a href="sql-questions.html#cb10-21" aria-hidden="true" tabindex="-1"></a>         date_trunc(<span class="st">&#39;month&#39;</span>, tstamp) <span class="kw">AS</span> <span class="dt">month</span>,</span>
+<span id="cb10-22"><a href="sql-questions.html#cb10-22" aria-hidden="true" tabindex="-1"></a>         <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">AS</span> item_transactions</span>
+<span id="cb10-23"><a href="sql-questions.html#cb10-23" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FROM</span>   <span class="kw">transaction</span></span>
+<span id="cb10-24"><a href="sql-questions.html#cb10-24" aria-hidden="true" tabindex="-1"></a>   <span class="kw">WHERE</span>  tstamp <span class="op">&gt;=</span> <span class="st">&#39;2019-01-01&#39;</span>:<span class="ch">:date</span></span>
+<span id="cb10-25"><a href="sql-questions.html#cb10-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span>    tstamp <span class="op">&lt;</span>  <span class="st">&#39;2019-05-01&#39;</span>:<span class="ch">:date</span> <span class="co">-- time range of interest.</span></span>
+<span id="cb10-26"><a href="sql-questions.html#cb10-26" aria-hidden="true" tabindex="-1"></a>   <span class="kw">GROUP</span> <span class="kw">BY</span> patient_id, <span class="dv">2</span></span>
+<span id="cb10-27"><a href="sql-questions.html#cb10-27" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb10-28"><a href="sql-questions.html#cb10-28" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb10-29"><a href="sql-questions.html#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">distinct</span>(patient_id) <span class="kw">AS</span> <span class="fu">user</span>,</span>
+<span id="cb10-30"><a href="sql-questions.html#cb10-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">to_char</span>(<span class="dt">month</span>, <span class="st">&#39;YYYY-MM&#39;</span>) <span class="kw">AS</span> <span class="dt">month</span>,</span>
+<span id="cb10-31"><a href="sql-questions.html#cb10-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sum</span>(item_transactions) <span class="kw">AS</span> num_visits</span>
+<span id="cb10-32"><a href="sql-questions.html#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> agged_by_month</span>
+<span id="cb10-33"><a href="sql-questions.html#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dv">1</span>, <span class="dv">2</span></span>
+<span id="cb10-34"><a href="sql-questions.html#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dv">1</span></span></code></pre></div>
+</div>
+<div id="weekly-retention-report-with-log-data" class="section level3 hasAnchor" number="2.2.9">
+<h3><span class="header-section-number">2.2.9</span> Weekly retention report with log data<a href="sql-questions.html#weekly-retention-report-with-log-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A new feature in XYZ’s core web app has rolled out to 10% of all users. Are users coming back to the feature after trying it for the first time? Generate a weekly rention report using the feature usage log.</p>
+<ul>
+<li>The first row of the output sample below reads: 1000 users tried the schedule feature in the week of 2019-4-20 - 2019-4-27 for the first time, and 10% of them used it again 20 weeks later</li>
+<li>n week retention = % of distinct users that came back between 7n days and 7(n-1) days after their first visit<br />
+</li>
+<li>Users don’t have to consistently come back every single week between Week 0 and Week n, where week 0 is when they first experienced the feature, to be considered retention for Week n</li>
+</ul>
+<table>
+<caption><code>log_data</code></caption>
+<thead>
+<tr class="header">
+<th>created_at</th>
+<th>user_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2019-03-23</td>
+<td>425</td>
+</tr>
+<tr class="even">
+<td>2019-03-23</td>
+<td>426</td>
+</tr>
+<tr class="odd">
+<td>2019-03-24</td>
+<td>425</td>
+</tr>
+<tr class="even">
+<td>2019-03-25</td>
+<td>427</td>
+</tr>
+</tbody>
+</table>
+<p>Expected output:</p>
+<table>
+<thead>
+<tr class="header">
+<th>cohort</th>
+<th>retention_week</th>
+<th>n_users</th>
+<th>retention_r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2019-04-21</td>
+<td>20</td>
+<td>1000</td>
+<td>10%</td>
+</tr>
+<tr class="even">
+<td>2019-04-21</td>
+<td>21</td>
+<td>1000</td>
+<td>8%</td>
+</tr>
+<tr class="odd">
+<td>2019-04-28</td>
+<td>1</td>
+<td>800</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<p>(sql_fiddle)[<a href="https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=c13fa219d1324bdd58a6373201accbe6" class="uri">https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=c13fa219d1324bdd58a6373201accbe6</a>]</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="sql-questions.html#cb11-1" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-2"><a href="sql-questions.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> log_data</span>
+<span id="cb11-3"><a href="sql-questions.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    (created_at <span class="dt">timestamp</span>, user_id <span class="dt">int</span>)</span>
+<span id="cb11-4"><a href="sql-questions.html#cb11-4" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb11-5"><a href="sql-questions.html#cb11-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-6"><a href="sql-questions.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> log_data</span>
+<span id="cb11-7"><a href="sql-questions.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    (created_at, user_id)</span>
+<span id="cb11-8"><a href="sql-questions.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb11-9"><a href="sql-questions.html#cb11-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-04 12:00:00&#39;</span>, <span class="dv">425</span>),</span>
+<span id="cb11-10"><a href="sql-questions.html#cb11-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-03-27 12:00:00&#39;</span>, <span class="dv">426</span>),</span>
+<span id="cb11-11"><a href="sql-questions.html#cb11-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-03-25 12:00:00&#39;</span>, <span class="dv">425</span>), </span>
+<span id="cb11-12"><a href="sql-questions.html#cb11-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-02 12:00:00&#39;</span>, <span class="dv">427</span>),</span>
+<span id="cb11-13"><a href="sql-questions.html#cb11-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-02 12:00:00&#39;</span>, <span class="dv">425</span>),</span>
+<span id="cb11-14"><a href="sql-questions.html#cb11-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-03-19 12:00:00&#39;</span>, <span class="dv">425</span>),</span>
+<span id="cb11-15"><a href="sql-questions.html#cb11-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-11 12:00:00&#39;</span>, <span class="dv">429</span>),</span>
+<span id="cb11-16"><a href="sql-questions.html#cb11-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-06 12:00:00&#39;</span>, <span class="dv">423</span>),</span>
+<span id="cb11-17"><a href="sql-questions.html#cb11-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-09 12:00:00&#39;</span>, <span class="dv">421</span>),</span>
+<span id="cb11-18"><a href="sql-questions.html#cb11-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-03-20 12:00:00&#39;</span>, <span class="dv">426</span>),</span>
+<span id="cb11-19"><a href="sql-questions.html#cb11-19" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-13 12:00:00&#39;</span>, <span class="dv">423</span>),</span>
+<span id="cb11-20"><a href="sql-questions.html#cb11-20" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;2019-04-11 12:00:00&#39;</span>, <span class="dv">421</span>)</span>
+<span id="cb11-21"><a href="sql-questions.html#cb11-21" aria-hidden="true" tabindex="-1"></a>;</span>
+<span id="cb11-22"><a href="sql-questions.html#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="sql-questions.html#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">-- ~~~~~~~~~~~~~~;</span></span>
+<span id="cb11-24"><a href="sql-questions.html#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="sql-questions.html#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="sql-questions.html#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">-- STEPS:;</span></span>
+<span id="cb11-27"><a href="sql-questions.html#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co">-- 1. get cohort date and the start of the week, and the start of the week for the previous week for each observation in many dataset;</span></span>
+<span id="cb11-28"><a href="sql-questions.html#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">-- 2. count the retained by seeing if the date of log is within 7 days of the last - level is cohort and the start of the first week of the action; </span></span>
+<span id="cb11-29"><a href="sql-questions.html#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="co">-- 3. Get total counts for cohort to join</span></span>
+<span id="cb11-30"><a href="sql-questions.html#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co">-- 4. add the retention week (pretty much done in step 2 with start of the week), joining total number of users in cohort and calculating retention </span></span>
+<span id="cb11-31"><a href="sql-questions.html#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="sql-questions.html#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> first_cohort <span class="kw">AS</span> (</span>
+<span id="cb11-33"><a href="sql-questions.html#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb11-34"><a href="sql-questions.html#cb11-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">*</span>,</span>
+<span id="cb11-35"><a href="sql-questions.html#cb11-35" aria-hidden="true" tabindex="-1"></a>        date_trunc(<span class="st">&#39;week&#39;</span>, <span class="fu">FIRST_VALUE</span>(created_at) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> created_at <span class="kw">ASC</span>)):<span class="ch">:DATE</span> <span class="kw">AS</span> cohort,</span>
+<span id="cb11-36"><a href="sql-questions.html#cb11-36" aria-hidden="true" tabindex="-1"></a>        date_trunc(<span class="st">&#39;week&#39;</span>, created_at):<span class="ch">:DATE</span> <span class="kw">AS</span> dt_start_wk,</span>
+<span id="cb11-37"><a href="sql-questions.html#cb11-37" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COALESCE</span>(<span class="fu">LAG</span>(created_at) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> created_at <span class="kw">ASC</span>), date_trunc(<span class="st">&#39;week&#39;</span>, <span class="fu">FIRST_VALUE</span>(created_at) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> created_at <span class="kw">ASC</span>)):<span class="ch">:DATE</span>) <span class="kw">AS</span> prev_dt</span>
+<span id="cb11-38"><a href="sql-questions.html#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> log_data</span>
+<span id="cb11-39"><a href="sql-questions.html#cb11-39" aria-hidden="true" tabindex="-1"></a>), distinct_users_week <span class="kw">AS</span> (</span>
+<span id="cb11-40"><a href="sql-questions.html#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb11-41"><a href="sql-questions.html#cb11-41" aria-hidden="true" tabindex="-1"></a>        cohort,</span>
+<span id="cb11-42"><a href="sql-questions.html#cb11-42" aria-hidden="true" tabindex="-1"></a>        dt_start_wk,</span>
+<span id="cb11-43"><a href="sql-questions.html#cb11-43" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> </span>
+<span id="cb11-44"><a href="sql-questions.html#cb11-44" aria-hidden="true" tabindex="-1"></a>            (created_at:<span class="ch">:DATE</span> <span class="op">-</span> prev_dt:<span class="ch">:DATE</span>) <span class="op">&lt;</span> <span class="dv">7</span> <span class="cf">THEN</span> <span class="dv">1</span> </span>
+<span id="cb11-45"><a href="sql-questions.html#cb11-45" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> retained</span>
+<span id="cb11-46"><a href="sql-questions.html#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> first_cohort</span>
+<span id="cb11-47"><a href="sql-questions.html#cb11-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> cohort, dt_start_wk</span>
+<span id="cb11-48"><a href="sql-questions.html#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> cohort <span class="kw">ASC</span>, dt_start_wk <span class="kw">ASC</span></span>
+<span id="cb11-49"><a href="sql-questions.html#cb11-49" aria-hidden="true" tabindex="-1"></a>), cohort_count <span class="kw">AS</span> (</span>
+<span id="cb11-50"><a href="sql-questions.html#cb11-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb11-51"><a href="sql-questions.html#cb11-51" aria-hidden="true" tabindex="-1"></a>        cohort,</span>
+<span id="cb11-52"><a href="sql-questions.html#cb11-52" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n_users</span>
+<span id="cb11-53"><a href="sql-questions.html#cb11-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> first_cohort</span>
+<span id="cb11-54"><a href="sql-questions.html#cb11-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> cohort</span>
+<span id="cb11-55"><a href="sql-questions.html#cb11-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-56"><a href="sql-questions.html#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb11-57"><a href="sql-questions.html#cb11-57" aria-hidden="true" tabindex="-1"></a>    duw.cohort,</span>
+<span id="cb11-58"><a href="sql-questions.html#cb11-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> duw.cohort <span class="kw">ORDER</span> <span class="kw">BY</span> duw.cohort, duw.dt_start_wk) <span class="kw">AS</span> retention_week,</span>
+<span id="cb11-59"><a href="sql-questions.html#cb11-59" aria-hidden="true" tabindex="-1"></a>    cc.n_users,</span>
+<span id="cb11-60"><a href="sql-questions.html#cb11-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CONCAT</span>(<span class="fu">ROUND</span>(duw.retained <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> cc.n_users,<span class="dv">0</span>), <span class="st">&#39;%&#39;</span>) <span class="kw">AS</span> retention_r</span>
+<span id="cb11-61"><a href="sql-questions.html#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> distinct_users_week duw</span>
+<span id="cb11-62"><a href="sql-questions.html#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> cohort_count cc <span class="kw">ON</span> duw.cohort <span class="op">=</span> cc.cohort;</span></code></pre></div>
 
 </div>
 </div>
