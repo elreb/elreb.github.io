@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Pandas Practice | Data Science Prep Guide</title>
+  <meta name="description" content="Lab practices and data science best practices" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Pandas Practice | Data Science Prep Guide" />
+  <meta property="og:type" content="book" />
+
+  <meta property="og:description" content="Lab practices and data science best practices" />
+  <meta name="github-repo" content="elreb/data_science_prep" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Pandas Practice | Data Science Prep Guide" />
+
+  <meta name="twitter:description" content="Lab practices and data science best practices" />
+
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+<link rel="prev" href="computer-science-data-scructures-and-algorithms.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+/* Collapsed solution styling */
+details.solution {
+  border-left: 3px solid #c8c8c8;
+  padding: 0.4em 1em 0.4em 1em;
+  margin: 0.6em 0 1.2em 0;
+  background-color: #f8f8f8;
+  border-radius: 0 3px 3px 0;
+}
+details.solution summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  padding: 2px 0;
+  user-select: none;
+}
+details.solution summary:hover {
+  color: #222;
+}
+details.solution[open] summary {
+  margin-bottom: 0.6em;
+}
+details.solution pre.sourceCode {
+  margin-top: 0;
+}
+
+.solution-toggle-button {
+  float: right;
+  margin: 0.2em -150px 1em 1.5em;
+  border: 1px solid #b8b8b8;
+  background: #f5f5f5;
+  color: #333;
+  border-radius: 4px;
+  padding: 0.45em 0.9em;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.solution-toggle-button:hover {
+  background: #ebebeb;
+}
+
+@media screen and (max-width: 1240px) {
+  .solution-toggle-button {
+    float: none;
+    display: inline-block;
+    margin: 0.75em 0 1em 0;
+  }
+}
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science Interview Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Data Science Prep Guide</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="introduction.html"><a href="introduction.html#sections"><i class="fa fa-check"></i><b>1.0.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sql-questions.html"><a href="sql-questions.html"><i class="fa fa-check"></i><b>2</b> SQL questions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="sql-questions.html"><a href="sql-questions.html#sql-tips"><i class="fa fa-check"></i><b>2.1</b> SQL tips</a></li>
+<li class="chapter" data-level="2.2" data-path="sql-questions.html"><a href="sql-questions.html#sample-questions"><i class="fa fa-check"></i><b>2.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-questions.html"><a href="sql-questions.html#calculate-the-30-day-readmission-rate"><i class="fa fa-check"></i><b>2.2.1</b> Calculate the 30 day readmission rate</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sql-questions.html"><a href="sql-questions.html#top-10-diagnoses-from-encounters-with-a-length-of-service-greater-then-3-days"><i class="fa fa-check"></i><b>2.2.2</b> Top 10 diagnoses from encounters with a length of service greater then 3 days</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sql-questions.html"><a href="sql-questions.html#employee-survey-results"><i class="fa fa-check"></i><b>2.2.3</b> Employee survey results</a></li>
+<li class="chapter" data-level="2.2.4" data-path="sql-questions.html"><a href="sql-questions.html#calculating-student-attendance"><i class="fa fa-check"></i><b>2.2.4</b> Calculating student attendance</a></li>
+<li class="chapter" data-level="2.2.5" data-path="sql-questions.html"><a href="sql-questions.html#music-streaming-behavior"><i class="fa fa-check"></i><b>2.2.5</b> Music streaming behavior</a></li>
+<li class="chapter" data-level="2.2.6" data-path="sql-questions.html"><a href="sql-questions.html#a-hotel-chains-loyal-customers"><i class="fa fa-check"></i><b>2.2.6</b> A hotel chain's loyal customers</a></li>
+<li class="chapter" data-level="2.2.7" data-path="sql-questions.html"><a href="sql-questions.html#user-churn-on-instagram"><i class="fa fa-check"></i><b>2.2.7</b> User churn on Instagram</a></li>
+<li class="chapter" data-level="2.2.8" data-path="sql-questions.html"><a href="sql-questions.html#group-users-by-year-month-and-count-visits"><i class="fa fa-check"></i><b>2.2.8</b> Group users by year-month and count visits</a></li>
+<li class="chapter" data-level="2.2.9" data-path="sql-questions.html"><a href="sql-questions.html#weekly-retention-report-with-log-data"><i class="fa fa-check"></i><b>2.2.9</b> Weekly retention report with log data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sample-questions-1"><i class="fa fa-check"></i><b>3.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.1</b> Active users on a messaging application</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.2</b> Time for a response on a messaging application</a></li>
+<li class="chapter" data-level="3.1.3" data-path="python-r-analyses.html"><a href="python-r-analyses.html#cleaning-and-analyzing-employee-data"><i class="fa fa-check"></i><b>3.1.3</b> Cleaning and analyzing employee data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="python-r-analyses.html"><a href="python-r-analyses.html#analyzing-employee-data"><i class="fa fa-check"></i><b>3.1.4</b> Analyzing employee data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#overview-of-important-statistical-concepts"><i class="fa fa-check"></i><b>4.1</b> Overview of Important Statistical Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#probability-and-sampling-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Probability and Sampling Distributions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.1.2</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.1.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#statistical-experiments-and-significance-testing"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Experiments and Significance Testing</a></li>
+<li class="chapter" data-level="4.1.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#regression-and-classification"><i class="fa fa-check"></i><b>4.1.4</b> Regression and Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#sample-questions-2"><i class="fa fa-check"></i><b>4.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#comparison-of-means"><i class="fa fa-check"></i><b>4.2.1</b> Comparison of means</a></li>
+<li class="chapter" data-level="4.2.2" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#principle-of-inclusionexclusion"><i class="fa fa-check"></i><b>4.2.2</b> Principle of Inclusion/Exclusion</a></li>
+<li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
+<li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#mae-vs-mse"><i class="fa fa-check"></i><b>4.2.4</b> MAE vs MSE</a></li>
+<li class="chapter" data-level="4.2.5" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-1"><i class="fa fa-check"></i><b>4.2.5</b> Bias variance tradeoff</a></li>
+<li class="chapter" data-level="4.2.6" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#changing-the-companys-color"><i class="fa fa-check"></i><b>4.2.6</b> Changing the company's color</a></li>
+<li class="chapter" data-level="4.2.7" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#repeated-significance-testing-error"><i class="fa fa-check"></i><b>4.2.7</b> Repeated significance testing error</a></li>
+<li class="chapter" data-level="4.2.8" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-2"><i class="fa fa-check"></i><b>4.2.8</b> Bias Variance Tradeoff</a></li>
+<li class="chapter" data-level="4.2.9" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#drawing-cards-from-a-standard-deck"><i class="fa fa-check"></i><b>4.2.9</b> Drawing cards from a standard deck</a></li>
+<li class="chapter" data-level="4.2.10" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#assocation-vs-causation"><i class="fa fa-check"></i><b>4.2.10</b> Assocation vs causation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>5</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-studies.html"><a href="case-studies.html#case-study-tips"><i class="fa fa-check"></i><b>5.1</b> Case Study Tips</a></li>
+<li class="chapter" data-level="5.2" data-path="case-studies.html"><a href="case-studies.html#sample-questions-3"><i class="fa fa-check"></i><b>5.2</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="case-studies.html"><a href="case-studies.html#ab-testing-basics-1"><i class="fa fa-check"></i><b>5.2.1</b> AB Testing Basics 1</a></li>
+<li class="chapter" data-level="5.2.2" data-path="case-studies.html"><a href="case-studies.html#ab-testing-new-ecommerce-recommendation-engine"><i class="fa fa-check"></i><b>5.2.2</b> A/B testing new eCommerce recommendation engine</a></li>
+<li class="chapter" data-level="5.2.3" data-path="case-studies.html"><a href="case-studies.html#ab-testing-a-new-landing-page"><i class="fa fa-check"></i><b>5.2.3</b> A/B testing a new landing page</a></li>
+<li class="chapter" data-level="5.2.4" data-path="case-studies.html"><a href="case-studies.html#stopping-an-ab-test-early"><i class="fa fa-check"></i><b>5.2.4</b> Stopping an AB Test early</a></li>
+<li class="chapter" data-level="5.2.5" data-path="case-studies.html"><a href="case-studies.html#cohort-analysis"><i class="fa fa-check"></i><b>5.2.5</b> Cohort analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html"><i class="fa fa-check"></i><b>6</b> Computer Science / Data Scructures and Algorithms</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#sample-questions-4"><i class="fa fa-check"></i><b>6.1</b> Sample Questions</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#calulate-moving-average-using-python"><i class="fa fa-check"></i><b>6.1.1</b> Calulate moving average using Python</a></li>
+<li class="chapter" data-level="6.1.2" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#python-function-to-express-power-sets"><i class="fa fa-check"></i><b>6.1.2</b> Python function to express power sets</a></li>
+<li class="chapter" data-level="6.1.3" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#if-you-were-given-a-m-by-n-matrix-how-would-you-find-the-minimum-element-using-brute-force-algorithm"><i class="fa fa-check"></i><b>6.1.3</b> If you were given a m by n matrix how would you find the minimum element using brute force algorithm</a></li>
+<li class="chapter" data-level="6.1.4" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#finding-the-value-closest-to-0"><i class="fa fa-check"></i><b>6.1.4</b> Finding the value closest to 0</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="pandas-practice.html"><a href="pandas-practice.html"><i class="fa fa-check"></i><b>7</b> Pandas Practice</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="pandas-practice.html"><a href="pandas-practice.html#data-setup"><i class="fa fa-check"></i><b>7.1</b> Data Setup</a></li>
+<li class="chapter" data-level="7.2" data-path="pandas-practice.html"><a href="pandas-practice.html#pandas-tips"><i class="fa fa-check"></i><b>7.2</b> Pandas Tips</a></li>
+<li class="chapter" data-level="7.3" data-path="pandas-practice.html"><a href="pandas-practice.html#basic-filtering-and-selection"><i class="fa fa-check"></i><b>7.3</b> Basic Filtering and Selection</a></li>
+<li class="chapter" data-level="7.4" data-path="pandas-practice.html"><a href="pandas-practice.html#sorting-and-deduplicating"><i class="fa fa-check"></i><b>7.4</b> Sorting and Deduplicating</a></li>
+<li class="chapter" data-level="7.5" data-path="pandas-practice.html"><a href="pandas-practice.html#creating-new-columns"><i class="fa fa-check"></i><b>7.5</b> Creating New Columns</a></li>
+<li class="chapter" data-level="7.6" data-path="pandas-practice.html"><a href="pandas-practice.html#groupby"><i class="fa fa-check"></i><b>7.6</b> Groupby</a></li>
+<li class="chapter" data-level="7.7" data-path="pandas-practice.html"><a href="pandas-practice.html#merge-and-join"><i class="fa fa-check"></i><b>7.7</b> Merge and Join</a></li>
+<li class="chapter" data-level="7.8" data-path="pandas-practice.html"><a href="pandas-practice.html#missing-data"><i class="fa fa-check"></i><b>7.8</b> Missing Data</a></li>
+<li class="chapter" data-level="7.9" data-path="pandas-practice.html"><a href="pandas-practice.html#dates"><i class="fa fa-check"></i><b>7.9</b> Dates</a></li>
+<li class="chapter" data-level="7.10" data-path="pandas-practice.html"><a href="pandas-practice.html#reshaping"><i class="fa fa-check"></i><b>7.10</b> Reshaping</a></li>
+<li class="chapter" data-level="7.11" data-path="pandas-practice.html"><a href="pandas-practice.html#ranking-and-window-style"><i class="fa fa-check"></i><b>7.11</b> Ranking and Window-Style</a></li>
+<li class="chapter" data-level="7.12" data-path="pandas-practice.html"><a href="pandas-practice.html#interview-prompts"><i class="fa fa-check"></i><b>7.12</b> Interview Prompts</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/elreb/data_science_prep" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science Prep Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pandas-practice" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Pandas Practice<a href="pandas-practice.html#pandas-practice" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<button type="button" class="solution-toggle-button" id="toggle-all-solutions" aria-expanded="false">Show all solutions</button>
+<p>This chapter is a focused drill on the pandas syntax that comes up most often in data science interviews. The questions use two small, consistent tables so you can stay in the flow of practicing rather than context-switching between datasets.</p>
+<p>The best workflow: read each prompt, write the answer from memory, then expand the solution to check. For the trickier questions, say out loud why you reached for <code>groupby</code>, <code>agg</code>, <code>merge</code>, or <code>transform</code>.</p>
+
+<div id="data-setup" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Data Setup<a href="pandas-practice.html#data-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Run the cell below to create the two DataFrames used throughout this chapter. You can work interactively in any Python 3.10+ environment — <a href="https://colab.research.google.com/">Google Colab</a> is a convenient zero-install option.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="pandas-practice.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="pandas-practice.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="pandas-practice.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="pandas-practice.html#cb1-4" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-5"><a href="pandas-practice.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"order_id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb1-6"><a href="pandas-practice.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">103</span>, <span class="dv">104</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">105</span>],</span>
+<span id="cb1-7"><a href="pandas-practice.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"category"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>],</span>
+<span id="cb1-8"><a href="pandas-practice.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"amount"</span>: [<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">80</span>, <span class="dv">40</span>, <span class="dv">35</span>, <span class="dv">60</span>, <span class="dv">100</span>, np.nan],</span>
+<span id="cb1-9"><a href="pandas-practice.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"order_date"</span>: pd.to_datetime([</span>
+<span id="cb1-10"><a href="pandas-practice.html#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2025-01-01"</span>, <span class="st">"2025-01-02"</span>, <span class="st">"2025-01-05"</span>, <span class="st">"2025-01-07"</span>,</span>
+<span id="cb1-11"><a href="pandas-practice.html#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2025-01-08"</span>, <span class="st">"2025-01-10"</span>, <span class="st">"2025-01-12"</span>, <span class="st">"2025-01-15"</span></span>
+<span id="cb1-12"><a href="pandas-practice.html#cb1-12" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb1-13"><a href="pandas-practice.html#cb1-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-14"><a href="pandas-practice.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="pandas-practice.html#cb1-15" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-16"><a href="pandas-practice.html#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">103</span>, <span class="dv">104</span>, <span class="dv">105</span>, <span class="dv">106</span>],</span>
+<span id="cb1-17"><a href="pandas-practice.html#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Ana"</span>, <span class="st">"Ben"</span>, <span class="st">"Cara"</span>, <span class="st">"Dan"</span>, <span class="st">"Eva"</span>, <span class="st">"Finn"</span>],</span>
+<span id="cb1-18"><a href="pandas-practice.html#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: [<span class="st">"SF"</span>, <span class="st">"NY"</span>, <span class="st">"SF"</span>, <span class="st">"LA"</span>, <span class="st">"NY"</span>, <span class="st">"LA"</span>],</span>
+<span id="cb1-19"><a href="pandas-practice.html#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"signup_date"</span>: pd.to_datetime([</span>
+<span id="cb1-20"><a href="pandas-practice.html#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-12-01"</span>, <span class="st">"2024-12-05"</span>, <span class="st">"2024-12-08"</span>,</span>
+<span id="cb1-21"><a href="pandas-practice.html#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-12-10"</span>, <span class="st">"2024-12-12"</span>, <span class="st">"2024-12-15"</span></span>
+<span id="cb1-22"><a href="pandas-practice.html#cb1-22" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb1-23"><a href="pandas-practice.html#cb1-23" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p><strong>orders</strong> has 8 rows: order id, customer id, category (A/B/C), dollar amount (one intentionally missing), and order date.<br/>
+<strong>customers</strong> has 6 rows: customer id, name, city, and signup date. Customer 106 (Finn) has no orders.</p>
+</div>
+
+<div id="pandas-tips" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Pandas Tips<a href="pandas-practice.html#pandas-tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>These are the patterns that trip people up most in interviews. Drill them until they feel automatic.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="pandas-practice.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean filtering</span></span>
+<span id="cb2-2"><a href="pandas-practice.html#cb2-2" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"col"</span>] <span class="op">&gt;</span> <span class="dv">5</span>]</span>
+<span id="cb2-3"><a href="pandas-practice.html#cb2-3" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"col"</span>].isin([<span class="st">"A"</span>, <span class="st">"B"</span>])]</span>
+<span id="cb2-4"><a href="pandas-practice.html#cb2-4" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"col"</span>].isna()]</span>
+<span id="cb2-5"><a href="pandas-practice.html#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="pandas-practice.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting</span></span>
+<span id="cb2-7"><a href="pandas-practice.html#cb2-7" aria-hidden="true" tabindex="-1"></a>df.sort_values([<span class="st">"a"</span>, <span class="st">"b"</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">False</span>])</span>
+<span id="cb2-8"><a href="pandas-practice.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="pandas-practice.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># New columns with assign (returns a copy — chainable)</span></span>
+<span id="cb2-10"><a href="pandas-practice.html#cb2-10" aria-hidden="true" tabindex="-1"></a>df.assign(new_col<span class="op">=</span>df[<span class="st">"x"</span>] <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb2-11"><a href="pandas-practice.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="pandas-practice.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Groupby aggregations</span></span>
+<span id="cb2-13"><a href="pandas-practice.html#cb2-13" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"key"</span>)[<span class="st">"value"</span>].sum()</span>
+<span id="cb2-14"><a href="pandas-practice.html#cb2-14" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"key"</span>).agg(total<span class="op">=</span>(<span class="st">"value"</span>, <span class="st">"sum"</span>), avg<span class="op">=</span>(<span class="st">"value"</span>, <span class="st">"mean"</span>))</span>
+<span id="cb2-15"><a href="pandas-practice.html#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="pandas-practice.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge</span></span>
+<span id="cb2-17"><a href="pandas-practice.html#cb2-17" aria-hidden="true" tabindex="-1"></a>df.merge(other, on<span class="op">=</span><span class="st">"id"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb2-18"><a href="pandas-practice.html#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="pandas-practice.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot table</span></span>
+<span id="cb2-20"><a href="pandas-practice.html#cb2-20" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">"x"</span>, columns<span class="op">=</span><span class="st">"y"</span>, values<span class="op">=</span><span class="st">"z"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>)</span>
+<span id="cb2-21"><a href="pandas-practice.html#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="pandas-practice.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Window-style operations</span></span>
+<span id="cb2-23"><a href="pandas-practice.html#cb2-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"rank"</span>] <span class="op">=</span> df.groupby(<span class="st">"group"</span>)[<span class="st">"value"</span>].rank(method<span class="op">=</span><span class="st">"dense"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-24"><a href="pandas-practice.html#cb2-24" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"running_total"</span>] <span class="op">=</span> df.sort_values(<span class="st">"date"</span>).groupby(<span class="st">"id"</span>)[<span class="st">"value"</span>].cumsum()</span>
+<span id="cb2-25"><a href="pandas-practice.html#cb2-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"prev"</span>] <span class="op">=</span> df.sort_values(<span class="st">"date"</span>).groupby(<span class="st">"id"</span>)[<span class="st">"value"</span>].shift(<span class="dv">1</span>)</span></code></pre></div>
+</div>
+
+<!-- ============================================================ -->
+<div id="basic-filtering-and-selection" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Basic Filtering and Selection<a href="pandas-practice.html#basic-filtering-and-selection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q1.</strong> Select only the <code>customer_id</code>, <code>amount</code>, and <code>category</code> columns from <code>orders</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[["customer_id", "amount", "category"]]</code></pre></div>
+</details>
+
+<p><strong>Q2.</strong> Filter orders where <code>amount &gt; 50</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["amount"] &gt; 50]</code></pre></div>
+</details>
+
+<p><strong>Q3.</strong> Filter orders where <code>category</code> is either <code>"A"</code> or <code>"C"</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["category"].isin(["A", "C"])]</code></pre></div>
+</details>
+
+<p><strong>Q4.</strong> Return rows where <code>amount</code> is missing.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["amount"].isna()]</code></pre></div>
+</details>
+
+<p><strong>Q5.</strong> Filter orders placed after January 7, 2025.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["order_date"] &gt; "2025-01-07"]</code></pre></div>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="sorting-and-deduplicating" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Sorting and Deduplicating<a href="pandas-practice.html#sorting-and-deduplicating" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q6.</strong> Sort <code>orders</code> by <code>amount</code> descending.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values("amount", ascending=False)</code></pre></div>
+</details>
+
+<p><strong>Q7.</strong> Sort by <code>customer_id</code> ascending and <code>order_date</code> descending.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values(["customer_id", "order_date"], ascending=[True, False])</code></pre></div>
+</details>
+
+<p><strong>Q8.</strong> Get one row per <code>customer_id</code>, keeping only their most recent order.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># Sort descending so the most recent row is first, then drop duplicates
+orders.sort_values("order_date", ascending=False).drop_duplicates(subset="customer_id")</code></pre></div>
+<p><em>Why <code>drop_duplicates</code> instead of <code>groupby</code>? When you need the full row (not just an aggregated value), sorting then deduplicating is cleaner. Use <code>groupby + idxmax</code> if you only need the date itself.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="creating-new-columns" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Creating New Columns<a href="pandas-practice.html#creating-new-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q9.</strong> Create a column called <code>amount_filled</code> where missing amounts are replaced with 0.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># assign() returns a new DataFrame, so reassign if you want to keep the change
+orders = orders.assign(amount_filled=orders["amount"].fillna(0))
+
+# in-place on the existing DataFrame
+orders["amount_filled"] = orders["amount"].fillna(0)
+
+# list-comprehension version
+orders["amount_filled"] = [0 if pd.isna(x) else x for x in orders["amount"]]</code></pre></div>
+</details>
+
+<p><strong>Q10.</strong> Create a boolean column <code>high_value</code> that is <code>True</code> for orders with <code>amount &gt;= 75</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># assign() returns a new DataFrame, so reassign if you want to keep the change
+orders = orders.assign(high_value=orders["amount"] &gt;= 75)
+
+# in-place on the existing DataFrame
+orders["high_value"] = orders["amount"] &gt;= 75
+
+# list-comprehension version
+orders["high_value"] = [x &gt;= 75 for x in orders["amount"]]</code></pre></div>
+</details>
+
+<p><strong>Q11.</strong> Create a column <code>amount_with_tax</code> equal to <code>amount * 1.08</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># assign() returns a new DataFrame, so reassign if you want to keep the change
+orders = orders.assign(amount_with_tax=orders["amount"] * 1.08)
+
+# in-place on the existing DataFrame
+orders["amount_with_tax"] = orders["amount"] * 1.08
+
+# list-comprehension version
+orders["amount_with_tax"] = [x * 1.08 for x in orders["amount"]]</code></pre></div>
+</details>
+
+<p><strong>Q12.</strong> Create a column <code>category_label</code> where A → <code>"alpha"</code>, B → <code>"beta"</code>, C → <code>"gamma"</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">label_map = {"A": "alpha", "B": "beta", "C": "gamma"}
+
+# assign() returns a new DataFrame, so reassign if you want to keep the change
+orders = orders.assign(category_label=orders["category"].map(label_map))
+
+# in-place on the existing DataFrame
+orders["category_label"] = orders["category"].map(label_map)
+
+# list-comprehension version
+orders["category_label"] = [label_map[x] for x in orders["category"]]</code></pre></div>
+<p><em><code>.map(dict)</code> is the idiomatic way to recode a categorical column. For more complex multi-condition logic, reach for <code>np.select</code> or <code>pd.cut</code>.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="groupby" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Groupby<a href="pandas-practice.html#groupby" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q13.</strong> Find total <code>amount</code> by <code>customer_id</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["amount"].sum()</code></pre></div>
+</details>
+
+<p><strong>Q14.</strong> Find average <code>amount</code> by <code>category</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("category")["amount"].mean()</code></pre></div>
+</details>
+
+<p><strong>Q15.</strong> Find both the count of orders and total amount by <code>customer_id</code> in one call.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id").agg(
+    order_count=("order_id", "count"),
+    total_amount=("amount", "sum")
+)</code></pre></div>
+<p><em>Named aggregation syntax <code>(col, func)</code> is the modern replacement for the older <code>{"col": func}</code> dict syntax. Prefer it — it avoids MultiIndex columns.</em></p>
+</details>
+
+<p><strong>Q16.</strong> Find the max order amount for each <code>category</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("category")["amount"].max()</code></pre></div>
+</details>
+
+<p><strong>Q17.</strong> Find which <code>customer_id</code> has spent the most in total.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["amount"].sum().idxmax()</code></pre></div>
+<p><em><code>idxmax()</code> returns the index label of the maximum value — here, the customer_id. <code>max()</code> would return the value itself.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="merge-and-join" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Merge and Join<a href="pandas-practice.html#merge-and-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q18.</strong> Join <code>orders</code> with <code>customers</code> to bring in <code>name</code> and <code>city</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.merge(customers[["customer_id", "name", "city"]], on="customer_id", how="inner")</code></pre></div>
+<p><em>Selecting only the needed columns from the right table before merging avoids ending up with unwanted columns.</em></p>
+</details>
+
+<p><strong>Q19.</strong> After joining orders to customers, find total sales by <code>city</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
+merged.groupby("city")["amount"].sum()</code></pre></div>
+</details>
+
+<p><strong>Q20.</strong> Do a left join from <code>customers</code> to <code>orders</code> and identify customers who have no orders.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">left = customers.merge(orders, on="customer_id", how="left")
+left[left["order_id"].isna()][["customer_id", "name"]]</code></pre></div>
+<p><em>After a left join, rows from the left table with no match will have NaN in all right-table columns. Checking <code>order_id.isna()</code> is the clean way to find them.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="missing-data" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Missing Data<a href="pandas-practice.html#missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q21.</strong> Count missing values in each column of <code>orders</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.isna().sum()</code></pre></div>
+</details>
+
+<p><strong>Q22.</strong> Fill missing <code>amount</code> values with the median amount.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["amount"].fillna(orders["amount"].median())</code></pre></div>
+</details>
+
+<p><strong>Q23.</strong> Drop rows where <code>amount</code> is missing.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.dropna(subset=["amount"])</code></pre></div>
+<p><em>Always prefer <code>subset=</code> over bare <code>dropna()</code> to avoid accidentally dropping rows just because an unrelated column is null.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="dates" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Dates<a href="pandas-practice.html#dates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q24.</strong> Extract the day-of-month from <code>order_date</code> into a new column <code>day</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.assign(day=orders["order_date"].dt.day)</code></pre></div>
+<p><em>The <code>.dt</code> accessor exposes all datetime components: <code>.dt.year</code>, <code>.dt.month</code>, <code>.dt.day</code>, <code>.dt.dayofweek</code>, <code>.dt.hour</code>, etc.</em></p>
+</details>
+
+<p><strong>Q25.</strong> Filter orders placed in January 2025.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["order_date"].dt.month == 1]</code></pre></div>
+</details>
+
+<p><strong>Q26.</strong> After merging orders with customers, find the number of days between each customer's <code>signup_date</code> and their order date.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "signup_date"]], on="customer_id")
+merged.assign(days_since_signup=(merged["order_date"] - merged["signup_date"]).dt.days)</code></pre></div>
+<p><em>Subtracting two datetime columns yields a <code>Timedelta</code> Series. <code>.dt.days</code> extracts the integer number of days. Forgetting <code>.dt.days</code> is a common mistake.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="reshaping" class="section level2 hasAnchor" number="7.10">
+<h2><span class="header-section-number">7.10</span> Reshaping<a href="pandas-practice.html#reshaping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q27.</strong> Create a pivot table showing total <code>amount</code> by <code>customer_id</code> (rows) and <code>category</code> (columns).</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.pivot_table(
+    index="customer_id",
+    columns="category",
+    values="amount",
+    aggfunc="sum"
+)</code></pre></div>
+</details>
+
+<p><strong>Q28.</strong> Create a pivot table showing mean <code>amount</code> by <code>city</code> (rows) and <code>category</code> (columns).</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
+merged.pivot_table(
+    index="city",
+    columns="category",
+    values="amount",
+    aggfunc="mean"
+)</code></pre></div>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="ranking-and-window-style" class="section level2 hasAnchor" number="7.11">
+<h2><span class="header-section-number">7.11</span> Ranking and Window-Style<a href="pandas-practice.html#ranking-and-window-style" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<p><strong>Q29.</strong> Within each <code>customer_id</code>, rank orders by <code>amount</code> descending (rank 1 = largest).</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.assign(
+    rank=orders.groupby("customer_id")["amount"].rank(method="dense", ascending=False)
+)</code></pre></div>
+<p><em><code>method="dense"</code> gives tied values the same rank without gaps. <code>method="min"</code> skips ranks; <code>method="first"</code> assigns unique ranks in order of appearance.</em></p>
+</details>
+
+<p><strong>Q30.</strong> For each customer, compute a running total of <code>amount</code> ordered by <code>order_date</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders_sorted = orders.sort_values("order_date")
+orders_sorted.assign(
+    running_total=orders_sorted.groupby("customer_id")["amount"].cumsum()
+)</code></pre></div>
+<p><em>Sort before <code>cumsum()</code> — groupby preserves existing row order within each group, so the sort must happen first.</em></p>
+</details>
+
+<p><strong>Q31.</strong> For each customer, get the previous order's amount using <code>shift</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders_sorted = orders.sort_values(["customer_id", "order_date"])
+orders_sorted.assign(
+    prev_amount=orders_sorted.groupby("customer_id")["amount"].shift(1)
+)</code></pre></div>
+<p><em><code>shift(1)</code> lags by one row within each group. The first row per customer gets <code>NaN</code>. <code>shift(-1)</code> gives the next value (lead).</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="interview-prompts" class="section level2 hasAnchor" number="7.12">
+<h2><span class="header-section-number">7.12</span> Interview Prompts<a href="pandas-practice.html#interview-prompts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>These questions are phrased the way an interviewer would ask them. They require you to chain multiple operations together.</p>
+
+<p><strong>Q32.</strong> Find each customer's first order date.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["order_date"].min()</code></pre></div>
+</details>
+
+<p><strong>Q33.</strong> Find customers who made more than one order.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">counts = orders.groupby("customer_id")["order_id"].count()
+counts[counts &gt; 1].index.tolist()</code></pre></div>
+</details>
+
+<p><strong>Q34.</strong> Find categories where the average order amount is greater than 50.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">avg = orders.groupby("category")["amount"].mean()
+avg[avg &gt; 50].index.tolist()</code></pre></div>
+</details>
+
+<p><strong>Q35.</strong> For each city, find the customer with the highest total spend.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">spend = (
+    orders.groupby("customer_id")["amount"]
+    .sum()
+    .reset_index(name="total_spend")
+    .merge(customers[["customer_id", "city"]], on="customer_id")
+)
+spend.loc[spend.groupby("city")["total_spend"].idxmax()]</code></pre></div>
+<p><em><code>idxmax()</code> returns the index labels of the per-group maxima. Passing those to <code>.loc[]</code> retrieves the full rows.</em></p>
+</details>
+
+<p><strong>Q36.</strong> Find the percentage of total sales contributed by each category.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cat_totals = orders.groupby("category")["amount"].sum()
+(cat_totals / cat_totals.sum() * 100).round(2)</code></pre></div>
+</details>
+
+<p><strong>Q37.</strong> Return the top 2 largest orders per customer.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values("amount", ascending=False).groupby("customer_id").head(2)</code></pre></div>
+<p><em>Sort globally first, then <code>groupby().head(n)</code> takes the first n rows per group — which are the largest after sorting descending.</em></p>
+</details>
+
+<p><strong>Q38.</strong> Find customers whose order amounts are strictly increasing over time.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">def is_strictly_increasing(s):
+    vals = s.dropna().tolist()
+    return all(vals[i] &lt; vals[i + 1] for i in range(len(vals) - 1))
+
+result = (
+    orders.sort_values("order_date")
+    .groupby("customer_id")["amount"]
+    .apply(is_strictly_increasing)
+)
+result[result].index.tolist()</code></pre></div>
+<p><em>Customers with only one order trivially satisfy this (the <code>all()</code> over an empty iterator returns <code>True</code>). Filter with <code>groupby().filter(lambda g: len(g) &gt; 1)</code> first if that matters.</em></p>
+</details>
+
+<p><strong>Q39.</strong> Find the gap in days between each order and the previous order for the same customer.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df = orders.sort_values(["customer_id", "order_date"]).copy()
+df["prev_date"] = df.groupby("customer_id")["order_date"].shift(1)
+df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
+</details>
+
+<p><strong>Q40.</strong> Build a summary table with one row per customer: total orders, total spend, average order amount, and most recent order date.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id").agg(
+    total_orders=("order_id", "count"),
+    total_spend=("amount", "sum"),
+    avg_order_amount=("amount", "mean"),
+    most_recent_order=("order_date", "max")
+).reset_index()</code></pre></div>
+<p><em>This is a common "profile table" pattern. Named aggregation keeps the output column names clean without a rename step.</em></p>
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="computer-science-data-scructures-and-algorithms.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+<script>
+(function() {
+  var setupCode = [
+    "import pandas as pd",
+    "import numpy as np",
+    "",
+    "orders = pd.DataFrame({",
+    "    'order_id': [1, 2, 3, 4, 5, 6, 7, 8],",
+    "    'customer_id': [101, 102, 101, 103, 104, 102, 101, 105],",
+    "    'category': ['A', 'B', 'A', 'C', 'B', 'A', 'C', 'B'],",
+    "    'amount': [50, 20, 80, 40, 35, 60, 100, np.nan],",
+    "    'order_date': pd.to_datetime([",
+    "        '2025-01-01', '2025-01-02', '2025-01-05', '2025-01-07',",
+    "        '2025-01-08', '2025-01-10', '2025-01-12', '2025-01-15'",
+    "    ])",
+    "})",
+    "",
+    "customers = pd.DataFrame({",
+    "    'customer_id': [101, 102, 103, 104, 105, 106],",
+    "    'name': ['Ana', 'Ben', 'Cara', 'Dan', 'Eva', 'Finn'],",
+    "    'city': ['SF', 'NY', 'SF', 'LA', 'NY', 'LA'],",
+    "    'signup_date': pd.to_datetime([",
+    "        '2024-12-01', '2024-12-05', '2024-12-08',",
+    "        '2024-12-10', '2024-12-12', '2024-12-15'",
+    "    ])",
+    "})"
+  ].join("\n");
+
+  var defaultCellCode = [
+    "# pandas is available as pd",
+    "# orders and customers are preloaded",
+    "orders.head()"
+  ].join("\n");
+
+  var pyodideReady = null;
+
+  function createCell(index) {
+    var wrapper = document.createElement("div");
+    wrapper.className = "interactive-python-block";
+    wrapper.innerHTML = [
+      '<div class="interactive-python-toolbar">',
+      '  <div class="interactive-python-label">Interactive Python practice</div>',
+      '  <div class="interactive-python-actions">',
+      '    <button type="button" class="interactive-python-button run-button">Run</button>',
+      '    <button type="button" class="interactive-python-button reset-button">Reset</button>',
+      '  </div>',
+      "</div>",
+      '<textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for question ' + index + '"></textarea>',
+      '<div class="interactive-python-status">Loading in-browser Python and pandas runtime…</div>',
+      '<div class="interactive-python-output is-empty"></div>'
+    ].join("");
+    return wrapper;
+  }
+
+  async function getPyodideRuntime() {
+    if (!pyodideReady) {
+      pyodideReady = (async function() {
+        var pyodide = await loadPyodide();
+        await pyodide.loadPackage(["numpy", "pandas"]);
+        var bootstrap = [
+          "import io",
+          "import contextlib",
+          "import traceback",
+          "",
+          "SETUP_CODE = " + JSON.stringify(setupCode),
+          "",
+          "def __pandas_practice_run(user_code):",
+          "    namespace = {}",
+          "    exec(SETUP_CODE, namespace)",
+          "    output = io.StringIO()",
+          "    html_output = None",
+          "    text_output = ''",
+          "    error_output = None",
+          "    try:",
+          "        stripped = user_code.rstrip()",
+          "        lines = stripped.splitlines() if stripped else []",
+          "        with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):",
+          "            if lines:",
+          "                try:",
+          "                    compiled_last = compile(lines[-1], '<cell>', 'eval')",
+          "                except SyntaxError:",
+          "                    exec(user_code, namespace)",
+          "                else:",
+          "                    if len(lines) > 1:",
+          "                        exec('\\n'.join(lines[:-1]), namespace)",
+          "                    result = eval(compiled_last, namespace)",
+          "                    if hasattr(result, 'to_html'):",
+          "                        html_output = result.to_html(border=0)",
+          "                    elif result is not None:",
+          "                        print(repr(result))",
+          "    except Exception:",
+          "        error_output = traceback.format_exc()",
+          "    text_output = output.getvalue()",
+          "    return {'stdout': text_output, 'html': html_output, 'error': error_output}",
+          ""
+        ].join("\n");
+        await pyodide.runPythonAsync(bootstrap);
+        return pyodide;
+      })();
+    }
+    return pyodideReady;
+  }
+
+  async function runCell(cell) {
+    var status = cell.querySelector(".interactive-python-status");
+    var output = cell.querySelector(".interactive-python-output");
+    var editor = cell.querySelector(".interactive-python-editor");
+    var runButton = cell.querySelector(".run-button");
+    var resetButton = cell.querySelector(".reset-button");
+
+    runButton.disabled = true;
+    resetButton.disabled = true;
+    status.textContent = "Running…";
+
+    try {
+      var pyodide = await getPyodideRuntime();
+      var result = await pyodide.globals.get("__pandas_practice_run")(editor.value).toJs({
+        dict_converter: Object.fromEntries
+      });
+
+      if (result.error) {
+        output.innerHTML = "<pre></pre>";
+        output.querySelector("pre").textContent = result.error;
+        output.classList.remove("is-empty");
+        status.textContent = "Execution failed.";
+      } else if (result.html) {
+        output.innerHTML = result.stdout ? "<pre></pre>" + result.html : result.html;
+        if (result.stdout) {
+          output.querySelector("pre").textContent = result.stdout;
+        }
+        output.classList.remove("is-empty");
+        status.textContent = "Execution complete.";
+      } else if (result.stdout) {
+        output.innerHTML = "<pre></pre>";
+        output.querySelector("pre").textContent = result.stdout;
+        output.classList.remove("is-empty");
+        status.textContent = "Execution complete.";
+      } else {
+        output.innerHTML = "";
+        output.classList.add("is-empty");
+        status.textContent = "Execution complete. No output.";
+      }
+    } catch (error) {
+      output.innerHTML = "<pre></pre>";
+      output.querySelector("pre").textContent = String(error);
+      output.classList.remove("is-empty");
+      status.textContent = "Runtime failed to load.";
+    } finally {
+      runButton.disabled = false;
+      resetButton.disabled = false;
+    }
+  }
+
+  function resetCell(cell) {
+    cell.querySelector(".interactive-python-editor").value = defaultCellCode;
+    cell.querySelector(".interactive-python-output").innerHTML = "";
+    cell.querySelector(".interactive-python-output").classList.add("is-empty");
+    cell.querySelector(".interactive-python-status").textContent = "Ready. orders, customers, pd, and np are loaded fresh on each run.";
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var solutions = document.querySelectorAll("#pandas-practice details.solution");
+    var toggleButton = document.getElementById("toggle-all-solutions");
+    if (!solutions.length) {
+      if (toggleButton) {
+        toggleButton.style.display = "none";
+      }
+      return;
+    }
+
+    function updateToggleButton() {
+      if (!toggleButton) {
+        return;
+      }
+
+      var allOpen = Array.from(solutions).every(function(solution) {
+        return solution.open;
+      });
+
+      toggleButton.textContent = allOpen ? "Hide all solutions" : "Show all solutions";
+      toggleButton.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    if (toggleButton) {
+      toggleButton.addEventListener("click", function() {
+        var shouldOpen = !Array.from(solutions).every(function(solution) {
+          return solution.open;
+        });
+
+        solutions.forEach(function(solution) {
+          solution.open = shouldOpen;
+        });
+
+        updateToggleButton();
+      });
+    }
+
+    solutions.forEach(function(solution, index) {
+      var cell = createCell(index + 1);
+      solution.parentNode.insertBefore(cell, solution);
+      resetCell(cell);
+
+      solution.addEventListener("toggle", updateToggleButton);
+
+      cell.querySelector(".run-button").addEventListener("click", function() {
+        runCell(cell);
+      });
+
+      cell.querySelector(".reset-button").addEventListener("click", function() {
+        resetCell(cell);
+      });
+    });
+
+    getPyodideRuntime()
+      .then(function() {
+        document.querySelectorAll(".interactive-python-status").forEach(function(node) {
+          node.textContent = "Ready. orders, customers, pd, and np are loaded fresh on each run.";
+        });
+      })
+      .catch(function() {
+        document.querySelectorAll(".interactive-python-status").forEach(function(node) {
+          node.textContent = "Unable to load the in-browser runtime. Check network access and reload.";
+        });
+      });
+
+    updateToggleButton();
+  });
+})();
+</script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/elreb/data_science_prep/master/07-pandas-practice.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ds-interview-guide.pdf", "ds-interview-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

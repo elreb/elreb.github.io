@@ -2,6 +2,22 @@
 
 Data Science interviews are tough, this guide has notes and example questions and solutions to go over various topics that you may be asked during a Data Science interview.
 
+### View locally
+
+This repo already includes the generated website in `docs/`.
+
+From the repo root, run:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+`http://localhost:8000/docs/`
+
+Opening the site through a local server is preferred over `file://` so relative assets and scripts load correctly.
+
 ### To [build the bookdown document](https://bookdown.org/yihui/bookdown/build-the-book.html):
 * *html* - `bookdown::render_book("index.Rmd", "bookdown::gitbook")`
 * *pdf* - `bookdown::render_book("index.Rmd", "bookdown::pdf_book")`
@@ -15,4 +31,3 @@ Data Science interviews are tough, this guide has notes and example questions an
 ![Bad code](assets/images/text_as_code_chunk.png?raw=true "Bad code - notice orange color")
 ![Bad code output](assets/images/text_as_code_chunk_2.png?raw=true "Bad code - result")
 ![Good code](assets/images/text_as_code_chunk_3.png?raw=true "Good code - notice text appropriate white color")
-
