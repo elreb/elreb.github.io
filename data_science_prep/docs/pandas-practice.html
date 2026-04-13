@@ -134,8 +134,9 @@ details.solution pre.sourceCode {
 }
 
 .solution-toggle-button {
-  float: right;
-  margin: 0.2em -150px 1em 1.5em;
+  float: none;
+  display: inline-block;
+  margin: 0.75em 0 1em 0;
   border: 1px solid #b8b8b8;
   background: #f5f5f5;
   color: #333;
@@ -152,8 +153,6 @@ details.solution pre.sourceCode {
 
 @media screen and (max-width: 1240px) {
   .solution-toggle-button {
-    float: none;
-    display: inline-block;
     margin: 0.75em 0 1em 0;
   }
 }
@@ -289,13 +288,14 @@ details.solution pre.sourceCode {
             <section class="normal" id="section-">
 <div id="pandas-practice" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Pandas Practice<a href="pandas-practice.html#pandas-practice" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<button type="button" class="solution-toggle-button" id="toggle-all-solutions" aria-expanded="false">Show all solutions</button>
 <p>This chapter is a focused drill on the pandas syntax that comes up most often in data science interviews. The questions use two small, consistent tables so you can stay in the flow of practicing rather than context-switching between datasets.</p>
 <p>The best workflow: read each prompt, write the answer from memory, then expand the solution to check. For the trickier questions, say out loud why you reached for <code>groupby</code>, <code>agg</code>, <code>merge</code>, or <code>transform</code>.</p>
+<p>For the interactive boxes below, use <code>Run</code> to test your answer and <code>Reset</code> to restore the starter code. Each run starts from a fresh copy of the same preloaded data.</p>
+<button type="button" class="solution-toggle-button" id="toggle-all-solutions" aria-expanded="false">Show all solutions</button>
 
 <div id="data-setup" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Data Setup<a href="pandas-practice.html#data-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Run the cell below to create the two DataFrames used throughout this chapter. You can work interactively in any Python 3.10+ environment — <a href="https://colab.research.google.com/">Google Colab</a> is a convenient zero-install option.</p>
+<p>If you want to work through these exercises outside the interactive page, run the cell below to create the two DataFrames used throughout this chapter. Any Python 3.10+ environment will work, and <a href="https://colab.research.google.com/">Google Colab</a> is a convenient zero-install option.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="pandas-practice.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="pandas-practice.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="pandas-practice.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -462,23 +462,33 @@ orders["category_label"] = [label_map[x] for x in orders["category"]]</code></pr
 <p><em><code>.map(dict)</code> is the idiomatic way to recode a categorical column. For more complex multi-condition logic, reach for <code>np.select</code> or <code>pd.cut</code>.</em></p>
 </details>
 
+<p><strong>Q13.</strong> Create an <code>amount_bucket</code> column that groups <code>amount</code> into <code>"low"</code>, <code>"medium"</code>, and <code>"high"</code> using cut points 0, 50, and 90.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["amount_bucket"] = pd.cut(
+    orders["amount"],
+    bins=[0, 50, 90, float("inf")],
+    labels=["low", "medium", "high"]
+)</code></pre></div>
+<p><em><code>pd.cut</code> is useful when you want interview-friendly bucket logic without manually chaining conditions. Values outside the bins or missing values remain <code>NaN</code>.</em></p>
+</details>
+
 </div>
 
 <!-- ============================================================ -->
 <div id="groupby" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Groupby<a href="pandas-practice.html#groupby" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<p><strong>Q13.</strong> Find total <code>amount</code> by <code>customer_id</code>.</p>
+<p><strong>Q14.</strong> Find total <code>amount</code> by <code>customer_id</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["amount"].sum()</code></pre></div>
 </details>
 
-<p><strong>Q14.</strong> Find average <code>amount</code> by <code>category</code>.</p>
+<p><strong>Q15.</strong> Find average <code>amount</code> by <code>category</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("category")["amount"].mean()</code></pre></div>
 </details>
 
-<p><strong>Q15.</strong> Find both the count of orders and total amount by <code>customer_id</code> in one call.</p>
+<p><strong>Q16.</strong> Find both the count of orders and total amount by <code>customer_id</code> in one call.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id").agg(
     order_count=("order_id", "count"),
@@ -487,12 +497,12 @@ orders["category_label"] = [label_map[x] for x in orders["category"]]</code></pr
 <p><em>Named aggregation syntax <code>(col, func)</code> is the modern replacement for the older <code>{"col": func}</code> dict syntax. Prefer it — it avoids MultiIndex columns.</em></p>
 </details>
 
-<p><strong>Q16.</strong> Find the max order amount for each <code>category</code>.</p>
+<p><strong>Q17.</strong> Find the max order amount for each <code>category</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("category")["amount"].max()</code></pre></div>
 </details>
 
-<p><strong>Q17.</strong> Find which <code>customer_id</code> has spent the most in total.</p>
+<p><strong>Q18.</strong> Find which <code>customer_id</code> has spent the most in total.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["amount"].sum().idxmax()</code></pre></div>
 <p><em><code>idxmax()</code> returns the index label of the maximum value — here, the customer_id. <code>max()</code> would return the value itself.</em></p>
@@ -504,19 +514,19 @@ orders["category_label"] = [label_map[x] for x in orders["category"]]</code></pr
 <div id="merge-and-join" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Merge and Join<a href="pandas-practice.html#merge-and-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<p><strong>Q18.</strong> Join <code>orders</code> with <code>customers</code> to bring in <code>name</code> and <code>city</code>.</p>
+<p><strong>Q19.</strong> Join <code>orders</code> with <code>customers</code> to bring in <code>name</code> and <code>city</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.merge(customers[["customer_id", "name", "city"]], on="customer_id", how="inner")</code></pre></div>
 <p><em>Selecting only the needed columns from the right table before merging avoids ending up with unwanted columns.</em></p>
 </details>
 
-<p><strong>Q19.</strong> After joining orders to customers, find total sales by <code>city</code>.</p>
+<p><strong>Q20.</strong> After joining orders to customers, find total sales by <code>city</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
 merged.groupby("city")["amount"].sum()</code></pre></div>
 </details>
 
-<p><strong>Q20.</strong> Do a left join from <code>customers</code> to <code>orders</code> and identify customers who have no orders.</p>
+<p><strong>Q21.</strong> Do a left join from <code>customers</code> to <code>orders</code> and identify customers who have no orders.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">left = customers.merge(orders, on="customer_id", how="left")
 left[left["order_id"].isna()][["customer_id", "name"]]</code></pre></div>
@@ -529,17 +539,17 @@ left[left["order_id"].isna()][["customer_id", "name"]]</code></pre></div>
 <div id="missing-data" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Missing Data<a href="pandas-practice.html#missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<p><strong>Q21.</strong> Count missing values in each column of <code>orders</code>.</p>
+<p><strong>Q22.</strong> Count missing values in each column of <code>orders</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.isna().sum()</code></pre></div>
 </details>
 
-<p><strong>Q22.</strong> Fill missing <code>amount</code> values with the median amount.</p>
+<p><strong>Q23.</strong> Fill missing <code>amount</code> values with the median amount.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["amount"].fillna(orders["amount"].median())</code></pre></div>
 </details>
 
-<p><strong>Q23.</strong> Drop rows where <code>amount</code> is missing.</p>
+<p><strong>Q24.</strong> Drop rows where <code>amount</code> is missing.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.dropna(subset=["amount"])</code></pre></div>
 <p><em>Always prefer <code>subset=</code> over bare <code>dropna()</code> to avoid accidentally dropping rows just because an unrelated column is null.</em></p>
@@ -551,18 +561,18 @@ left[left["order_id"].isna()][["customer_id", "name"]]</code></pre></div>
 <div id="dates" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Dates<a href="pandas-practice.html#dates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<p><strong>Q24.</strong> Extract the day-of-month from <code>order_date</code> into a new column <code>day</code>.</p>
+<p><strong>Q25.</strong> Extract the day-of-month from <code>order_date</code> into a new column <code>day</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.assign(day=orders["order_date"].dt.day)</code></pre></div>
 <p><em>The <code>.dt</code> accessor exposes all datetime components: <code>.dt.year</code>, <code>.dt.month</code>, <code>.dt.day</code>, <code>.dt.dayofweek</code>, <code>.dt.hour</code>, etc.</em></p>
 </details>
 
-<p><strong>Q25.</strong> Filter orders placed in January 2025.</p>
+<p><strong>Q26.</strong> Filter orders placed in January 2025.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["order_date"].dt.month == 1]</code></pre></div>
 </details>
 
-<p><strong>Q26.</strong> After merging orders with customers, find the number of days between each customer's <code>signup_date</code> and their order date.</p>
+<p><strong>Q27.</strong> After merging orders with customers, find the number of days between each customer's <code>signup_date</code> and their order date.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "signup_date"]], on="customer_id")
 merged.assign(days_since_signup=(merged["order_date"] - merged["signup_date"]).dt.days)</code></pre></div>
@@ -575,7 +585,7 @@ merged.assign(days_since_signup=(merged["order_date"] - merged["signup_date"]).d
 <div id="reshaping" class="section level2 hasAnchor" number="7.10">
 <h2><span class="header-section-number">7.10</span> Reshaping<a href="pandas-practice.html#reshaping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<p><strong>Q27.</strong> Create a pivot table showing total <code>amount</code> by <code>customer_id</code> (rows) and <code>category</code> (columns).</p>
+<p><strong>Q28.</strong> Create a pivot table showing total <code>amount</code> by <code>customer_id</code> (rows) and <code>category</code> (columns).</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.pivot_table(
     index="customer_id",
@@ -585,7 +595,7 @@ merged.assign(days_since_signup=(merged["order_date"] - merged["signup_date"]).d
 )</code></pre></div>
 </details>
 
-<p><strong>Q28.</strong> Create a pivot table showing mean <code>amount</code> by <code>city</code> (rows) and <code>category</code> (columns).</p>
+<p><strong>Q29.</strong> Create a pivot table showing mean <code>amount</code> by <code>city</code> (rows) and <code>category</code> (columns).</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
 merged.pivot_table(
@@ -602,7 +612,7 @@ merged.pivot_table(
 <div id="ranking-and-window-style" class="section level2 hasAnchor" number="7.11">
 <h2><span class="header-section-number">7.11</span> Ranking and Window-Style<a href="pandas-practice.html#ranking-and-window-style" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
-<p><strong>Q29.</strong> Within each <code>customer_id</code>, rank orders by <code>amount</code> descending (rank 1 = largest).</p>
+<p><strong>Q30.</strong> Within each <code>customer_id</code>, rank orders by <code>amount</code> descending (rank 1 = largest).</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.assign(
     rank=orders.groupby("customer_id")["amount"].rank(method="dense", ascending=False)
@@ -610,7 +620,7 @@ merged.pivot_table(
 <p><em><code>method="dense"</code> gives tied values the same rank without gaps. <code>method="min"</code> skips ranks; <code>method="first"</code> assigns unique ranks in order of appearance.</em></p>
 </details>
 
-<p><strong>Q30.</strong> For each customer, compute a running total of <code>amount</code> ordered by <code>order_date</code>.</p>
+<p><strong>Q31.</strong> For each customer, compute a running total of <code>amount</code> ordered by <code>order_date</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders_sorted = orders.sort_values("order_date")
 orders_sorted.assign(
@@ -619,7 +629,7 @@ orders_sorted.assign(
 <p><em>Sort before <code>cumsum()</code> — groupby preserves existing row order within each group, so the sort must happen first.</em></p>
 </details>
 
-<p><strong>Q31.</strong> For each customer, get the previous order's amount using <code>shift</code>.</p>
+<p><strong>Q32.</strong> For each customer, get the previous order's amount using <code>shift</code>.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders_sorted = orders.sort_values(["customer_id", "order_date"])
 orders_sorted.assign(
@@ -635,24 +645,24 @@ orders_sorted.assign(
 <h2><span class="header-section-number">7.12</span> Interview Prompts<a href="pandas-practice.html#interview-prompts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These questions are phrased the way an interviewer would ask them. They require you to chain multiple operations together.</p>
 
-<p><strong>Q32.</strong> Find each customer's first order date.</p>
+<p><strong>Q33.</strong> Find each customer's first order date.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["order_date"].min()</code></pre></div>
 </details>
 
-<p><strong>Q33.</strong> Find customers who made more than one order.</p>
+<p><strong>Q34.</strong> Find customers who made more than one order.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">counts = orders.groupby("customer_id")["order_id"].count()
 counts[counts &gt; 1].index.tolist()</code></pre></div>
 </details>
 
-<p><strong>Q34.</strong> Find categories where the average order amount is greater than 50.</p>
+<p><strong>Q35.</strong> Find categories where the average order amount is greater than 50.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">avg = orders.groupby("category")["amount"].mean()
 avg[avg &gt; 50].index.tolist()</code></pre></div>
 </details>
 
-<p><strong>Q35.</strong> For each city, find the customer with the highest total spend.</p>
+<p><strong>Q36.</strong> For each city, find the customer with the highest total spend.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">spend = (
     orders.groupby("customer_id")["amount"]
@@ -664,19 +674,19 @@ spend.loc[spend.groupby("city")["total_spend"].idxmax()]</code></pre></div>
 <p><em><code>idxmax()</code> returns the index labels of the per-group maxima. Passing those to <code>.loc[]</code> retrieves the full rows.</em></p>
 </details>
 
-<p><strong>Q36.</strong> Find the percentage of total sales contributed by each category.</p>
+<p><strong>Q37.</strong> Find the percentage of total sales contributed by each category.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cat_totals = orders.groupby("category")["amount"].sum()
 (cat_totals / cat_totals.sum() * 100).round(2)</code></pre></div>
 </details>
 
-<p><strong>Q37.</strong> Return the top 2 largest orders per customer.</p>
+<p><strong>Q38.</strong> Return the top 2 largest orders per customer.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values("amount", ascending=False).groupby("customer_id").head(2)</code></pre></div>
 <p><em>Sort globally first, then <code>groupby().head(n)</code> takes the first n rows per group — which are the largest after sorting descending.</em></p>
 </details>
 
-<p><strong>Q38.</strong> Find customers whose order amounts are strictly increasing over time.</p>
+<p><strong>Q39.</strong> Find customers whose order amounts are strictly increasing over time.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">def is_strictly_increasing(s):
     vals = s.dropna().tolist()
@@ -691,14 +701,14 @@ result[result].index.tolist()</code></pre></div>
 <p><em>Customers with only one order trivially satisfy this (the <code>all()</code> over an empty iterator returns <code>True</code>). Filter with <code>groupby().filter(lambda g: len(g) &gt; 1)</code> first if that matters.</em></p>
 </details>
 
-<p><strong>Q39.</strong> Find the gap in days between each order and the previous order for the same customer.</p>
+<p><strong>Q40.</strong> Find the gap in days between each order and the previous order for the same customer.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df = orders.sort_values(["customer_id", "order_date"]).copy()
 df["prev_date"] = df.groupby("customer_id")["order_date"].shift(1)
 df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
 </details>
 
-<p><strong>Q40.</strong> Build a summary table with one row per customer: total orders, total spend, average order amount, and most recent order date.</p>
+<p><strong>Q41.</strong> Build a summary table with one row per customer: total orders, total spend, average order amount, and most recent order date.</p>
 <details class="solution"><summary>Solution</summary>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id").agg(
     total_orders=("order_id", "count"),
@@ -757,28 +767,37 @@ df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
   ].join("\n");
 
   var defaultCellCode = [
-    "# pandas is available as pd",
-    "# orders and customers are preloaded",
+    "# orders and customers are loaded",
     "orders.head()"
   ].join("\n");
 
   var pyodideReady = null;
 
+  function resizeEditor(editor) {
+    editor.style.height = "auto";
+    editor.style.height = editor.scrollHeight + "px";
+  }
+
   function createCell(index) {
     var wrapper = document.createElement("div");
     wrapper.className = "interactive-python-block";
+    wrapper.style.width = "84ch";
+    wrapper.style.maxWidth = "84ch";
     wrapper.innerHTML = [
       '<div class="interactive-python-toolbar">',
-      '  <div class="interactive-python-label">Interactive Python practice</div>',
       '  <div class="interactive-python-actions">',
       '    <button type="button" class="interactive-python-button run-button">Run</button>',
       '    <button type="button" class="interactive-python-button reset-button">Reset</button>',
       '  </div>',
       "</div>",
       '<textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for question ' + index + '"></textarea>',
-      '<div class="interactive-python-status">Loading in-browser Python and pandas runtime…</div>',
+      '<div class="interactive-python-status"></div>',
       '<div class="interactive-python-output is-empty"></div>'
     ].join("");
+    var editor = wrapper.querySelector(".interactive-python-editor");
+    editor.style.width = "80ch";
+    editor.style.maxWidth = "80ch";
+    editor.style.background = "#f1f3f5";
     return wrapper;
   }
 
@@ -882,10 +901,12 @@ df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
   }
 
   function resetCell(cell) {
-    cell.querySelector(".interactive-python-editor").value = defaultCellCode;
+    var editor = cell.querySelector(".interactive-python-editor");
+    editor.value = defaultCellCode;
+    resizeEditor(editor);
     cell.querySelector(".interactive-python-output").innerHTML = "";
     cell.querySelector(".interactive-python-output").classList.add("is-empty");
-    cell.querySelector(".interactive-python-status").textContent = "Ready. orders, customers, pd, and np are loaded fresh on each run.";
+    cell.querySelector(".interactive-python-status").textContent = "";
   }
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -932,6 +953,10 @@ df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
 
       solution.addEventListener("toggle", updateToggleButton);
 
+      cell.querySelector(".interactive-python-editor").addEventListener("input", function(event) {
+        resizeEditor(event.target);
+      });
+
       cell.querySelector(".run-button").addEventListener("click", function() {
         runCell(cell);
       });
@@ -944,7 +969,7 @@ df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
     getPyodideRuntime()
       .then(function() {
         document.querySelectorAll(".interactive-python-status").forEach(function(node) {
-          node.textContent = "Ready. orders, customers, pd, and np are loaded fresh on each run.";
+          node.textContent = "";
         });
       })
       .catch(function() {
