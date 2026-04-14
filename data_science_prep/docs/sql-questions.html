@@ -247,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sql-questions" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> SQL questions<a href="sql-questions.html#sql-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>Note the solutions provided here are based off of PostgreSQL syntax of SQL.</em></p>
+<p><em>Note the solutions provided here are based off of PostgreSQL syntax of SQL, and the interactive sections below also run in a native in-browser PostgreSQL environment.</em></p>
 <div id="sql-tips" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> SQL tips<a href="sql-questions.html#sql-tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Some keywords are especially useful for SQL interview problems. Here are some that I suggest to know how to use well:</p>
@@ -1048,21 +1048,20 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 <span id="cb10-17"><a href="sql-questions.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">-----------</span></span>
 <span id="cb10-18"><a href="sql-questions.html#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-19"><a href="sql-questions.html#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> agged_by_month <span class="kw">AS</span> (</span>
-<span id="cb10-20"><a href="sql-questions.html#cb10-20" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SELECT</span> patient_id,</span>
-<span id="cb10-21"><a href="sql-questions.html#cb10-21" aria-hidden="true" tabindex="-1"></a>         date_trunc(<span class="st">&#39;month&#39;</span>, tstamp) <span class="kw">AS</span> <span class="dt">month</span>,</span>
-<span id="cb10-22"><a href="sql-questions.html#cb10-22" aria-hidden="true" tabindex="-1"></a>         <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">AS</span> item_transactions</span>
+<span id="cb10-20"><a href="sql-questions.html#cb10-20" aria-hidden="true" tabindex="-1"></a>   <span class="kw">SELECT</span> user_id,</span>
+<span id="cb10-21"><a href="sql-questions.html#cb10-21" aria-hidden="true" tabindex="-1"></a>          date_trunc(<span class="st">&#39;month&#39;</span>, tstamp) <span class="kw">AS</span> <span class="dt">month</span>,</span>
+<span id="cb10-22"><a href="sql-questions.html#cb10-22" aria-hidden="true" tabindex="-1"></a>          <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">AS</span> num_visits</span>
 <span id="cb10-23"><a href="sql-questions.html#cb10-23" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FROM</span>   <span class="kw">transaction</span></span>
 <span id="cb10-24"><a href="sql-questions.html#cb10-24" aria-hidden="true" tabindex="-1"></a>   <span class="kw">WHERE</span>  tstamp <span class="op">&gt;=</span> <span class="st">&#39;2019-01-01&#39;</span>:<span class="ch">:date</span></span>
-<span id="cb10-25"><a href="sql-questions.html#cb10-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span>    tstamp <span class="op">&lt;</span>  <span class="st">&#39;2019-05-01&#39;</span>:<span class="ch">:date</span> <span class="co">-- time range of interest.</span></span>
-<span id="cb10-26"><a href="sql-questions.html#cb10-26" aria-hidden="true" tabindex="-1"></a>   <span class="kw">GROUP</span> <span class="kw">BY</span> patient_id, <span class="dv">2</span></span>
-<span id="cb10-27"><a href="sql-questions.html#cb10-27" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb10-28"><a href="sql-questions.html#cb10-28" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb10-29"><a href="sql-questions.html#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">distinct</span>(patient_id) <span class="kw">AS</span> <span class="fu">user</span>,</span>
-<span id="cb10-30"><a href="sql-questions.html#cb10-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">to_char</span>(<span class="dt">month</span>, <span class="st">&#39;YYYY-MM&#39;</span>) <span class="kw">AS</span> <span class="dt">month</span>,</span>
-<span id="cb10-31"><a href="sql-questions.html#cb10-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sum</span>(item_transactions) <span class="kw">AS</span> num_visits</span>
+<span id="cb10-25"><a href="sql-questions.html#cb10-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span>    tstamp <span class="op">&lt;</span>  <span class="st">&#39;2019-05-01&#39;</span>:<span class="ch">:date</span></span>
+<span id="cb10-26"><a href="sql-questions.html#cb10-26" aria-hidden="true" tabindex="-1"></a>   <span class="kw">GROUP</span> <span class="kw">BY</span> user_id, <span class="dv">2</span></span>
+<span id="cb10-27"><a href="sql-questions.html#cb10-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-28"><a href="sql-questions.html#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="sql-questions.html#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id,</span>
+<span id="cb10-30"><a href="sql-questions.html#cb10-30" aria-hidden="true" tabindex="-1"></a>       <span class="fu">to_char</span>(<span class="dt">month</span>, <span class="st">&#39;YYYY-MM&#39;</span>) <span class="kw">AS</span> <span class="dt">year_month</span>,</span>
+<span id="cb10-31"><a href="sql-questions.html#cb10-31" aria-hidden="true" tabindex="-1"></a>       num_visits</span>
 <span id="cb10-32"><a href="sql-questions.html#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> agged_by_month</span>
-<span id="cb10-33"><a href="sql-questions.html#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dv">1</span>, <span class="dv">2</span></span>
-<span id="cb10-34"><a href="sql-questions.html#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dv">1</span></span></code></pre></div>
+<span id="cb10-33"><a href="sql-questions.html#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> user_id, <span class="dt">month</span></span></code></pre></div>
 </div>
 <div id="weekly-retention-report-with-log-data" class="section level3 hasAnchor" number="2.2.9">
 <h3><span class="header-section-number">2.2.9</span> Weekly retention report with log data<a href="sql-questions.html#weekly-retention-report-with-log-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1131,7 +1130,7 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 </tr>
 </tbody>
 </table>
-<p>(sql_fiddle)[<a href="https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=c13fa219d1324bdd58a6373201accbe6" class="uri">https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=c13fa219d1324bdd58a6373201accbe6</a>]</p>
+<p><a href="https://dbfiddle.uk/?rdbms=postgres_13&amp;fiddle=c13fa219d1324bdd58a6373201accbe6">sql_fiddle</a></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="sql-questions.html#cb11-1" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb11-2"><a href="sql-questions.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> log_data</span>
 <span id="cb11-3"><a href="sql-questions.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    (created_at <span class="dt">timestamp</span>, user_id <span class="dt">int</span>)</span>
@@ -1215,6 +1214,394 @@ Figure 2.1: RANGE BETWEEN clause extends the window to the end of the table or p
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script type="module">
+import { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/index.js';
+
+(function() {
+  function resizeEditor(editor) {
+    editor.style.height = 'auto';
+    editor.style.height = Math.max(editor.scrollHeight, 220) + 'px';
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function extractTableNames(sql) {
+    var regex = /CREATE\s+TABLE(?:\s+IF\s+NOT\s+EXISTS)?\s+((?:"[^"]+"|[a-zA-Z_][\w$]*)(?:\s*\.\s*(?:"[^"]+"|[a-zA-Z_][\w$]*))?)/gi;
+    var matches = [];
+    var seen = {};
+    var match;
+
+    while ((match = regex.exec(sql)) !== null) {
+      var tableName = match[1].replace(/\s+/g, '');
+      if (!seen[tableName]) {
+        seen[tableName] = true;
+        matches.push(tableName);
+      }
+    }
+
+    return matches;
+  }
+
+  function buildDefaultSql(tableNames) {
+    if (!tableNames.length) {
+      return [
+        "-- Setup is loaded. Preview the available tables first.",
+        "SELECT table_name",
+        "FROM information_schema.tables",
+        "WHERE table_schema = 'public'",
+        "ORDER BY table_name;"
+      ].join('\n');
+    }
+
+    return tableNames.map(function(tableName) {
+      return 'SELECT * FROM ' + tableName + ' LIMIT 5;';
+    }).join('\n\n');
+  }
+
+  function extractSolutionSql(sql, fallbackSql) {
+    var withRegex = /^\s*WITH\b/gim;
+    var selectRegex = /^\s*SELECT\b/gim;
+    var lastWithMatch = null;
+    var lastSelectMatch = null;
+    var match;
+
+    while ((match = withRegex.exec(sql)) !== null) {
+      lastWithMatch = match;
+    }
+
+    if (lastWithMatch) {
+      return sql.slice(lastWithMatch.index).trim();
+    }
+
+    while ((match = selectRegex.exec(sql)) !== null) {
+      lastSelectMatch = match;
+    }
+
+    if (lastSelectMatch) {
+      return sql.slice(lastSelectMatch.index).trim();
+    }
+
+    return fallbackSql;
+  }
+
+  function extractSetupSql(sql, solutionSql) {
+    var trimmedSql = sql.trim();
+    if (!solutionSql || trimmedSql === solutionSql) {
+      return trimmedSql;
+    }
+
+    var splitIndex = trimmedSql.lastIndexOf(solutionSql);
+    if (splitIndex === -1) {
+      return trimmedSql;
+    }
+
+    return trimmedSql.slice(0, splitIndex).trim();
+  }
+
+  function formatCellValue(value) {
+    if (value === null || typeof value === 'undefined') {
+      return 'NULL';
+    }
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return String(value);
+  }
+
+  function renderResultTable(result) {
+    var fields = result.fields || [];
+    var rows = result.rows || [];
+    var headerCells = fields.map(function(field) {
+      return '<th>' + escapeHtml(field.name) + '</th>';
+    }).join('');
+
+    var bodyRows = rows.length
+      ? rows.map(function(row) {
+          return '<tr>' + fields.map(function(field) {
+            return '<td>' + escapeHtml(formatCellValue(row[field.name])) + '</td>';
+          }).join('') + '</tr>';
+        }).join('')
+      : '<tr><td colspan="' + Math.max(fields.length, 1) + '">No rows returned.</td></tr>';
+
+    if (!fields.length) {
+      return '<pre>Statement executed successfully.</pre>';
+    }
+
+    return '<table><thead><tr>' + headerCells + '</tr></thead><tbody>' + bodyRows + '</tbody></table>';
+  }
+
+  function renderExecResults(outputNode, results) {
+    if (!results || !results.length) {
+      outputNode.innerHTML = '<pre>Statement executed successfully.</pre>';
+      outputNode.classList.remove('is-empty');
+      return;
+    }
+
+    outputNode.innerHTML = results.map(function(result, index) {
+      var title = results.length > 1 ? '<p class="interactive-sql-result-label">Result ' + (index + 1) + '</p>' : '';
+      return '<div class="interactive-sql-result">' + title + renderResultTable(result) + '</div>';
+    }).join('');
+    outputNode.classList.remove('is-empty');
+  }
+
+  function splitSqlStatements(sql) {
+    var statements = [];
+    var current = '';
+    var inSingleQuote = false;
+    var inDoubleQuote = false;
+    var inLineComment = false;
+    var inBlockComment = false;
+
+    for (var index = 0; index < sql.length; index += 1) {
+      var char = sql[index];
+      var nextChar = sql[index + 1];
+      current += char;
+
+      if (inLineComment) {
+        if (char === '\n') {
+          inLineComment = false;
+        }
+        continue;
+      }
+
+      if (inBlockComment) {
+        if (char === '*' && nextChar === '/') {
+          current += nextChar;
+          index += 1;
+          inBlockComment = false;
+        }
+        continue;
+      }
+
+      if (!inDoubleQuote && char === "'" && sql[index - 1] !== '\\') {
+        inSingleQuote = !inSingleQuote;
+        continue;
+      }
+
+      if (!inSingleQuote && char === '"' && sql[index - 1] !== '\\') {
+        inDoubleQuote = !inDoubleQuote;
+        continue;
+      }
+
+      if (inSingleQuote || inDoubleQuote) {
+        continue;
+      }
+
+      if (char === '-' && nextChar === '-') {
+        current += nextChar;
+        index += 1;
+        inLineComment = true;
+        continue;
+      }
+
+      if (char === '/' && nextChar === '*') {
+        current += nextChar;
+        index += 1;
+        inBlockComment = true;
+        continue;
+      }
+
+      if (char === ';') {
+        var statement = current.trim();
+        if (statement) {
+          statements.push(statement);
+        }
+        current = '';
+      }
+    }
+
+    var trailingStatement = current.trim();
+    if (trailingStatement) {
+      statements.push(trailingStatement);
+    }
+
+    return statements;
+  }
+
+  function statementReturnsRows(statement) {
+    return /^(with|select|values|show|table|explain|describe)\b/i.test(statement.trim());
+  }
+
+  function createPlayground(title) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'interactive-python-block interactive-sql-block';
+    wrapper.innerHTML = [
+      '<div class="interactive-python-toolbar">',
+      '  <div class="interactive-python-label">',
+      '    <span>Live PostgreSQL</span>',
+      '    <small>Tables for this question are preloaded in an in-browser Postgres runtime.</small>',
+      '  </div>',
+      '  <div class="interactive-python-actions">',
+      '    <button type="button" class="interactive-python-button run-button">Run</button>',
+      '    <button type="button" class="interactive-python-button load-solution-button">Load solution</button>',
+      '    <button type="button" class="interactive-python-button reset-button">Reset</button>',
+      '  </div>',
+      '</div>',
+      '<textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive SQL editor for ' + escapeHtml(title) + '"></textarea>',
+      '<div class="interactive-python-status">Loading in-browser PostgreSQL runtime…</div>',
+      '<div class="interactive-python-output is-empty"></div>'
+    ].join('');
+
+    wrapper.style.width = '84ch';
+    wrapper.style.maxWidth = '84ch';
+    var editor = wrapper.querySelector('.interactive-python-editor');
+    editor.style.width = '80ch';
+    editor.style.maxWidth = '80ch';
+    editor.style.background = '#f1f3f5';
+
+    return wrapper;
+  }
+
+  function createCollapsedCodeSection(summaryText, code, languageClass) {
+    var details = document.createElement('details');
+    details.className = 'solution';
+    details.innerHTML = [
+      '<summary>' + escapeHtml(summaryText) + '</summary>',
+      '<div class="interactive-solution-section">',
+      '  <pre><code class="' + escapeHtml(languageClass || '') + '">' + escapeHtml(code) + '</code></pre>',
+      '</div>'
+    ].join('');
+    return details;
+  }
+
+  async function buildDatabase(setupSql) {
+    var db = await PGlite.create({ dataDir: 'memory://' });
+    if (setupSql && setupSql.trim()) {
+      await db.exec(setupSql);
+    }
+    return db;
+  }
+
+  async function resetPlayground(playground, defaultSql, setupSql) {
+    var editor = playground.querySelector('.interactive-python-editor');
+    var output = playground.querySelector('.interactive-python-output');
+    var status = playground.querySelector('.interactive-python-status');
+
+    if (playground._dbPromise) {
+      try {
+        var existingDb = await playground._dbPromise;
+        if (existingDb && typeof existingDb.close === 'function') {
+          await existingDb.close();
+        }
+      } catch (error) {
+      }
+    }
+
+    playground._dbPromise = buildDatabase(setupSql);
+    editor.value = defaultSql;
+    resizeEditor(editor);
+    output.innerHTML = '';
+    output.classList.add('is-empty');
+    status.textContent = 'Ready. Run the preview query or load the solution SQL.';
+
+    try {
+      await playground._dbPromise;
+    } catch (error) {
+      status.textContent = 'Unable to load the in-browser PostgreSQL runtime. Check network access and reload.';
+    }
+  }
+
+  async function runPlayground(playground) {
+    var editor = playground.querySelector('.interactive-python-editor');
+    var output = playground.querySelector('.interactive-python-output');
+    var status = playground.querySelector('.interactive-python-status');
+    var buttons = playground.querySelectorAll('.interactive-python-button');
+
+    buttons.forEach(function(button) {
+      button.disabled = true;
+    });
+    status.textContent = 'Running…';
+
+    try {
+      var db = await playground._dbPromise;
+      var statements = splitSqlStatements(editor.value);
+      var results = [];
+
+      if (!statements.length) {
+        output.innerHTML = '';
+        output.classList.add('is-empty');
+        status.textContent = 'Execution complete. No SQL to run.';
+        return;
+      }
+
+      for (var index = 0; index < statements.length; index += 1) {
+        var statement = statements[index];
+        if (statementReturnsRows(statement)) {
+          results.push(await db.query(statement));
+        } else {
+          await db.exec(statement);
+        }
+      }
+
+      renderExecResults(output, results);
+      status.textContent = 'Execution complete.';
+    } catch (error) {
+      output.innerHTML = '<pre>' + escapeHtml(error && error.message ? error.message : String(error)) + '</pre>';
+      output.classList.remove('is-empty');
+      status.textContent = 'Execution failed.';
+    } finally {
+      buttons.forEach(function(button) {
+        button.disabled = false;
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var sections = document.querySelectorAll('#sample-questions > .section.level3');
+
+    sections.forEach(function(section) {
+      var heading = section.querySelector('h3');
+      var codeNode = section.querySelector('pre > code.sourceCode.sql');
+      var sourceBlock = section.querySelector('div.sourceCode');
+
+      if (!heading || !codeNode || !sourceBlock) {
+        return;
+      }
+
+      var setupSql = codeNode.textContent.trim();
+      var tableNames = extractTableNames(setupSql);
+      var defaultSql = buildDefaultSql(tableNames);
+      var solutionSql = extractSolutionSql(setupSql, defaultSql);
+      var setupOnlySql = extractSetupSql(setupSql, solutionSql);
+      var playground = createPlayground(heading.textContent.trim());
+      var editor = playground.querySelector('.interactive-python-editor');
+      var setupDetails = createCollapsedCodeSection('Show table setup SQL', setupOnlySql, 'language-sql');
+      var solutionDetails = createCollapsedCodeSection('Show solution SQL', solutionSql, 'language-sql');
+
+      sourceBlock.parentNode.insertBefore(playground, sourceBlock);
+      sourceBlock.parentNode.insertBefore(setupDetails, sourceBlock);
+      sourceBlock.parentNode.insertBefore(solutionDetails, sourceBlock);
+      sourceBlock.remove();
+
+      editor.addEventListener('input', function(event) {
+        resizeEditor(event.target);
+      });
+
+      playground.querySelector('.run-button').addEventListener('click', function() {
+        runPlayground(playground);
+      });
+
+      playground.querySelector('.load-solution-button').addEventListener('click', function() {
+        editor.value = solutionSql;
+        resizeEditor(editor);
+      });
+
+      playground.querySelector('.reset-button').addEventListener('click', function() {
+        resetPlayground(playground, defaultSql, setupSql);
+      });
+
+      resetPlayground(playground, defaultSql, setupSql);
+    });
+  });
+})();
+</script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
