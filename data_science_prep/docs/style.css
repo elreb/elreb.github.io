@@ -246,3 +246,45 @@ h4,h5,h6{
   color: #55657d;
   white-space: pre-wrap;
 }
+
+.interactive-sql-block .interactive-python-toolbar {
+  align-items: flex-start;
+}
+
+.interactive-sql-block .interactive-python-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.interactive-sql-block .interactive-python-label small {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #55657d;
+}
+
+.interactive-sql-result + .interactive-sql-result {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dde5ef;
+}
+
+.interactive-sql-result-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #233044;
+}
+
+@media (max-width: 900px) {
+  .interactive-python-block {
+    left: auto !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .interactive-python-editor {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
