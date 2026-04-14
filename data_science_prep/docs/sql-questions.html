@@ -1452,8 +1452,8 @@ import { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/i
     wrapper.style.width = '84ch';
     wrapper.style.maxWidth = '84ch';
     var editor = wrapper.querySelector('.interactive-python-editor');
-    editor.style.width = '80ch';
-    editor.style.maxWidth = '80ch';
+    editor.style.width = '100%';
+    editor.style.maxWidth = '100%';
     editor.style.background = '#f1f3f5';
 
     return wrapper;
@@ -1479,32 +1479,52 @@ import { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/i
     return db;
   }
 
-  async function resetPlayground(playground, defaultSql, setupSql) {
+  // Initialise the DB for a playground on first use only.
+  // Returns the existing promise if already started.
+  function ensureDatabase(playground) {
+    if (!playground._dbPromise) {
+      playground._dbPromise = buildDatabase(playground._setupSql);
+    }
+    return playground._dbPromise;
+  }
+
+  async function resetPlayground(playground) {
     var editor = playground.querySelector('.interactive-python-editor');
     var output = playground.querySelector('.interactive-python-output');
     var status = playground.querySelector('.interactive-python-status');
+    var buttons = playground.querySelectorAll('.interactive-python-button');
 
-    if (playground._dbPromise) {
-      try {
-        var existingDb = await playground._dbPromise;
-        if (existingDb && typeof existingDb.close === 'function') {
-          await existingDb.close();
-        }
-      } catch (error) {
-      }
-    }
-
-    playground._dbPromise = buildDatabase(setupSql);
-    editor.value = defaultSql;
+    editor.value = playground._defaultSql;
     resizeEditor(editor);
     output.innerHTML = '';
     output.classList.add('is-empty');
-    status.textContent = 'Ready. Run the preview query or load the solution SQL.';
+
+    // Only recreate the DB if it was already initialised; otherwise stay idle.
+    if (!playground._dbPromise) {
+      status.textContent = 'Click Run to initialize the in-browser PostgreSQL runtime.';
+      return;
+    }
+
+    buttons.forEach(function(b) { b.disabled = true; });
+    status.textContent = 'Resetting database…';
+
+    try {
+      var existingDb = await playground._dbPromise;
+      if (existingDb && typeof existingDb.close === 'function') {
+        await existingDb.close();
+      }
+    } catch (error) {
+    }
+
+    playground._dbPromise = buildDatabase(playground._setupSql);
 
     try {
       await playground._dbPromise;
+      status.textContent = 'Ready. Run the preview query or load the solution SQL.';
     } catch (error) {
-      status.textContent = 'Unable to load the in-browser PostgreSQL runtime. Check network access and reload.';
+      status.textContent = 'Unable to reset the PostgreSQL runtime. Check network access and reload.';
+    } finally {
+      buttons.forEach(function(b) { b.disabled = false; });
     }
   }
 
@@ -1517,10 +1537,22 @@ import { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/i
     buttons.forEach(function(button) {
       button.disabled = true;
     });
-    status.textContent = 'Running…';
+
+    // Lazy-init: first Run on a playground triggers DB creation.
+    var isFirstInit = !playground._dbPromise;
+    if (isFirstInit) {
+      status.textContent = 'Initializing in-browser PostgreSQL runtime…';
+    } else {
+      status.textContent = 'Running…';
+    }
 
     try {
-      var db = await playground._dbPromise;
+      var db = await ensureDatabase(playground);
+
+      if (isFirstInit) {
+        status.textContent = 'Running…';
+      }
+
       var statements = splitSqlStatements(editor.value);
       var results = [];
 
@@ -1580,6 +1612,16 @@ import { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/i
       sourceBlock.parentNode.insertBefore(solutionDetails, sourceBlock);
       sourceBlock.remove();
 
+      // Store setup info on the element; DB is created lazily on first Run.
+      playground._setupSql = setupOnlySql;
+      playground._defaultSql = defaultSql;
+      playground._dbPromise = null;
+
+      editor.value = defaultSql;
+      resizeEditor(editor);
+      playground.querySelector('.interactive-python-status').textContent =
+        'Click Run to initialize the in-browser PostgreSQL runtime.';
+
       editor.addEventListener('input', function(event) {
         resizeEditor(event.target);
       });
@@ -1594,10 +1636,8 @@ import { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/i
       });
 
       playground.querySelector('.reset-button').addEventListener('click', function() {
-        resetPlayground(playground, defaultSql, setupSql);
+        resetPlayground(playground);
       });
-
-      resetPlayground(playground, defaultSql, setupSql);
     });
   });
 })();
