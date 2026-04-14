@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="Chapter 3 Python / R analyses | Data Science Prep Guide" />
   <meta property="og:type" content="book" />
-  
+
   <meta property="og:description" content="Lab practices and data science best practices" />
   <meta name="github-repo" content="elreb/data_science_prep" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Python / R analyses | Data Science Prep Guide" />
-  
+
   <meta name="twitter:description" content="Lab practices and data science best practices" />
-  
+
 
 
 
@@ -26,8 +26,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+
+
 <link rel="prev" href="sql-questions.html"/>
 <link rel="next" href="statistics-and-machine-learning.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -39,13 +39,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
 
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
@@ -115,6 +108,78 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+/* Collapsed solution styling */
+details.solution {
+  border-left: 3px solid #c8c8c8;
+  padding: 0.4em 1em 0.4em 1em;
+  margin: 0.6em 0 1.2em 0;
+  background-color: #f8f8f8;
+  border-radius: 0 3px 3px 0;
+}
+details.solution summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  padding: 2px 0;
+  user-select: none;
+}
+details.solution summary:hover {
+  color: #222;
+}
+details.solution[open] summary {
+  margin-bottom: 0.6em;
+}
+details.solution pre.sourceCode {
+  margin-top: 0;
+}
+
+details.sql-fallback-toggle {
+  margin: 0.8em 0 1.2em;
+}
+
+details.sql-fallback-toggle summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #233044;
+  user-select: none;
+}
+
+details.sql-fallback-toggle summary:hover {
+  color: #16202f;
+}
+
+details.sql-fallback-toggle[open] summary {
+  margin-bottom: 0.6em;
+}
+
+details.sql-fallback-toggle > :not(summary) {
+  margin-left: 0;
+}
+
+.solution-toggle-button {
+  float: none;
+  display: inline-block;
+  margin: 0.75em 0 1em 0;
+  border: 1px solid #b8b8b8;
+  background: #f5f5f5;
+  color: #333;
+  border-radius: 4px;
+  padding: 0.45em 0.9em;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.solution-toggle-button:hover {
+  background: #ebebeb;
+}
+
+@media screen and (max-width: 1240px) {
+  .solution-toggle-button {
+    margin: 0.75em 0 1em 0;
+  }
+}
 </style>
 
 
@@ -149,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.3" data-path="sql-questions.html"><a href="sql-questions.html#employee-survey-results"><i class="fa fa-check"></i><b>2.2.3</b> Employee survey results</a></li>
 <li class="chapter" data-level="2.2.4" data-path="sql-questions.html"><a href="sql-questions.html#calculating-student-attendance"><i class="fa fa-check"></i><b>2.2.4</b> Calculating student attendance</a></li>
 <li class="chapter" data-level="2.2.5" data-path="sql-questions.html"><a href="sql-questions.html#music-streaming-behavior"><i class="fa fa-check"></i><b>2.2.5</b> Music streaming behavior</a></li>
-<li class="chapter" data-level="2.2.6" data-path="sql-questions.html"><a href="sql-questions.html#a-hotel-chains-loyal-customers"><i class="fa fa-check"></i><b>2.2.6</b> A hotel chain’s loyal customers</a></li>
+<li class="chapter" data-level="2.2.6" data-path="sql-questions.html"><a href="sql-questions.html#a-hotel-chains-loyal-customers"><i class="fa fa-check"></i><b>2.2.6</b> A hotel chain's loyal customers</a></li>
 <li class="chapter" data-level="2.2.7" data-path="sql-questions.html"><a href="sql-questions.html#user-churn-on-instagram"><i class="fa fa-check"></i><b>2.2.7</b> User churn on Instagram</a></li>
 <li class="chapter" data-level="2.2.8" data-path="sql-questions.html"><a href="sql-questions.html#group-users-by-year-month-and-count-visits"><i class="fa fa-check"></i><b>2.2.8</b> Group users by year-month and count visits</a></li>
 <li class="chapter" data-level="2.2.9" data-path="sql-questions.html"><a href="sql-questions.html#weekly-retention-report-with-log-data"><i class="fa fa-check"></i><b>2.2.9</b> Weekly retention report with log data</a></li>
@@ -157,12 +222,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="python-r-analyses.html"><a href="python-r-analyses.html"><i class="fa fa-check"></i><b>3</b> Python / R analyses</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sample-questions-1"><i class="fa fa-check"></i><b>3.1</b> Sample Questions</a>
+<li class="chapter" data-level="3.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#pandas-practice"><i class="fa fa-check"></i><b>3.1</b> Pandas Practice</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.1</b> Active users on a messaging application</a></li>
-<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.1.2</b> Time for a response on a messaging application</a></li>
-<li class="chapter" data-level="3.1.3" data-path="python-r-analyses.html"><a href="python-r-analyses.html#cleaning-and-analyzing-employee-data"><i class="fa fa-check"></i><b>3.1.3</b> Cleaning and analyzing employee data</a></li>
-<li class="chapter" data-level="3.1.4" data-path="python-r-analyses.html"><a href="python-r-analyses.html#analyzing-employee-data"><i class="fa fa-check"></i><b>3.1.4</b> Analyzing employee data</a></li>
+<li class="chapter" data-level="3.1.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#data-setup"><i class="fa fa-check"></i><b>3.1.1</b> Data Setup</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#pandas-tips"><i class="fa fa-check"></i><b>3.1.2</b> Pandas Tips</a></li>
+<li class="chapter" data-level="3.1.3" data-path="python-r-analyses.html"><a href="python-r-analyses.html#basic-filtering-and-selection"><i class="fa fa-check"></i><b>3.1.3</b> Basic Filtering and Selection</a></li>
+<li class="chapter" data-level="3.1.4" data-path="python-r-analyses.html"><a href="python-r-analyses.html#sorting-and-deduplicating"><i class="fa fa-check"></i><b>3.1.4</b> Sorting and Deduplicating</a></li>
+<li class="chapter" data-level="3.1.5" data-path="python-r-analyses.html"><a href="python-r-analyses.html#creating-new-columns"><i class="fa fa-check"></i><b>3.1.5</b> Creating New Columns</a></li>
+<li class="chapter" data-level="3.1.6" data-path="python-r-analyses.html"><a href="python-r-analyses.html#groupby"><i class="fa fa-check"></i><b>3.1.6</b> Groupby</a></li>
+<li class="chapter" data-level="3.1.7" data-path="python-r-analyses.html"><a href="python-r-analyses.html#merge-and-join"><i class="fa fa-check"></i><b>3.1.7</b> Merge and Join</a></li>
+<li class="chapter" data-level="3.1.8" data-path="python-r-analyses.html"><a href="python-r-analyses.html#missing-data"><i class="fa fa-check"></i><b>3.1.8</b> Missing Data</a></li>
+<li class="chapter" data-level="3.1.9" data-path="python-r-analyses.html"><a href="python-r-analyses.html#dates"><i class="fa fa-check"></i><b>3.1.9</b> Dates</a></li>
+<li class="chapter" data-level="3.1.10" data-path="python-r-analyses.html"><a href="python-r-analyses.html#reshaping"><i class="fa fa-check"></i><b>3.1.10</b> Reshaping</a></li>
+<li class="chapter" data-level="3.1.11" data-path="python-r-analyses.html"><a href="python-r-analyses.html#ranking-and-window-style"><i class="fa fa-check"></i><b>3.1.11</b> Ranking and Window-Style</a></li>
+<li class="chapter" data-level="3.1.12" data-path="python-r-analyses.html"><a href="python-r-analyses.html#interview-prompts"><i class="fa fa-check"></i><b>3.1.12</b> Interview Prompts</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#additional-questions"><i class="fa fa-check"></i><b>3.2</b> Additional Questions</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="python-r-analyses.html"><a href="python-r-analyses.html#active-users-on-a-messaging-application"><i class="fa fa-check"></i><b>3.2.1</b> Active users on a messaging application</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-r-analyses.html"><a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application"><i class="fa fa-check"></i><b>3.2.2</b> Time for a response on a messaging application</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python-r-analyses.html"><a href="python-r-analyses.html#cleaning-and-analyzing-employee-data"><i class="fa fa-check"></i><b>3.2.3</b> Cleaning and analyzing employee data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python-r-analyses.html"><a href="python-r-analyses.html#analyzing-employee-data"><i class="fa fa-check"></i><b>3.2.4</b> Analyzing employee data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html"><i class="fa fa-check"></i><b>4</b> Statistics and Machine Learning</a>
@@ -181,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bayes-theorem-1"><i class="fa fa-check"></i><b>4.2.3</b> Bayes Theorem 1</a></li>
 <li class="chapter" data-level="4.2.4" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#mae-vs-mse"><i class="fa fa-check"></i><b>4.2.4</b> MAE vs MSE</a></li>
 <li class="chapter" data-level="4.2.5" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-1"><i class="fa fa-check"></i><b>4.2.5</b> Bias variance tradeoff</a></li>
-<li class="chapter" data-level="4.2.6" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#changing-the-companys-color"><i class="fa fa-check"></i><b>4.2.6</b> Changing the company’s color</a></li>
+<li class="chapter" data-level="4.2.6" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#changing-the-companys-color"><i class="fa fa-check"></i><b>4.2.6</b> Changing the company's color</a></li>
 <li class="chapter" data-level="4.2.7" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#repeated-significance-testing-error"><i class="fa fa-check"></i><b>4.2.7</b> Repeated significance testing error</a></li>
 <li class="chapter" data-level="4.2.8" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#bias-variance-tradeoff-2"><i class="fa fa-check"></i><b>4.2.8</b> Bias Variance Tradeoff</a></li>
 <li class="chapter" data-level="4.2.9" data-path="statistics-and-machine-learning.html"><a href="statistics-and-machine-learning.html#drawing-cards-from-a-standard-deck"><i class="fa fa-check"></i><b>4.2.9</b> Drawing cards from a standard deck</a></li>
@@ -210,21 +290,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.4" data-path="computer-science-data-scructures-and-algorithms.html"><a href="computer-science-data-scructures-and-algorithms.html#finding-the-value-closest-to-0"><i class="fa fa-check"></i><b>6.1.4</b> Finding the value closest to 0</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="pandas-practice.html"><a href="pandas-practice.html"><i class="fa fa-check"></i><b>7</b> Pandas Practice</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="pandas-practice.html"><a href="pandas-practice.html#data-setup"><i class="fa fa-check"></i><b>7.1</b> Data Setup</a></li>
-<li class="chapter" data-level="7.2" data-path="pandas-practice.html"><a href="pandas-practice.html#pandas-tips"><i class="fa fa-check"></i><b>7.2</b> Pandas Tips</a></li>
-<li class="chapter" data-level="7.3" data-path="pandas-practice.html"><a href="pandas-practice.html#basic-filtering-and-selection"><i class="fa fa-check"></i><b>7.3</b> Basic Filtering and Selection</a></li>
-<li class="chapter" data-level="7.4" data-path="pandas-practice.html"><a href="pandas-practice.html#sorting-and-deduplicating"><i class="fa fa-check"></i><b>7.4</b> Sorting and Deduplicating</a></li>
-<li class="chapter" data-level="7.5" data-path="pandas-practice.html"><a href="pandas-practice.html#creating-new-columns"><i class="fa fa-check"></i><b>7.5</b> Creating New Columns</a></li>
-<li class="chapter" data-level="7.6" data-path="pandas-practice.html"><a href="pandas-practice.html#groupby"><i class="fa fa-check"></i><b>7.6</b> Groupby</a></li>
-<li class="chapter" data-level="7.7" data-path="pandas-practice.html"><a href="pandas-practice.html#merge-and-join"><i class="fa fa-check"></i><b>7.7</b> Merge and Join</a></li>
-<li class="chapter" data-level="7.8" data-path="pandas-practice.html"><a href="pandas-practice.html#missing-data"><i class="fa fa-check"></i><b>7.8</b> Missing Data</a></li>
-<li class="chapter" data-level="7.9" data-path="pandas-practice.html"><a href="pandas-practice.html#dates"><i class="fa fa-check"></i><b>7.9</b> Dates</a></li>
-<li class="chapter" data-level="7.10" data-path="pandas-practice.html"><a href="pandas-practice.html#reshaping"><i class="fa fa-check"></i><b>7.10</b> Reshaping</a></li>
-<li class="chapter" data-level="7.11" data-path="pandas-practice.html"><a href="pandas-practice.html#ranking-and-window-style"><i class="fa fa-check"></i><b>7.11</b> Ranking and Window-Style</a></li>
-<li class="chapter" data-level="7.12" data-path="pandas-practice.html"><a href="pandas-practice.html#interview-prompts"><i class="fa fa-check"></i><b>7.12</b> Interview Prompts</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/elreb/data_science_prep" target="blank">Published with bookdown</a></li>
 
@@ -247,323 +312,674 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="python-r-analyses" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Python / R analyses<a href="python-r-analyses.html#python-r-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="sample-questions-1" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Sample Questions<a href="python-r-analyses.html#sample-questions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="active-users-on-a-messaging-application" class="section level3 hasAnchor" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Active users on a messaging application<a href="python-r-analyses.html#active-users-on-a-messaging-application" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Data Analysis</li>
-<li>Python</li>
-<li>Pandas</li>
-<li>Data Manipulation</li>
-<li>External Dataset</li>
-</ul>
-<p><a href="https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv">Here</a> is a table schema for a P2P messaging application. The table contains send/receive message data for the application’s users. The structure is as follows:</p>
-<p>Table name: user_messaging</p>
-<table>
-<thead>
-<tr class="header">
-<th>user_messaging</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>date</td>
-</tr>
-<tr class="even">
-<td>sender_id (#id of the message sender)</td>
-</tr>
-<tr class="odd">
-<td>receiver_id (#id of the message receiver)</td>
-</tr>
-</tbody>
-</table>
-<p>Using Python, calculate what fraction of senders sent messages to at least 9 unique people on March 1, 2018.</p>
-<p>Click <a href="https://u4221007.ct.sendgrid.net/wf/click?upn=c6wysRx7DxHxCGh5eakHL4eRgf6d3gqm8JiD512FeCO10yrb4tSBGev4NHZXMQtY-2FFvW9JUzEvRyokqPdM3cII6SVlxYdrkgAn3CRYwSim3itB17Yn-2FSsh-2ByGZH-2BbsjI_9bNywJt2NH2FJrMnWUxGNOCIdMXGFzCPCDkmYGVJLESjI1knmhblLz93luVOT1z6RYzl4dU8-2BJnN-2FKA2BAJ40QX0Uwy-2FZVtjaFN0cxeDDjna980PfBxrUqeAURck3l9hmqqlF8aDkWvJn-2FJEc6F1-2FQA1c2hXxPVOT6xtlkVfuWp9el-2BQU7VYULk8i9BAgEWRkXzK95wH2Fzj9qWht1b6sw-3D-3D">here</a> to view this problem in an interactive Colab (Jupyter) notebook.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="python-r-analyses.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Python</span></span>
-<span id="cb12-2"><a href="python-r-analyses.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
-<span id="cb12-3"><a href="python-r-analyses.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="python-r-analyses.html#cb12-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv&#39;</span>)</span>
-<span id="cb12-5"><a href="python-r-analyses.html#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="python-r-analyses.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code></pre></div>
-<pre><code>##          date  sender_id  receiver_id
-## 0  2018-03-01          5            2
-## 1  2018-03-01          8            6
-## 2  2018-03-01          1            2
-## 3  2018-03-01          4            8
-## 4  2018-03-01          2            7</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="python-r-analyses.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.info())</span></code></pre></div>
-<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-## RangeIndex: 999 entries, 0 to 998
-## Data columns (total 3 columns):
-## date           999 non-null object
-## sender_id      999 non-null int64
-## receiver_id    999 non-null int64
-## dtypes: int64(2), object(1)
-## memory usage: 23.5+ KB
-## None</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="python-r-analyses.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fraction_sent_by_day(data:pd.DataFrame, day:<span class="bu">str</span>, count:<span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb16-2"><a href="python-r-analyses.html#cb16-2" aria-hidden="true" tabindex="-1"></a>    df_filtered <span class="op">=</span> data[data[<span class="st">&#39;date&#39;</span>] <span class="op">==</span> day] </span>
-<span id="cb16-3"><a href="python-r-analyses.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    df_filtered <span class="op">=</span> df_filtered.drop_duplicates(subset <span class="op">=</span> [<span class="st">&#39;sender_id&#39;</span>, <span class="st">&#39;receiver_id&#39;</span>], keep <span class="op">=</span> <span class="st">&#39;first&#39;</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-4"><a href="python-r-analyses.html#cb16-4" aria-hidden="true" tabindex="-1"></a>    numerator <span class="op">=</span> <span class="bu">len</span>(df_filtered)</span>
-<span id="cb16-5"><a href="python-r-analyses.html#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> numerator <span class="op">/</span> <span class="bu">len</span>(data)</span>
-<span id="cb16-6"><a href="python-r-analyses.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="python-r-analyses.html#cb16-7" aria-hidden="true" tabindex="-1"></a>fraction_sent_by_day(data, <span class="st">&#39;2018-03-01&#39;</span>, <span class="dv">9</span>)</span></code></pre></div>
-<pre><code>## 0.0890890890890891</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="python-r-analyses.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In R</span></span>
-<span id="cb18-2"><a href="python-r-analyses.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## Warning: replacing previous import &#39;lifecycle::last_warnings&#39; by
-## &#39;rlang::last_warnings&#39; when loading &#39;pillar&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;lifecycle::last_warnings&#39; by
-## &#39;rlang::last_warnings&#39; when loading &#39;tibble&#39;</code></pre>
-<pre><code>## Warning: replacing previous import &#39;lifecycle::last_warnings&#39; by
-## &#39;rlang::last_warnings&#39; when loading &#39;hms&#39;</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
-## ✔ tibble  3.1.4     ✔ dplyr   1.0.7
-## ✔ tidyr   1.1.3     ✔ stringr 1.4.0
-## ✔ readr   2.0.1     ✔ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="python-r-analyses.html#cb25-1" aria-hidden="true" tabindex="-1"></a>df_raw <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv&#39;</span>)</span>
-<span id="cb25-2"><a href="python-r-analyses.html#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="python-r-analyses.html#cb25-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_raw <span class="sc">%&gt;%</span></span>
-<span id="cb25-4"><a href="python-r-analyses.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&#39;2018-03-01&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb25-5"><a href="python-r-analyses.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(sender_id) <span class="sc">%&gt;%</span></span>
-<span id="cb25-6"><a href="python-r-analyses.html#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">unique_sends =</span> <span class="fu">n_distinct</span>(receiver_id)) <span class="sc">%&gt;%</span></span>
-<span id="cb25-7"><a href="python-r-analyses.html#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">answer =</span> <span class="fu">sum</span>(unique_sends <span class="sc">&gt;=</span> <span class="dv">9</span>) <span class="sc">/</span> <span class="fu">n</span>())</span>
-<span id="cb25-8"><a href="python-r-analyses.html#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="python-r-analyses.html#cb25-9" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   answer
-##    &lt;dbl&gt;
-## 1    0.9</code></pre>
-</div>
-<div id="time-for-a-response-on-a-messaging-application" class="section level3 hasAnchor" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Time for a response on a messaging application<a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Data Analysis</li>
-<li>Python</li>
-<li>Pandas</li>
-<li>Data Manipulation</li>
-</ul>
-<p>You are given a <a href="https://u4221007.ct.sendgrid.net/wf/click?upn=c6wysRx7DxHxCGh5eakHL0PTD2m237pPW3WbnV0-2B-2FP-2FNQiZEk5-2BhcPcgF92WTu6nJRINcM-2FG9-2B9FB4gw8hyZ6-2FKvreX4LF732JXt-2FJB1a-2BVB5TQS3u-2B8tAet3BB-2Bvj21QqWoCwZ3qlTBpwp44pqM5w-3D-3D_9bNywJt2NH2FJrMnWUxGNOCIdMXGFzCPCDkmYGVJLESxq8hLvmb8NASP7DzwfGmFwHSFC0z-2FTEZfIO5oOBYf9VBwU1v5eMrS8c114kDedsJSF-2FIORCcWJw-2FrcM0qGpyO3sq-2BQs-2BSLe6RN7gj-2F9MDfDdFAiUCYyA5NSqOUKUJ0l-2BwuQy7IWXlXiZnF6pDHaRUEF-2BTDTfg9K6Cmws-2B7Bt1iRCx8rzSMldPyPq-2BUovqJuw-3D">dataset</a> with information around messages sent between users in a P2P messaging application. Below is the dataset’s schema:</p>
-<table>
-<colgroup>
-<col width="39%" />
-<col width="27%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Column Name</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>date</td>
-<td>string</td>
-<td>date of the message sent/received, format is ‘YYYY-mm-dd’</td>
-</tr>
-<tr class="even">
-<td>timestamp</td>
-<td>integer</td>
-<td>timestamp of the message sent/received, epoch seconds</td>
-</tr>
-<tr class="odd">
-<td>sender_id</td>
-<td>integer</td>
-<td>id of the message sender</td>
-</tr>
-<tr class="even">
-<td>receiver_id</td>
-<td>integer</td>
-<td>id of the message receiver</td>
-</tr>
-</tbody>
-</table>
-<p>Given this, write code to find the fraction of messages that are sent between the same sender and receiver within five minutes (e.g. the fraction of messages that receive a response within 5 minutes).</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="python-r-analyses.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group by sender and receiver </span></span>
-<span id="cb27-2"><a href="python-r-analyses.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
-<span id="cb27-3"><a href="python-r-analyses.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="python-r-analyses.html#cb27-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/data_analysis_2-messages.csv&#39;</span>)</span>
-<span id="cb27-5"><a href="python-r-analyses.html#cb27-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div>
-<pre><code>##          date   timestamp  sender_id  receiver_id
-## 0  2018-03-01  1519923378          1            5
-## 1  2018-03-01  1519942810          1            4
-## 2  2018-03-01  1519918950          1            5
-## 3  2018-03-01  1519930114          1            2
-## 4  2018-03-01  1519920410          1            2</code></pre>
-</div>
-<div id="cleaning-and-analyzing-employee-data" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Cleaning and analyzing employee data<a href="python-r-analyses.html#cleaning-and-analyzing-employee-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Data Analysis</li>
-<li>Pandas</li>
-<li>Data Manipulation</li>
-<li>Data Cleaning</li>
-</ul>
-<p>Below is a snippet from a table that contains information about employees that work at Company XYZ:</p>
-<table>
-<thead>
-<tr class="header">
-<th>employee_name</th>
-<th>employee_id</th>
-<th>date_joined</th>
-<th>age</th>
-<th>yrs_of_experience</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Andy</td>
-<td>123456</td>
-<td>2015-02-15</td>
-<td>45</td>
-<td>24</td>
-</tr>
-<tr class="even">
-<td>Beth</td>
-<td>789456</td>
-<td>NaN</td>
-<td>36</td>
-<td>15</td>
-</tr>
-<tr class="odd">
-<td>Cindy</td>
-<td>654123</td>
-<td>2017-05-16</td>
-<td>34</td>
-<td>14</td>
-</tr>
-<tr class="even">
-<td>Dale</td>
-<td>963852</td>
-<td>2018-01-15</td>
-<td>25</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<p>Company XYZ recently migrated database systems causing some of the date_joined records to be NULL. You’re told by an analyst in human resources NULL records for the date_joined field indicates the employees joined prior to 2010. You also find out there are multiple employees with the same name and duplicate records for some employees.</p>
-<p>Given this, write code to find the number of employees that joined each month. You can group all of the null values as Dec 1, 2009.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="python-r-analyses.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in R</span></span>
-<span id="cb29-2"><a href="python-r-analyses.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb29-3"><a href="python-r-analyses.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="python-r-analyses.html#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">employee_name =</span> <span class="fu">c</span>(<span class="st">&quot;Andy&quot;</span>,<span class="st">&quot;Beth&quot;</span>, <span class="st">&quot;Cindy&quot;</span>, <span class="st">&quot;Dale&quot;</span>, <span class="st">&quot;Andy&quot;</span>),</span>
-<span id="cb32-2"><a href="python-r-analyses.html#cb32-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">emloyee_id =</span> <span class="fu">c</span>(<span class="dv">123456</span>, <span class="dv">789456</span>, <span class="dv">654123</span>, <span class="dv">963852</span>, <span class="dv">123222</span>),</span>
-<span id="cb32-3"><a href="python-r-analyses.html#cb32-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">date_joined =</span> <span class="fu">c</span>(<span class="st">&quot;2015-02-15&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;2017-05-16&quot;</span>, <span class="st">&quot;2018-01-15&quot;</span>, <span class="st">&quot;2018-01-15&quot;</span>),</span>
-<span id="cb32-4"><a href="python-r-analyses.html#cb32-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">36</span>, <span class="dv">34</span>, <span class="dv">25</span>, <span class="dv">45</span>),</span>
-<span id="cb32-5"><a href="python-r-analyses.html#cb32-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">yrs_of_experience =</span> <span class="fu">c</span>(<span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">4</span>, <span class="dv">24</span>)) </span>
-<span id="cb32-6"><a href="python-r-analyses.html#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="python-r-analyses.html#cb32-7" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb32-8"><a href="python-r-analyses.html#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">date_joined=</span><span class="st">&quot;2009-12-01&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-9"><a href="python-r-analyses.html#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">yr_month =</span> <span class="fu">floor_date</span>(<span class="fu">as_date</span>(date_joined), <span class="st">&quot;month&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-10"><a href="python-r-analyses.html#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(employee_name, age, yrs_of_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-11"><a href="python-r-analyses.html#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">dupe =</span> <span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-12"><a href="python-r-analyses.html#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-13"><a href="python-r-analyses.html#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb32-14"><a href="python-r-analyses.html#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(yr_month) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-15"><a href="python-r-analyses.html#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-16"><a href="python-r-analyses.html#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(yr_month)</span></code></pre></div>
-<pre><code>## # A tibble: 4 × 2
-##   yr_month       n
-##   &lt;date&gt;     &lt;int&gt;
-## 1 2009-12-01     1
-## 2 2015-02-01     1
-## 3 2017-05-01     1
-## 4 2018-01-01     1</code></pre>
-</div>
-<div id="analyzing-employee-data" class="section level3 hasAnchor" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Analyzing employee data<a href="python-r-analyses.html#analyzing-employee-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Below is a snippet from a table that contains information about employees that work at Company XYZ:</p>
-<table>
-<colgroup>
-<col width="22%" />
-<col width="28%" />
-<col width="26%" />
-<col width="24%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Column name</th>
-<th>Data type</th>
-<th>Example value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>employee_name</td>
-<td>string</td>
-<td>Cindy</td>
-<td>Name of employee</td>
-</tr>
-<tr class="even">
-<td>employee_id</td>
-<td>integer</td>
-<td>1837204</td>
-<td>Unique id for each employee</td>
-</tr>
-<tr class="odd">
-<td>yrs_of_experience</td>
-<td>integer</td>
-<td>14</td>
-<td>total working years of experience</td>
-</tr>
-<tr class="even">
-<td>yrs_at_company</td>
-<td>integer</td>
-<td>10</td>
-<td>total working years at Company XYZ</td>
-</tr>
-<tr class="odd">
-<td>compensation</td>
-<td>integer</td>
-<td>100000</td>
-<td>dollar value of employee compensation</td>
-</tr>
-<tr class="even">
-<td>career_track</td>
-<td>string</td>
-<td>technical</td>
-<td>Potential values: technical, non-technical, executive</td>
-</tr>
-</tbody>
-</table>
-<p>Company XYZ Human Resource department is trying to understand compensation across the company and asked you to pull data to help them make a decision regarding employee compensation.</p>
-<p>Question: Can you pull the average, median, minimum, maximum, and standard deviations for salary across 5 year experience buckets at Company XYZ? (e.g. get the corresponding average, median, minimum, maximum, and standard deviations for experience buckets 0-5, 5-10, 10-15, etc.)</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="python-r-analyses.html#cb34-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">yrs_of_experience =</span> <span class="fu">c</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">100</span>, <span class="at">replace=</span>T)))</span>
-<span id="cb34-2"><a href="python-r-analyses.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="python-r-analyses.html#cb34-3" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb34-4"><a href="python-r-analyses.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">age_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb34-5"><a href="python-r-analyses.html#cb34-5" aria-hidden="true" tabindex="-1"></a>        yrs_of_experience <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">&quot;0-5&quot;</span>,</span>
-<span id="cb34-6"><a href="python-r-analyses.html#cb34-6" aria-hidden="true" tabindex="-1"></a>        yrs_of_experience <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> yrs_of_experience <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;5-10&quot;</span>,</span>
-<span id="cb34-7"><a href="python-r-analyses.html#cb34-7" aria-hidden="true" tabindex="-1"></a>        yrs_of_experience <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> yrs_of_experience <span class="sc">&lt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">&#39;10-15&#39;</span>,</span>
-<span id="cb34-8"><a href="python-r-analyses.html#cb34-8" aria-hidden="true" tabindex="-1"></a>        yrs_of_experience <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> yrs_of_experience <span class="sc">&lt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&#39;15-20&#39;</span>,</span>
-<span id="cb34-9"><a href="python-r-analyses.html#cb34-9" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Over 20&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-10"><a href="python-r-analyses.html#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(age_cat) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-11"><a href="python-r-analyses.html#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">average=</span> <span class="fu">mean</span>(yrs_of_experience), <span class="at">median =</span> <span class="fu">median</span>(yrs_of_experience), <span class="at">min =</span> <span class="fu">min</span>(yrs_of_experience), <span class="at">max =</span> <span class="fu">max</span>(yrs_of_experience), <span class="at">sd =</span> <span class="fu">sd</span>(yrs_of_experience))</span></code></pre></div>
-<pre><code>## # A tibble: 5 × 6
-##   age_cat average median   min   max    sd
-##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
-## 1 0-5        2.69    3       1     4  1.30
-## 2 10-15     11.7    12      10    14  1.49
-## 3 15-20     16.6    16      15    19  1.54
-## 4 5-10       6.57    6.5     5     9  1.50
-## 5 Over 20   22.0    21      20    25  1.95</code></pre>
+<div id="pandas-practice" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Pandas Practice<a href="python-r-analyses.html#pandas-practice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This chapter is a focused drill on the pandas syntax that comes up most often in data science interviews. The questions use two small, consistent tables so you can stay in the flow of practicing rather than context-switching between datasets.</p>
+<p>The best workflow: read each prompt, write the answer from memory, then expand the solution to check. For the trickier questions, say out loud why you reached for <code>groupby</code>, <code>agg</code>, <code>merge</code>, or <code>transform</code>.</p>
+<p>For the interactive boxes below, use <code>Run</code> to test your answer and <code>Reset</code> to restore the starter code. Each run starts from a fresh copy of the same preloaded data.</p>
+<button type="button" class="solution-toggle-button" id="toggle-all-solutions" aria-expanded="false">Show all solutions</button>
 
-<p><img src="ds-interview-guide_files/figure-html/unnamed-chunk-20-1.png" width="288" /></p>
+<div id="data-setup" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Data Setup<a href="python-r-analyses.html#data-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you want to work through these exercises outside the interactive page, run the cell below to create the two DataFrames used throughout this chapter. Any Python 3.10+ environment will work, and <a href="https://colab.research.google.com/">Google Colab</a> is a convenient zero-install option.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="python-r-analyses.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="python-r-analyses.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="python-r-analyses.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="python-r-analyses.html#cb1-4" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-5"><a href="python-r-analyses.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"order_id"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb1-6"><a href="python-r-analyses.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">103</span>, <span class="dv">104</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">105</span>],</span>
+<span id="cb1-7"><a href="python-r-analyses.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"category"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>],</span>
+<span id="cb1-8"><a href="python-r-analyses.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"amount"</span>: [<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">80</span>, <span class="dv">40</span>, <span class="dv">35</span>, <span class="dv">60</span>, <span class="dv">100</span>, np.nan],</span>
+<span id="cb1-9"><a href="python-r-analyses.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"order_date"</span>: pd.to_datetime([</span>
+<span id="cb1-10"><a href="python-r-analyses.html#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2025-01-01"</span>, <span class="st">"2025-01-02"</span>, <span class="st">"2025-01-05"</span>, <span class="st">"2025-01-07"</span>,</span>
+<span id="cb1-11"><a href="python-r-analyses.html#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2025-01-08"</span>, <span class="st">"2025-01-10"</span>, <span class="st">"2025-01-12"</span>, <span class="st">"2025-01-15"</span></span>
+<span id="cb1-12"><a href="python-r-analyses.html#cb1-12" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb1-13"><a href="python-r-analyses.html#cb1-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-14"><a href="python-r-analyses.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="python-r-analyses.html#cb1-15" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-16"><a href="python-r-analyses.html#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"customer_id"</span>: [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">103</span>, <span class="dv">104</span>, <span class="dv">105</span>, <span class="dv">106</span>],</span>
+<span id="cb1-17"><a href="python-r-analyses.html#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Ana"</span>, <span class="st">"Ben"</span>, <span class="st">"Cara"</span>, <span class="st">"Dan"</span>, <span class="st">"Eva"</span>, <span class="st">"Finn"</span>],</span>
+<span id="cb1-18"><a href="python-r-analyses.html#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: [<span class="st">"SF"</span>, <span class="st">"NY"</span>, <span class="st">"SF"</span>, <span class="st">"LA"</span>, <span class="st">"NY"</span>, <span class="st">"LA"</span>],</span>
+<span id="cb1-19"><a href="python-r-analyses.html#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"signup_date"</span>: pd.to_datetime([</span>
+<span id="cb1-20"><a href="python-r-analyses.html#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-12-01"</span>, <span class="st">"2024-12-05"</span>, <span class="st">"2024-12-08"</span>,</span>
+<span id="cb1-21"><a href="python-r-analyses.html#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-12-10"</span>, <span class="st">"2024-12-12"</span>, <span class="st">"2024-12-15"</span></span>
+<span id="cb1-22"><a href="python-r-analyses.html#cb1-22" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb1-23"><a href="python-r-analyses.html#cb1-23" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p><strong>orders</strong> has 8 rows: order id, customer id, category (A/B/C), dollar amount (one intentionally missing), and order date.<br/>
+<strong>customers</strong> has 6 rows: customer id, name, city, and signup date. Customer 106 (Finn) has no orders.</p>
+</div>
+
+<div id="pandas-tips" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Pandas Tips<a href="python-r-analyses.html#pandas-tips" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These are the patterns that trip people up most in interviews. Drill them until they feel automatic.</p>
+<p>If you get stuck, it can help to first sketch the logic in SQL and then translate it to pandas. A good fallback is to think in terms of a CTE that filters or aggregates first, then a final select.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="python-r-analyses.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean filtering</span></span>
+<span id="cb2-2"><a href="python-r-analyses.html#cb2-2" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"col"</span>] <span class="op">&gt;</span> <span class="dv">5</span>]</span>
+<span id="cb2-3"><a href="python-r-analyses.html#cb2-3" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"col"</span>].isin([<span class="st">"A"</span>, <span class="st">"B"</span>])]</span>
+<span id="cb2-4"><a href="python-r-analyses.html#cb2-4" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"col"</span>].isna()]</span>
+<span id="cb2-5"><a href="python-r-analyses.html#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="python-r-analyses.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting</span></span>
+<span id="cb2-7"><a href="python-r-analyses.html#cb2-7" aria-hidden="true" tabindex="-1"></a>df.sort_values([<span class="st">"a"</span>, <span class="st">"b"</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">False</span>])</span>
+<span id="cb2-8"><a href="python-r-analyses.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="python-r-analyses.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># New columns with assign (returns a copy — chainable)</span></span>
+<span id="cb2-10"><a href="python-r-analyses.html#cb2-10" aria-hidden="true" tabindex="-1"></a>df.assign(new_col<span class="op">=</span>df[<span class="st">"x"</span>] <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb2-11"><a href="python-r-analyses.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="python-r-analyses.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Groupby aggregations</span></span>
+<span id="cb2-13"><a href="python-r-analyses.html#cb2-13" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"key"</span>)[<span class="st">"value"</span>].sum()</span>
+<span id="cb2-14"><a href="python-r-analyses.html#cb2-14" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"key"</span>).agg(total<span class="op">=</span>(<span class="st">"value"</span>, <span class="st">"sum"</span>), avg<span class="op">=</span>(<span class="st">"value"</span>, <span class="st">"mean"</span>))</span>
+<span id="cb2-15"><a href="python-r-analyses.html#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="python-r-analyses.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge</span></span>
+<span id="cb2-17"><a href="python-r-analyses.html#cb2-17" aria-hidden="true" tabindex="-1"></a>df.merge(other, on<span class="op">=</span><span class="st">"id"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb2-18"><a href="python-r-analyses.html#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="python-r-analyses.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot table</span></span>
+<span id="cb2-20"><a href="python-r-analyses.html#cb2-20" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">"x"</span>, columns<span class="op">=</span><span class="st">"y"</span>, values<span class="op">=</span><span class="st">"z"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>)</span>
+<span id="cb2-21"><a href="python-r-analyses.html#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="python-r-analyses.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Window-style operations</span></span>
+<span id="cb2-23"><a href="python-r-analyses.html#cb2-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"rank"</span>] <span class="op">=</span> df.groupby(<span class="st">"group"</span>)[<span class="st">"value"</span>].rank(method<span class="op">=</span><span class="st">"dense"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-24"><a href="python-r-analyses.html#cb2-24" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"running_total"</span>] <span class="op">=</span> df.sort_values(<span class="st">"date"</span>).groupby(<span class="st">"id"</span>)[<span class="st">"value"</span>].cumsum()</span>
+<span id="cb2-25"><a href="python-r-analyses.html#cb2-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"prev"</span>] <span class="op">=</span> df.sort_values(<span class="st">"date"</span>).groupby(<span class="st">"id"</span>)[<span class="st">"value"</span>].shift(<span class="dv">1</span>)</span></code></pre></div>
+<details class="sql-fallback-toggle">
+<summary>SQL fallback with DuckDB</summary>
+<p>Example: if you want to think in SQL first, you can still run SQL from Python against your pandas DataFrames with <code>duckdb</code>. Here, <code>orders</code> is the same pandas DataFrame you have been using in the exercises, and <code>duckdb.sql(query).df()</code> runs the SQL and returns the result as another pandas DataFrame:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">import duckdb
+
+query = """
+WITH filtered_orders AS (
+    SELECT customer_id, amount
+    FROM orders
+    WHERE amount &gt; 50
+)
+SELECT customer_id, SUM(amount) AS total_spend
+FROM filtered_orders
+GROUP BY customer_id
+"""
+
+duckdb.sql(query).df()</code></pre></div>
+<p>The native pandas version of the same logic is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">filtered_orders = orders[orders["amount"] &gt; 50]
+filtered_orders.groupby("customer_id")["amount"].sum().reset_index(name="total_spend")</code></pre></div>
+<p>You can do the same thing with joins too. For example, if you want total spend by customer and city, you can join <code>orders</code> and <code>customers</code> directly in SQL:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">import duckdb
+
+query = """
+SELECT
+    o.customer_id,
+    c.city,
+    SUM(o.amount) AS total_spend
+FROM orders AS o
+JOIN customers AS c
+    ON o.customer_id = c.customer_id
+GROUP BY o.customer_id, c.city
+"""
+
+# duckdb.sql(query) returns a DuckDB relation, and .df() converts that
+# result into a pandas DataFrame. This works because orders and customers
+# already exist in Python as pandas DataFrames.
+duckdb.sql(query).df()</code></pre></div>
+<p>The native pandas version of that join is:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
+merged.groupby(["customer_id", "city"])["amount"].sum().reset_index(name="total_spend")</code></pre></div>
+<p>DuckDB is useful when the SQL version is clearer in your head, but a few details are worth remembering: it is a separate SQL engine rather than native pandas, so you are querying Python DataFrames through DuckDB rather than through pandas itself; null handling follows SQL rules; and you still need to pay attention to column types, especially dates and missing values.</p>
+</details>
+</div>
+
+<!-- ============================================================ -->
+<div id="basic-filtering-and-selection" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Basic Filtering and Selection<a href="python-r-analyses.html#basic-filtering-and-selection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q1.</strong> Select only the <code>customer_id</code>, <code>amount</code>, and <code>category</code> columns from <code>orders</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[["customer_id", "amount", "category"]]</code></pre></div>
+</details>
+
+<p><strong>Q2.</strong> Filter orders where <code>amount &gt; 50</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["amount"] &gt; 50]</code></pre></div>
+</details>
+
+<p><strong>Q3.</strong> Filter orders where <code>category</code> is either <code>"A"</code> or <code>"C"</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["category"].isin(["A", "C"])]</code></pre></div>
+</details>
+
+<p><strong>Q4.</strong> Return rows where <code>amount</code> is missing.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["amount"].isna()]</code></pre></div>
+</details>
+
+<p><strong>Q5.</strong> Filter orders placed after January 7, 2025.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[orders["order_date"] &gt; "2025-01-07"]</code></pre></div>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="sorting-and-deduplicating" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Sorting and Deduplicating<a href="python-r-analyses.html#sorting-and-deduplicating" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q6.</strong> Sort <code>orders</code> by <code>amount</code> descending.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values("amount", ascending=False)</code></pre></div>
+</details>
+
+<p><strong>Q7.</strong> Sort by <code>customer_id</code> ascending and <code>order_date</code> descending.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values(["customer_id", "order_date"], ascending=[True, False])</code></pre></div>
+</details>
+
+<p><strong>Q8.</strong> Get one row per <code>customer_id</code>, keeping only their most recent order.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># Sort descending so the most recent row is first, then drop duplicates
+orders.sort_values("order_date", ascending=False).drop_duplicates(subset="customer_id")</code></pre></div>
+<p><em>Why <code>drop_duplicates</code> instead of <code>groupby</code>? When you need the full row (not just an aggregated value), sorting then deduplicating is cleaner. Use <code>groupby + idxmax</code> if you only need the date itself.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="creating-new-columns" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Creating New Columns<a href="python-r-analyses.html#creating-new-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q9.</strong> Create a column called <code>amount_filled</code> where missing amounts are replaced with 0.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># Keep the new column on orders so you can use it later.
+orders["amount_filled"] = orders["amount"].fillna(0)
+</code></pre></div>
+</details>
+
+<p><strong>Q10.</strong> Create a boolean column <code>high_value</code> that is <code>True</code> for orders with <code>amount &gt;= 75</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># Keep the new column on orders so you can use it later.
+orders["high_value"] = orders["amount"] &gt;= 75
+</code></pre></div>
+</details>
+
+<p><strong>Q11.</strong> Create a column <code>amount_with_tax</code> equal to <code>amount * 1.08</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># Keep the new column on orders so you can use it later.
+orders["amount_with_tax"] = orders["amount"] * 1.08
+</code></pre></div>
+</details>
+
+<p><strong>Q12.</strong> Create a column <code>category_label</code> where A → <code>"alpha"</code>, B → <code>"beta"</code>, C → <code>"gamma"</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">label_map = {"A": "alpha", "B": "beta", "C": "gamma"}
+
+# Keep the new column on orders so you can use it later.
+orders["category_label"] = orders["category"].map(label_map)
+</code></pre></div>
+<p><em><code>.map(dict)</code> is the idiomatic way to recode a categorical column. For more complex multi-condition logic, reach for <code>np.select</code> or <code>pd.cut</code>.</em></p>
+</details>
+
+<p><strong>Q13.</strong> Create an <code>amount_bucket</code> column that groups <code>amount</code> into <code>"low"</code>, <code>"medium"</code>, and <code>"high"</code> using cut points 0, 50, and 90.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["amount_bucket"] = pd.cut(
+    orders["amount"],
+    bins=[0, 50, 90, float("inf")],
+    labels=["low", "medium", "high"]
+)</code></pre></div>
+<p><em><code>pd.cut</code> is useful when you want interview-friendly bucket logic without manually chaining conditions. Values outside the bins or missing values remain <code>NaN</code>.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="groupby" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Groupby<a href="python-r-analyses.html#groupby" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q14.</strong> Find total <code>amount</code> by <code>customer_id</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["amount"].sum()</code></pre></div>
+</details>
+
+<p><strong>Q15.</strong> Find average <code>amount</code> by <code>category</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("category")["amount"].mean()</code></pre></div>
+</details>
+
+<p><strong>Q16.</strong> Find both the count of orders and total amount by <code>customer_id</code> in one call.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id").agg(
+    order_count=("order_id", "count"),
+    total_amount=("amount", "sum")
+)</code></pre></div>
+<p><em>Named aggregation syntax <code>(col, func)</code> is the modern replacement for the older <code>{"col": func}</code> dict syntax. Prefer it — it avoids MultiIndex columns.</em></p>
+</details>
+
+<p><strong>Q17.</strong> Find the max order amount for each <code>category</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("category")["amount"].max()</code></pre></div>
+</details>
+
+<p><strong>Q18.</strong> Find which <code>customer_id</code> has spent the most in total.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["amount"].sum().idxmax()</code></pre></div>
+<p><em><code>idxmax()</code> returns the index label of the maximum value — here, the customer_id. <code>max()</code> would return the value itself.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="merge-and-join" class="section level3 hasAnchor" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Merge and Join<a href="python-r-analyses.html#merge-and-join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q19.</strong> Join <code>orders</code> with <code>customers</code> to bring in <code>name</code> and <code>city</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(
+    customers[["customer_id", "name", "city"]],
+    on="customer_id",
+    how="inner"
+)</code></pre></div>
+<p><em>Selecting only the needed columns from the right table before merging avoids ending up with unwanted columns.</em></p>
+</details>
+
+<p><strong>Q20.</strong> After joining orders to customers, find total sales by <code>city</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
+merged.groupby("city")["amount"].sum()</code></pre></div>
+</details>
+
+<p><strong>Q21.</strong> Join <code>customers</code> with <code>orders</code> and identify which customers have no orders.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">left = customers.merge(orders, on="customer_id", how="left")
+left[left["order_id"].isna()][["customer_id", "name"]]</code></pre></div>
+<p><em>After a left join, rows from the left table with no match will have NaN in all right-table columns. Checking <code>order_id.isna()</code> is the clean way to find them. If you only need an existence check, a hash/set-based alternative like <code>customers[~customers["customer_id"].isin(orders["customer_id"])]</code> is also a good choice and can be very efficient on large datasets.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="missing-data" class="section level3 hasAnchor" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> Missing Data<a href="python-r-analyses.html#missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q22.</strong> Count missing values in each column of <code>orders</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.isna().sum()</code></pre></div>
+</details>
+
+<p><strong>Q23.</strong> Fill missing <code>amount</code> values with the median amount.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["amount"] = orders["amount"].fillna(orders["amount"].median())</code></pre></div>
+</details>
+
+<p><strong>Q24.</strong> Drop rows where <code>amount</code> is missing.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders = orders.dropna(subset=["amount"])</code></pre></div>
+<p><em>Always prefer <code>subset=</code> over bare <code>dropna()</code> to avoid accidentally dropping rows just because an unrelated column is null.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="dates" class="section level3 hasAnchor" number="3.1.9">
+<h3><span class="header-section-number">3.1.9</span> Dates<a href="python-r-analyses.html#dates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q25.</strong> Extract the day-of-month from <code>order_date</code> into a new column <code>day</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["day"] = orders["order_date"].dt.day</code></pre></div>
+<p><em>The <code>.dt</code> accessor exposes all datetime components: <code>.dt.year</code>, <code>.dt.month</code>, <code>.dt.day</code>, <code>.dt.dayofweek</code>, <code>.dt.hour</code>, etc.</em></p>
+</details>
+
+<p><strong>Q26.</strong> Filter orders placed in January 2025.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders[
+    (orders["order_date"].dt.year == 2025) &
+    (orders["order_date"].dt.month == 1)
+]</code></pre></div>
+</details>
+
+<p><strong>Q27.</strong> After merging orders with customers, find the number of days between each customer's <code>signup_date</code> and their order date.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "signup_date"]], on="customer_id")
+merged["days_since_signup"] = (merged["order_date"] - merged["signup_date"]).dt.days</code></pre></div>
+<p><em>Subtracting two datetime columns yields a <code>Timedelta</code> Series. <code>.dt.days</code> extracts the integer number of days. Forgetting <code>.dt.days</code> is a common mistake.</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="reshaping" class="section level3 hasAnchor" number="3.1.10">
+<h3><span class="header-section-number">3.1.10</span> Reshaping<a href="python-r-analyses.html#reshaping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q28.</strong> Create a pivot table showing total <code>amount</code> by <code>customer_id</code> (rows) and <code>category</code> (columns).</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.pivot_table(
+    index="customer_id",
+    columns="category",
+    values="amount",
+    aggfunc="sum"
+)</code></pre></div>
+</details>
+
+<p><strong>Q29.</strong> Create a pivot table showing mean <code>amount</code> by <code>city</code> (rows) and <code>category</code> (columns).</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged = orders.merge(customers[["customer_id", "city"]], on="customer_id")
+merged.pivot_table(
+    index="city",
+    columns="category",
+    values="amount",
+    aggfunc="mean"
+)</code></pre></div>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="ranking-and-window-style" class="section level3 hasAnchor" number="3.1.11">
+<h3><span class="header-section-number">3.1.11</span> Ranking and Window-Style<a href="python-r-analyses.html#ranking-and-window-style" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<p><strong>Q30.</strong> Within each <code>customer_id</code>, rank orders by <code>amount</code> descending (rank 1 = largest).</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders["rank"] = orders.groupby("customer_id")["amount"].rank(
+    method="dense",
+    ascending=False
+)</code></pre></div>
+<p><em><code>method="dense"</code> gives tied values the same rank without gaps. <code>method="min"</code> skips ranks; <code>method="first"</code> assigns unique ranks in order of appearance.</em></p>
+</details>
+
+<p><strong>Q31.</strong> For each customer, compute a running total of <code>amount</code> ordered by <code>order_date</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders_sorted = orders.sort_values("order_date")
+orders_sorted["running_total"] = orders_sorted.groupby("customer_id")["amount"].cumsum()</code></pre></div>
+<p><em>Sort before <code>cumsum()</code> — groupby preserves existing row order within each group, so the sort must happen first.</em></p>
+</details>
+
+<p><strong>Q32.</strong> For each customer, get the previous order's amount using <code>shift</code>.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders_sorted = orders.sort_values(["customer_id", "order_date"])
+orders_sorted["prev_amount"] = orders_sorted.groupby("customer_id")["amount"].shift(1)</code></pre></div>
+<p><em><code>shift(1)</code> lags by one row within each group. The first row per customer gets <code>NaN</code>. <code>shift(-1)</code> gives the next value (lead).</em></p>
+</details>
+
+</div>
+
+<!-- ============================================================ -->
+<div id="interview-prompts" class="section level3 hasAnchor" number="3.1.12">
+<h3><span class="header-section-number">3.1.12</span> Interview Prompts<a href="python-r-analyses.html#interview-prompts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These questions are phrased the way an interviewer would ask them. They require you to chain multiple operations together.</p>
+
+<p><strong>Q33.</strong> Find each customer's first order date.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id")["order_date"].min()</code></pre></div>
+</details>
+
+<p><strong>Q34.</strong> Find customers who made more than one order.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">counts = orders.groupby("customer_id")["order_id"].count()
+counts[counts &gt; 1].index.tolist()</code></pre></div>
+</details>
+
+<p><strong>Q35.</strong> Find categories where the average order amount is greater than 50.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">avg = orders.groupby("category")["amount"].mean()
+avg[avg &gt; 50].index.tolist()</code></pre></div>
+</details>
+
+<p><strong>Q36.</strong> For each city, find the customer with the highest total spend.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">spend = (
+    orders.groupby("customer_id")["amount"]
+    .sum()
+    .reset_index(name="total_spend")
+    .merge(customers[["customer_id", "city"]], on="customer_id")
+)
+spend.loc[spend.groupby("city")["total_spend"].idxmax()]</code></pre></div>
+<p><em><code>idxmax()</code> returns the index labels of the per-group maxima. Passing those to <code>.loc[]</code> retrieves the full rows.</em></p>
+</details>
+
+<p><strong>Q37.</strong> Find the percentage of total sales contributed by each category.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cat_totals = orders.groupby("category")["amount"].sum()
+(cat_totals / cat_totals.sum() * 100).round(2)</code></pre></div>
+</details>
+
+<p><strong>Q38.</strong> Return the top 2 largest orders per customer.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.sort_values("amount", ascending=False).groupby("customer_id").head(2)</code></pre></div>
+<p><em>Sort globally first, then <code>groupby().head(n)</code> takes the first n rows per group — which are the largest after sorting descending.</em></p>
+</details>
+
+<p><strong>Q39.</strong> Find customers whose order amounts are strictly increasing over time.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">def is_strictly_increasing(s):
+    vals = s.dropna().tolist()
+    return all(vals[i] &lt; vals[i + 1] for i in range(len(vals) - 1))
+
+result = (
+    orders.sort_values("order_date")
+    .groupby("customer_id")["amount"]
+    .apply(is_strictly_increasing)
+)
+result[result].index.tolist()</code></pre></div>
+<p><em>Customers with only one order trivially satisfy this (the <code>all()</code> over an empty iterator returns <code>True</code>). Filter with <code>groupby().filter(lambda g: len(g) &gt; 1)</code> first if that matters.</em></p>
+</details>
+
+<p><strong>Q40.</strong> Find the gap in days between each order and the previous order for the same customer.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df = orders.sort_values(["customer_id", "order_date"]).copy()
+df["prev_date"] = df.groupby("customer_id")["order_date"].shift(1)
+df["days_gap"] = (df["order_date"] - df["prev_date"]).dt.days</code></pre></div>
+</details>
+
+<p><strong>Q41.</strong> Build a summary table with one row per customer: total orders, total spend, average order amount, and most recent order date.</p>
+<details class="solution"><summary>Solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">orders.groupby("customer_id").agg(
+    total_orders=("order_id", "count"),
+    total_spend=("amount", "sum"),
+    avg_order_amount=("amount", "mean"),
+    most_recent_order=("order_date", "max")
+).reset_index()</code></pre></div>
+<p><em>This is a common "profile table" pattern. Named aggregation keeps the output column names clean without a rename step.</em></p>
+</details>
+
+</div>
+
+<div id="additional-questions" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Additional Questions<a href="python-r-analyses.html#additional-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p class="interactive-practice-intro">These additional interview-style questions extend the pandas drill with longer analysis prompts.</p>
+<p class="interactive-practice-intro">The interactive editor for these questions runs Python only. When an R approach is available, it is included below as a collapsed reference solution alongside the Python answer.</p>
+<div id="active-users-on-a-messaging-application" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Active users on a messaging application<a href="python-r-analyses.html#active-users-on-a-messaging-application" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using message-level data for a P2P messaging application, calculate what fraction of senders sent messages to at least 9 unique people on March 1, 2018.</p>
+<div class="interactive-python-block legacy-analysis-block" data-question-id="legacy-q1" style="width: 84ch; max-width: 84ch; background: #f1f4f8; position: static; left: auto; margin-left: 0;">
+  <div class="interactive-python-toolbar">
+    <div class="interactive-python-actions">
+      <button type="button" class="interactive-python-button run-button">Run</button>
+      <button type="button" class="interactive-python-button reset-button">Reset</button>
+    </div>
+  </div>
+  <textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for active users on a messaging application" style="width: 100%; max-width: none; background: #f1f3f5;"></textarea>
+  <div class="interactive-python-status"></div>
+  <div class="interactive-python-output is-empty"></div>
+</div>
+<details class="solution"><summary>Python solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># You can also isolate the same rows with: daily = data[data["date"] == "2018-03-01"]
+daily = data.loc[data["date"].eq("2018-03-01")]
+unique_receivers = daily.groupby("sender_id")["receiver_id"].nunique()
+answer = (unique_receivers &gt;= 9).mean()
+answer</code></pre></div>
+</details>
+<details class="solution"><summary>R solution</summary>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">library(dplyr)
+
+df_raw &lt;- read.csv("https://raw.githubusercontent.com/erood/interviewqs.com_code_snippets/master/Datasets/ddi_message_app_data.csv")
+
+df_raw %&gt;%
+  filter(date == "2018-03-01") %&gt;%
+  group_by(sender_id) %&gt;%
+  summarise(unique_sends = n_distinct(receiver_id), .groups = "drop") %&gt;%
+  summarise(answer = mean(unique_sends &gt;= 9))</code></pre></div>
+</details>
+</div>
+
+<div id="time-for-a-response-on-a-messaging-application" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Time for a response on a messaging application<a href="python-r-analyses.html#time-for-a-response-on-a-messaging-application" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Write code to find the fraction of messages that receive a response from the other user within five minutes.</p>
+<div class="interactive-python-block legacy-analysis-block" data-question-id="legacy-q2" style="width: 84ch; max-width: 84ch; background: #f1f4f8; position: static; left: auto; margin-left: 0;">
+  <div class="interactive-python-toolbar">
+    <div class="interactive-python-actions">
+      <button type="button" class="interactive-python-button run-button">Run</button>
+      <button type="button" class="interactive-python-button reset-button">Reset</button>
+    </div>
+  </div>
+  <textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for time for a response on a messaging application" style="width: 100%; max-width: none; background: #f1f3f5;"></textarea>
+  <div class="interactive-python-status"></div>
+  <div class="interactive-python-output is-empty"></div>
+</div>
+<details class="solution"><summary>Python solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"># We just need a unique row id after sorting.
+# Using range(len(df)) is often clearer than creating it from the index.
+df = data.sort_values("timestamp").copy()
+df["message_id"] = range(len(df))
+
+candidate_replies = df.merge(
+    df,
+    left_on=["sender_id", "receiver_id"],
+    right_on=["receiver_id", "sender_id"],
+    suffixes=("_sent", "_reply")
+)
+
+responded = candidate_replies[
+    (candidate_replies["timestamp_reply"] &gt; candidate_replies["timestamp_sent"]) &
+    (candidate_replies["timestamp_reply"] - candidate_replies["timestamp_sent"] &lt;= 300)
+]
+
+answer = responded["message_id_sent"].nunique() / len(df)
+answer</code></pre></div>
+</details>
+<details class="solution"><summary>R solution</summary>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">library(dplyr)
+
+df &lt;- data %&gt;%
+  arrange(timestamp) %&gt;%
+  mutate(message_id = row_number())
+
+candidate_replies &lt;- df %&gt;%
+  inner_join(
+    df,
+    by = c("sender_id" = "receiver_id", "receiver_id" = "sender_id"),
+    suffix = c("_sent", "_reply")
+  )
+
+responded &lt;- candidate_replies %&gt;%
+  filter(
+    timestamp_reply &gt; timestamp_sent,
+    timestamp_reply - timestamp_sent &lt;= 300
+  )
+
+n_distinct(responded$message_id_sent) / nrow(df)</code></pre></div>
+</details>
+</div>
+
+<div id="cleaning-and-analyzing-employee-data" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Cleaning and analyzing employee data<a href="python-r-analyses.html#cleaning-and-analyzing-employee-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Some <code>date_joined</code> values are null and should be treated as December 1, 2009. Duplicate employee records also exist. Find the number of employees that joined each month.</p>
+<div class="interactive-python-block legacy-analysis-block" data-question-id="legacy-q3" style="width: 84ch; max-width: 84ch; background: #f1f4f8; position: static; left: auto; margin-left: 0;">
+  <div class="interactive-python-toolbar">
+    <div class="interactive-python-actions">
+      <button type="button" class="interactive-python-button run-button">Run</button>
+      <button type="button" class="interactive-python-button reset-button">Reset</button>
+    </div>
+  </div>
+  <textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for cleaning and analyzing employee data" style="width: 100%; max-width: none; background: #f1f3f5;"></textarea>
+  <div class="interactive-python-status"></div>
+  <div class="interactive-python-output is-empty"></div>
+</div>
+<details class="solution"><summary>Python solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">clean = employees.copy()
+clean["date_joined"] = pd.to_datetime(clean["date_joined"]).fillna(pd.Timestamp("2009-12-01"))
+clean = clean.drop_duplicates(subset=["employee_name", "age", "yrs_of_experience"])
+clean["yr_month"] = clean["date_joined"].dt.to_period("M").dt.to_timestamp()
+
+# Equivalent chained version:
+# clean = (
+#     employees.assign(
+#         date_joined=lambda df: pd.to_datetime(df["date_joined"]).fillna(pd.Timestamp("2009-12-01"))
+#     )
+#     .drop_duplicates(subset=["employee_name", "age", "yrs_of_experience"])
+#     .assign(yr_month=lambda df: df["date_joined"].dt.to_period("M").dt.to_timestamp())
+# )
+
+clean.groupby("yr_month").size().reset_index(name="n").sort_values("yr_month")</code></pre></div>
+</details>
+<details class="solution"><summary>R solution</summary>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">library(dplyr)
+library(tidyr)
+library(lubridate)
+
+employees %&gt;%
+  mutate(date_joined = as.Date(date_joined)) %&gt;%
+  replace_na(list(date_joined = as.Date("2009-12-01"))) %&gt;%
+  distinct(employee_name, age, yrs_of_experience, .keep_all = TRUE) %&gt;%
+  mutate(yr_month = floor_date(date_joined, "month")) %&gt;%
+  count(yr_month, name = "n") %&gt;%
+  arrange(yr_month)</code></pre></div>
+</details>
+</div>
+
+<div id="analyzing-employee-data" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Analyzing employee data<a href="python-r-analyses.html#analyzing-employee-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pull the average, median, minimum, maximum, and standard deviation for compensation across five-year experience buckets.</p>
+<div class="interactive-python-block legacy-analysis-block" data-question-id="legacy-q4" style="width: 84ch; max-width: 84ch; background: #f1f4f8; position: static; left: auto; margin-left: 0;">
+  <div class="interactive-python-toolbar">
+    <div class="interactive-python-actions">
+      <button type="button" class="interactive-python-button run-button">Run</button>
+      <button type="button" class="interactive-python-button reset-button">Reset</button>
+    </div>
+  </div>
+  <textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for analyzing employee data" style="width: 100%; max-width: none; background: #f1f3f5;"></textarea>
+  <div class="interactive-python-status"></div>
+  <div class="interactive-python-output is-empty"></div>
+</div>
+<details class="solution"><summary>Python solution</summary>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">bins = [0, 5, 10, 15, 20, float("inf")]
+labels = ["0-5", "5-10", "10-15", "15-20", "Over 20"]
+
+summary = (
+    employees_comp.assign(
+        exp_bucket=pd.cut(
+            employees_comp["yrs_of_experience"],
+            bins=bins,
+            labels=labels,
+            right=False
+        )
+    )
+    # observed=True keeps only buckets that actually appear in the data.
+    # Without it, pandas can include unused categorical buckets as empty groups.
+    .groupby("exp_bucket", observed=True)["compensation"]
+    .agg(average="mean", median="median", min="min", max="max", std="std")
+    .reset_index()
+)
+
+summary</code></pre></div>
+</details>
+<details class="solution"><summary>R solution</summary>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">library(dplyr)
+
+employees_comp %&gt;%
+  mutate(
+    exp_bucket = case_when(
+      yrs_of_experience &lt; 5 ~ "0-5",
+      yrs_of_experience &lt; 10 ~ "5-10",
+      yrs_of_experience &lt; 15 ~ "10-15",
+      yrs_of_experience &lt; 20 ~ "15-20",
+      TRUE ~ "Over 20"
+    )
+  ) %&gt;%
+  group_by(exp_bucket) %&gt;%
+  summarise(
+    average = mean(compensation),
+    median = median(compensation),
+    min = min(compensation),
+    max = max(compensation),
+    sd = sd(compensation),
+    .groups = "drop"
+  )</code></pre></div>
+</details>
 </div>
 </div>
+
 </div>
             </section>
 
@@ -582,6 +998,464 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+<script>
+(function() {
+  var setupCode = [
+    "import pandas as pd",
+    "import numpy as np",
+    "",
+    "orders = pd.DataFrame({",
+    "    'order_id': [1, 2, 3, 4, 5, 6, 7, 8],",
+    "    'customer_id': [101, 102, 101, 103, 104, 102, 101, 105],",
+    "    'category': ['A', 'B', 'A', 'C', 'B', 'A', 'C', 'B'],",
+    "    'amount': [50, 20, 80, 40, 35, 60, 100, np.nan],",
+    "    'order_date': pd.to_datetime([",
+    "        '2025-01-01', '2025-01-02', '2025-01-05', '2025-01-07',",
+    "        '2025-01-08', '2025-01-10', '2025-01-12', '2025-01-15'",
+    "    ])",
+    "})",
+    "",
+    "customers = pd.DataFrame({",
+    "    'customer_id': [101, 102, 103, 104, 105, 106],",
+    "    'name': ['Ana', 'Ben', 'Cara', 'Dan', 'Eva', 'Finn'],",
+    "    'city': ['SF', 'NY', 'SF', 'LA', 'NY', 'LA'],",
+    "    'signup_date': pd.to_datetime([",
+    "        '2024-12-01', '2024-12-05', '2024-12-08',",
+    "        '2024-12-10', '2024-12-12', '2024-12-15'",
+    "    ])",
+    "})"
+  ].join("\n");
+
+  var defaultCellCode = [
+    "# orders and customers are loaded",
+    "orders.head()"
+  ].join("\n");
+
+  var pyodideReady = null;
+
+  function resizeEditor(editor) {
+    editor.style.height = "auto";
+    editor.style.height = editor.scrollHeight + "px";
+  }
+
+  function createCell(index) {
+    var wrapper = document.createElement("div");
+    wrapper.className = "interactive-python-block";
+    wrapper.style.width = "84ch";
+    wrapper.style.maxWidth = "84ch";
+    wrapper.innerHTML = [
+      '<div class="interactive-python-toolbar">',
+      '  <div class="interactive-python-actions">',
+      '    <button type="button" class="interactive-python-button run-button">Run</button>',
+      '    <button type="button" class="interactive-python-button reset-button">Reset</button>',
+      '  </div>',
+      "</div>",
+      '<textarea class="interactive-python-editor" spellcheck="false" aria-label="Interactive Python editor for question ' + index + '"></textarea>',
+      '<div class="interactive-python-status"></div>',
+      '<div class="interactive-python-output is-empty"></div>'
+    ].join("");
+    var editor = wrapper.querySelector(".interactive-python-editor");
+    editor.style.width = "80ch";
+    editor.style.maxWidth = "80ch";
+    editor.style.background = "#f1f3f5";
+    return wrapper;
+  }
+
+  async function getPyodideRuntime() {
+    if (!pyodideReady) {
+      pyodideReady = (async function() {
+        var pyodide = await loadPyodide();
+        await pyodide.loadPackage(["numpy", "pandas"]);
+        var bootstrap = [
+          "import io",
+          "import contextlib",
+          "import traceback",
+          "",
+          "SETUP_CODE = " + JSON.stringify(setupCode),
+          "",
+          "def __pandas_practice_run(user_code):",
+          "    namespace = {}",
+          "    exec(SETUP_CODE, namespace)",
+          "    output = io.StringIO()",
+          "    html_output = None",
+          "    text_output = ''",
+          "    error_output = None",
+          "    try:",
+          "        stripped = user_code.rstrip()",
+          "        lines = stripped.splitlines() if stripped else []",
+          "        with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):",
+          "            if lines:",
+          "                try:",
+          "                    compiled_last = compile(lines[-1], '<cell>', 'eval')",
+          "                except SyntaxError:",
+          "                    exec(user_code, namespace)",
+          "                else:",
+          "                    if len(lines) > 1:",
+          "                        exec('\\n'.join(lines[:-1]), namespace)",
+          "                    result = eval(compiled_last, namespace)",
+          "                    if hasattr(result, 'to_html'):",
+          "                        html_output = result.to_html(border=0)",
+          "                    elif result is not None:",
+          "                        print(repr(result))",
+          "    except Exception:",
+          "        error_output = traceback.format_exc()",
+          "    text_output = output.getvalue()",
+          "    return {'stdout': text_output, 'html': html_output, 'error': error_output}",
+          ""
+        ].join("\n");
+        await pyodide.runPythonAsync(bootstrap);
+        return pyodide;
+      })();
+    }
+    return pyodideReady;
+  }
+
+  async function runCell(cell) {
+    var status = cell.querySelector(".interactive-python-status");
+    var output = cell.querySelector(".interactive-python-output");
+    var editor = cell.querySelector(".interactive-python-editor");
+    var runButton = cell.querySelector(".run-button");
+    var resetButton = cell.querySelector(".reset-button");
+
+    runButton.disabled = true;
+    resetButton.disabled = true;
+    status.textContent = "Running…";
+
+    try {
+      var pyodide = await getPyodideRuntime();
+      var result = await pyodide.globals.get("__pandas_practice_run")(editor.value).toJs({
+        dict_converter: Object.fromEntries
+      });
+
+      if (result.error) {
+        output.innerHTML = "<pre></pre>";
+        output.querySelector("pre").textContent = result.error;
+        output.classList.remove("is-empty");
+        status.textContent = "Execution failed.";
+      } else if (result.html) {
+        output.innerHTML = result.stdout ? "<pre></pre>" + result.html : result.html;
+        if (result.stdout) {
+          output.querySelector("pre").textContent = result.stdout;
+        }
+        output.classList.remove("is-empty");
+        status.textContent = "Execution complete.";
+      } else if (result.stdout) {
+        output.innerHTML = "<pre></pre>";
+        output.querySelector("pre").textContent = result.stdout;
+        output.classList.remove("is-empty");
+        status.textContent = "Execution complete.";
+      } else {
+        output.innerHTML = "";
+        output.classList.add("is-empty");
+        status.textContent = "Execution complete. No output.";
+      }
+    } catch (error) {
+      output.innerHTML = "<pre></pre>";
+      output.querySelector("pre").textContent = String(error);
+      output.classList.remove("is-empty");
+      status.textContent = "Runtime failed to load.";
+    } finally {
+      runButton.disabled = false;
+      resetButton.disabled = false;
+    }
+  }
+
+  function resetCell(cell) {
+    var editor = cell.querySelector(".interactive-python-editor");
+    editor.value = defaultCellCode;
+    resizeEditor(editor);
+    cell.querySelector(".interactive-python-output").innerHTML = "";
+    cell.querySelector(".interactive-python-output").classList.add("is-empty");
+    cell.querySelector(".interactive-python-status").textContent = "";
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var solutions = document.querySelectorAll("#python-r-analyses details.solution");
+    var pandasSolutions = document.querySelectorAll("#pandas-practice details.solution");
+    var toggleButton = document.getElementById("toggle-all-solutions");
+    if (!solutions.length) {
+      if (toggleButton) {
+        toggleButton.style.display = "none";
+      }
+      return;
+    }
+
+    function updateToggleButton() {
+      if (!toggleButton) {
+        return;
+      }
+
+      var allOpen = Array.from(solutions).every(function(solution) {
+        return solution.open;
+      });
+
+      toggleButton.textContent = allOpen ? "Hide all solutions" : "Show all solutions";
+      toggleButton.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    if (toggleButton) {
+      toggleButton.addEventListener("click", function() {
+        var shouldOpen = !Array.from(solutions).every(function(solution) {
+          return solution.open;
+        });
+
+        solutions.forEach(function(solution) {
+          solution.open = shouldOpen;
+        });
+
+        updateToggleButton();
+      });
+    }
+
+    pandasSolutions.forEach(function(solution, index) {
+      var cell = createCell(index + 1);
+      solution.parentNode.insertBefore(cell, solution);
+      resetCell(cell);
+
+      cell.querySelector(".interactive-python-editor").addEventListener("input", function(event) {
+        resizeEditor(event.target);
+      });
+
+      cell.querySelector(".run-button").addEventListener("click", function() {
+        runCell(cell);
+      });
+
+      cell.querySelector(".reset-button").addEventListener("click", function() {
+        resetCell(cell);
+      });
+    });
+
+    solutions.forEach(function(solution) {
+      solution.addEventListener("toggle", updateToggleButton);
+    });
+
+    getPyodideRuntime()
+      .then(function() {
+        document.querySelectorAll(".interactive-python-status").forEach(function(node) {
+          node.textContent = "";
+        });
+      })
+      .catch(function() {
+        document.querySelectorAll(".interactive-python-status").forEach(function(node) {
+          node.textContent = "Unable to load the in-browser runtime. Check network access and reload.";
+        });
+      });
+
+    updateToggleButton();
+  });
+})();
+</script>
+
+<script>
+(function() {
+  var legacyQuestionConfigs = {
+    "legacy-q1": {
+      setup: [
+        "import pandas as pd",
+        "data = pd.DataFrame({",
+        "    'date': ['2018-03-01'] * 15 + ['2018-03-02'],",
+        "    'sender_id': [1,1,1,1,1,1,1,1,1,2,2,2,3,3,4,1],",
+        "    'receiver_id': [10,11,12,13,14,15,16,17,18,20,21,22,30,31,40,99]",
+        "})"
+      ].join("\n"),
+      starter: "data.head()"
+    },
+    "legacy-q2": {
+      setup: [
+        "import pandas as pd",
+        "data = pd.DataFrame({",
+        "    'date': ['2018-03-01'] * 8,",
+        "    'timestamp': [100, 220, 260, 500, 760, 920, 1000, 1400],",
+        "    'sender_id': [1, 2, 1, 3, 4, 3, 2, 5],",
+        "    'receiver_id': [2, 1, 3, 1, 5, 4, 1, 4]",
+        "})"
+      ].join("\n"),
+      starter: [
+        "df = data.sort_values('timestamp')",
+        "df"
+      ].join("\n")
+    },
+    "legacy-q3": {
+      setup: [
+        "import pandas as pd",
+        "employees = pd.DataFrame({",
+        "    'employee_name': ['Andy', 'Beth', 'Cindy', 'Dale', 'Andy'],",
+        "    'employee_id': [123456, 789456, 654123, 963852, 123222],",
+        "    'date_joined': ['2015-02-15', None, '2017-05-16', '2018-01-15', '2018-01-15'],",
+        "    'age': [45, 36, 34, 25, 45],",
+        "    'yrs_of_experience': [24, 15, 14, 4, 24]",
+        "})"
+      ].join("\n"),
+      starter: [
+        "employees",
+      ].join("\n")
+    },
+    "legacy-q4": {
+      setup: [
+        "import pandas as pd",
+        "employees_comp = pd.DataFrame({",
+        "    'employee_name': ['Ann', 'Ben', 'Cara', 'Drew', 'Eli', 'Faye', 'Gus', 'Hope'],",
+        "    'yrs_of_experience': [2, 4, 7, 11, 13, 17, 21, 24],",
+        "    'compensation': [70000, 76000, 92000, 115000, 123000, 141000, 165000, 182000]",
+        "})"
+      ].join("\n"),
+      starter: [
+        "employees_comp",
+      ].join("\n")
+    }
+  };
+
+  var pyodideReady = null;
+
+  function resizeEditor(editor) {
+    editor.style.height = "auto";
+    editor.style.height = editor.scrollHeight + "px";
+  }
+
+  async function getPyodideRuntime() {
+    if (!pyodideReady) {
+      pyodideReady = (async function() {
+        var pyodide = await loadPyodide();
+        await pyodide.loadPackage(["numpy", "pandas"]);
+        var bootstrap = [
+          "import io",
+          "import contextlib",
+          "import traceback",
+          "",
+          "def __legacy_analysis_run(setup_code, user_code):",
+          "    namespace = {}",
+          "    exec(setup_code, namespace)",
+          "    output = io.StringIO()",
+          "    html_output = None",
+          "    error_output = None",
+          "    try:",
+          "        stripped = user_code.rstrip()",
+          "        lines = stripped.splitlines() if stripped else []",
+          "        with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):",
+          "            if lines:",
+          "                try:",
+          "                    compiled_last = compile(lines[-1], '<cell>', 'eval')",
+          "                except SyntaxError:",
+          "                    exec(user_code, namespace)",
+          "                else:",
+          "                    if len(lines) > 1:",
+          "                        exec('\\n'.join(lines[:-1]), namespace)",
+          "                    result = eval(compiled_last, namespace)",
+          "                    if hasattr(result, 'to_html'):",
+          "                        html_output = result.to_html(border=0)",
+          "                    elif result is not None:",
+          "                        print(repr(result))",
+          "    except Exception:",
+          "        error_output = traceback.format_exc()",
+          "    return {'stdout': output.getvalue(), 'html': html_output, 'error': error_output}",
+          ""
+        ].join("\n");
+        await pyodide.runPythonAsync(bootstrap);
+        return pyodide;
+      })();
+    }
+    return pyodideReady;
+  }
+
+  async function runCell(cell) {
+    var questionId = cell.getAttribute("data-question-id");
+    var config = legacyQuestionConfigs[questionId];
+    var status = cell.querySelector(".interactive-python-status");
+    var output = cell.querySelector(".interactive-python-output");
+    var editor = cell.querySelector(".interactive-python-editor");
+    var runButton = cell.querySelector(".run-button");
+    var resetButton = cell.querySelector(".reset-button");
+
+    runButton.disabled = true;
+    resetButton.disabled = true;
+    status.textContent = "Running…";
+
+    try {
+      var pyodide = await getPyodideRuntime();
+      var runner = pyodide.globals.get("__legacy_analysis_run");
+      var result = await runner(config.setup, editor.value).toJs({ dict_converter: Object.fromEntries });
+
+      if (result.error) {
+        output.innerHTML = "<pre></pre>";
+        output.querySelector("pre").textContent = result.error;
+        output.classList.remove("is-empty");
+        status.textContent = "Execution failed.";
+      } else if (result.html) {
+        output.innerHTML = result.stdout ? "<pre></pre>" + result.html : result.html;
+        if (result.stdout) {
+          output.querySelector("pre").textContent = result.stdout;
+        }
+        output.classList.remove("is-empty");
+        status.textContent = "Execution complete.";
+      } else if (result.stdout) {
+        output.innerHTML = "<pre></pre>";
+        output.querySelector("pre").textContent = result.stdout;
+        output.classList.remove("is-empty");
+        status.textContent = "Execution complete.";
+      } else {
+        output.innerHTML = "";
+        output.classList.add("is-empty");
+        status.textContent = "Execution complete. No output.";
+      }
+    } catch (error) {
+      output.innerHTML = "<pre></pre>";
+      output.querySelector("pre").textContent = String(error);
+      output.classList.remove("is-empty");
+      status.textContent = "Runtime failed to load.";
+    } finally {
+      runButton.disabled = false;
+      resetButton.disabled = false;
+    }
+  }
+
+  function resetCell(cell) {
+    var questionId = cell.getAttribute("data-question-id");
+    var config = legacyQuestionConfigs[questionId];
+    var editor = cell.querySelector(".interactive-python-editor");
+    editor.value = config.starter;
+    resizeEditor(editor);
+    cell.querySelector(".interactive-python-output").innerHTML = "";
+    cell.querySelector(".interactive-python-output").classList.add("is-empty");
+    cell.querySelector(".interactive-python-status").textContent = "";
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("#additional-questions .interactive-python-block:not(.legacy-analysis-block)").forEach(function(node) {
+      node.remove();
+    });
+
+    var blocks = document.querySelectorAll("#additional-questions .legacy-analysis-block");
+
+    blocks.forEach(function(cell) {
+      resetCell(cell);
+      cell.querySelector(".interactive-python-editor").addEventListener("input", function(event) {
+        resizeEditor(event.target);
+      });
+      cell.querySelector(".run-button").addEventListener("click", function() {
+        runCell(cell);
+      });
+      cell.querySelector(".reset-button").addEventListener("click", function() {
+        resetCell(cell);
+      });
+    });
+
+    getPyodideRuntime()
+      .then(function() {
+        document.querySelectorAll("#additional-questions .interactive-python-status").forEach(function(node) {
+          node.textContent = "";
+        });
+      })
+      .catch(function() {
+        document.querySelectorAll("#additional-questions .interactive-python-status").forEach(function(node) {
+          node.textContent = "Unable to load the in-browser runtime. Check network access and reload.";
+        });
+      });
+
+  });
+})();
+</script>
+
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

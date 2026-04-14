@@ -13,6 +13,75 @@ pre code {
   white-space: inherit;
 }
 
+details.solution {
+  border-left: 3px solid #c8c8c8;
+  padding: 0.4em 1em;
+  margin: 0.6em 0 1.2em;
+  background-color: #f8f8f8;
+  border-radius: 0 3px 3px 0;
+}
+
+details.solution summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  padding: 2px 0;
+  user-select: none;
+}
+
+details.solution summary:hover {
+  color: #222;
+}
+
+details.solution[open] summary {
+  margin-bottom: 0.6em;
+}
+
+details.solution pre.sourceCode {
+  margin-top: 0;
+}
+
+details.sql-fallback-toggle {
+  margin: 0.8em 0 1.2em;
+}
+
+details.sql-fallback-toggle summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #233044;
+  user-select: none;
+}
+
+details.sql-fallback-toggle summary:hover {
+  color: #16202f;
+}
+
+details.sql-fallback-toggle[open] summary {
+  margin-bottom: 0.6em;
+}
+
+details.sql-fallback-toggle > :not(summary) {
+  margin-left: 0;
+}
+
+.solution-toggle-button {
+  float: none;
+  display: inline-block;
+  margin: 0.75em 0 1em;
+  border: 1px solid #b8b8b8;
+  background: #f5f5f5;
+  color: #333;
+  border-radius: 4px;
+  padding: 0.45em 0.9em;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.solution-toggle-button:hover {
+  background: #ebebeb;
+}
+
 
 /* Whole document: */
 body{
@@ -145,6 +214,21 @@ h4,h5,h6{
 
 .interactive-python-output tr:nth-child(even) {
   background: #f8fbff;
+}
+
+.legacy-analysis-block {
+  position: static;
+  left: auto;
+  width: 84ch;
+  max-width: 84ch;
+  margin-left: 0;
+  background: #f1f4f8;
+}
+
+.legacy-analysis-block .interactive-python-editor {
+  width: 80ch;
+  max-width: 80ch;
+  background: #f1f3f5;
 }
 
 .interactive-practice-intro {
