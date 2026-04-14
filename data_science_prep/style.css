@@ -112,11 +112,8 @@ h4,h5,h6{
   border: 1px solid #d8dee9;
   border-radius: 8px;
   background: #f1f4f8;
-  position: relative;
-  left: 50%;
-  width: min(1500px, calc(100vw - 120px));
-  margin-left: calc(-1 * min(750px, calc((100vw - 120px) / 2)));
-  max-width: none;
+  width: 84ch;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -226,8 +223,8 @@ h4,h5,h6{
 }
 
 .legacy-analysis-block .interactive-python-editor {
-  width: 80ch;
-  max-width: 80ch;
+  width: 100%;
+  max-width: 100%;
   background: #f1f3f5;
 }
 
@@ -361,12 +358,6 @@ h4,h5,h6{
 }
 
 @media (max-width: 900px) {
-  .interactive-python-block {
-    left: auto !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
   .interactive-python-editor {
     width: 100% !important;
     max-width: 100% !important;
